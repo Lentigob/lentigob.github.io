@@ -1,0 +1,83 @@
+/* Remove left sided icon */
+:root {
+    /* --sidebar-nav-pagelink-background: none;
+    --sidebar-nav-pagelink-background--loaded: none;
+    --sidebar-nav-pagelink-background--active: none; */
+
+
+    /* --sidebar-background: var(--mono-tint3);
+    --sidebar-border-color: var(--mono-tint2);
+    --sidebar-border-width: 0 1px 0 0;
+    --sidebar-name-color: var(--theme-color);
+    --sidebar-name-font-weight: 300;
+    --sidebar-nav-strong-border-width: 0 0 1px 0;
+    --sidebar-nav-strong-font-size: smaller;
+    --sidebar-nav-strong-margin: 2em -25px 0.75em 0;
+    --sidebar-nav-strong-padding: 0.25em 0 0.75em 0;
+    --sidebar-nav-strong-text-transform: uppercase;
+    --sidebar-nav-link-border-color: transparent;
+    --sidebar-nav-link-border-color--active: var(--theme-color);
+    --sidebar-nav-link-border-width: 0 4px 0 0;
+    --sidebar-nav-link-color--active: var(--theme-color);
+    --sidebar-nav-link-margin: 0 -25px 0 0;
+    --sidebar-nav-link-text-decoration: none;
+    --sidebar-nav-link-text-decoration--active: none;
+    --sidebar-nav-link-text-decoration--hover: underline;
+    --sidebar-nav-pagelink-background: no-repeat 2px calc(50% - 2.5px) / 6px 5px linear-gradient(45deg, transparent 2.75px, var(--mono-tint1) 2.75px 4.25px, transparent 4px), no-repeat 2px calc(50% + 2.5px) / 6px 5px linear-gradient(135deg, transparent 2.75px, var(--mono-tint1) 2.75px 4.25px, transparent 4px);
+    --sidebar-nav-pagelink-background--active: no-repeat 0px center / 5px 6px linear-gradient(225deg, transparent 2.75px, var(--theme-color) 2.75px 4.25px, transparent 4.25px), no-repeat 5px center / 5px 6px linear-gradient(135deg, transparent 2.75px, var(--theme-color) 2.75px 4.25px, transparent 4.25px);
+    --sidebar-nav-pagelink-background--collapse: no-repeat 2px calc(50% - 2.5px) / 6px 5px linear-gradient(45deg, transparent 2.75px, var(--theme-color) 2.75px 4.25px, transparent 4px), no-repeat 2px calc(50% + 2.5px) / 6px 5px linear-gradient(135deg, transparent 2.75px, var(--theme-color) 2.75px 4.25px, transparent 4px);
+    --sidebar-nav-pagelink-background--loaded: no-repeat 0px center / 5px 6px linear-gradient(225deg, transparent 2.75px, var(--mono-tint1) 2.75px 4.25px, transparent 4.25px), no-repeat 5px center / 5px 6px linear-gradient(135deg, transparent 2.75px, var(--mono-tint1) 2.75px 4.25px, transparent 4.25px);
+    --sidebar-nav-pagelink-padding: 0.25em 0 0.25em 20px;
+    --sidebar-nav-pagelink-transition: none;
+    --sidebar-toggle-background: var(--sidebar-border-color);
+    --sidebar-toggle-border-radius: 0 var(--border-radius-s) var(--border-radius-s) 0;
+    --sidebar-toggle-width: 32px; */
+
+
+    /* --sidebar-background: var(--base-background-color);
+    --sidebar-border-width: 0;
+    --sidebar-padding: 0 25px;
+    --sidebar-transition-duration: var(--duration-fast);
+    --sidebar-width: 17rem;
+    --sidebar-name-font-size: var(--font-size-l);
+    --sidebar-name-font-weight: normal;
+    --sidebar-name-margin: 1.5rem 0 0;
+    --sidebar-name-text-align: center;
+    --sidebar-nav-strong-border-color: var(--sidebar-border-color);
+    --sidebar-nav-strong-color: var(--heading-color);
+    --sidebar-nav-strong-font-weight: var(--strong-font-weight);
+    --sidebar-nav-strong-margin: 1.5em 0 0.5em;
+    --sidebar-nav-strong-padding: 0.25em 0;
+    --sidebar-nav-indent: 1em;
+    --sidebar-nav-margin: 1.5rem 0 0;
+    --sidebar-nav-link-border-style: solid;
+    --sidebar-nav-link-border-width: 0;
+    --sidebar-nav-link-color: var(--base-color);
+    --sidebar-nav-link-font-weight: normal;
+    --sidebar-nav-link-padding: 0.25em 0;
+    --sidebar-nav-link-text-decoration--active: underline;
+    --sidebar-nav-link-text-decoration--hover: underline;
+    --sidebar-nav-link-before-margin: 0 0.35em 0 0;
+    --sidebar-nav-pagelink-transition: var(--sidebar-nav-link-transition);
+    --sidebar-toggle-border-radius: var(--border-radius-s);
+    --sidebar-toggle-border-style: solid;
+    --sidebar-toggle-border-width: 0;
+    --sidebar-toggle-height: 36px;
+    --sidebar-toggle-icon-color: var(--base-color);
+    --sidebar-toggle-icon-height: 10px;
+    --sidebar-toggle-icon-stroke-width: 1px;
+    --sidebar-toggle-icon-width: 16px;
+    --sidebar-toggle-offset-left: 0;
+    --sidebar-toggle-offset-top: calc(35px - (var(--sidebar-toggle-height) / 2));
+    --sidebar-toggle-width: 44px; */
+}
+
+/* .sidebar-nav li>a[href^="/"]:not([href*="?id="]):not(:only-child), .sidebar-nav li>a[href^="#/"]:not([href*="?id="]):not(:only-child) {
+    background: var(--sidebar-nav-pagelink-background--loaded, var(--sidebar-nav-pagelink-background));
+} */
+/* .sidebar-nav ul li {
+    &.active > a,
+    & > a {
+
+    }
+} */

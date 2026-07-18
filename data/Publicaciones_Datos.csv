@@ -1,0 +1,6 @@
+Tipo,Autores,Título,RevistaEditorial,Fecha,VolumenNumPag,ISSN,DOI,FactorImpacto,Proyecto,Etapa,Financiamiento,Colaboraciones,Prioridad,URL
+Artículo,Perez J.,Avances en Lenti,Journal of Science,2023,Vol 10,1234-5678,10.123/j.sci,5.2,Lenti,Final,Si,Internacional,Alta,#/docs/publicaciones
+Reporte,Garcia A.,Análisis de Datos v1,Interno,2024,N/A,,,N/A,Lenti,Intermedia,Si,Local,Media,#/docs/reportes
+Dataset,Lenti Team,Base de Datos Observacional,Mendeley Data,2024,N/A,,,N/A,Lenti,Recolección,Si,N/A,Alta,#/docs/datos
+Libro,Ruiz C.,IA Fundamentals,Springer,2023,1-300,978-3-16,10.1007/978,N/A,IA,Completo,Si,Regional,Alta,
+Ponencia,Garcia A.,Data Ethics in Lenti,Ethics Conf,2024,pp. 45-50,,,N/A,Lenti,Presentado,No,N/A,Media,

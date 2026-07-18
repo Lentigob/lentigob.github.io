@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lentigob</title>
+  <meta name="description" content="Sitio web de Lentigob en GitHub Pages" />
+
+  <style>
+    /* Variables críticas en primer paint (antes de cargar variables.css) */
+    /* Nota: variables.css hereda estas claves para mantener una sola fuente de verdad. */
+    :root {
+      /* Tipografía base compartida por loader y estilos globales */
+      --app-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+
+      /* Colores de tema base (azules) usados por el loader y por variables.css */
+      --app-theme-color: #4f7cff;
+      --app-theme-color-dark: #2d55d6;
+      --app-theme-color-rgb: 79, 124, 255;
+      --app-theme-color-dark-rgb: 45, 85, 214;
+    }
+  </style>
+
+  <!-- Tema de Docsify -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css" />
+  <!-- Estilos personalizados (Cache Busting) -->
+  <link rel="stylesheet" href="css/variables.css?v=1.0.1" />
+  <link rel="stylesheet" href="css/custom.css?v=1.0.1" />
+  <link rel="stylesheet" href="css/sidebar.css?v=1.0.1" />
+  <link rel="stylesheet" href="css/input-controls.css?v=1.0.1" />
+  <link rel="stylesheet" href="css/components.css?v=1.0.1" />
+
+  <style>
+    body.is-booting {
+      margin: 0;
+      overflow: hidden;
+      font-family: var(--app-font-family);
+    }
+
+    .boot-splash {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.85rem;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(var(--app-theme-color-rgb), 0.16), transparent 38%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.06), transparent 35%),
+        linear-gradient(140deg, #141829 0%, var(--app-theme-color-dark) 58%, var(--app-theme-color) 100%);
+      color: #ffffff;
+      font-family: var(--app-font-family);
+      transition: opacity 0.28s ease, visibility 0.28s ease;
+    }
+
+    .boot-splash.is-hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .boot-splash__title {
+      margin: 0;
+      font-size: clamp(1.35rem, 1.4vw + 0.95rem, 2rem);
+      letter-spacing: 0.04em;
+      font-weight: 700;
+      font-family: inherit;
+    }
+
+    .boot-splash__spinner {
+      width: 28px;
+      height: 28px;
+      margin: 0 auto;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      border-top-color: #ffffff;
+      animation: boot-spin 0.9s linear infinite;
+    }
+
+    @keyframes boot-spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body class="is-booting">
+
+  <div id="boot-splash" class="boot-splash" aria-hidden="true">
+    <div class="boot-splash__spinner"></div>
+    <h1 class="boot-splash__title">LENTI</h1>
+  </div>
+
+  <div id="app"></div>
+
+  <!-- Alpine.js (Lightweight Interactivity) -->
+  <script src="https://unpkg.com/alpinejs" defer></script>
+
+  <!-- Markdown Parser (Marked) -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <!-- Núcleo de Docsify -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+
+  <!-- Plugins de Docsify -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script>
+
+  <!-- PapaParse para lectura de archivos CSV -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5/papaparse.min.js"></script>
+
+  <!-- Lógica de componentes Alpine (Cache Busting) -->
+  <script src="js/data-loader.js?v=1.0.1"></script>
+
+  <script>
+    // Simple Cache Buster for Docsify AJAX requests
+    function cacheBuster(url) {
+      if (url.indexOf('https://') === 0 || url.indexOf('http://') === 0) return url;
+      const separator = url.indexOf('?') !== -1 ? '&' : '?';
+      return url + separator + 'v=' + new Date().getTime();
+    }
+
+    window.$docsify = {
+      name: 'Lentigob',
+      executeScript: true,
+      loadSidebar: true,
+      loadNavbar: true,
+      mergeNavbar: true,
+      subMaxLevel: 0,
+      auto2top: true,
+      notFoundPage: '/docs/404.md',
+      
+      // Request interceptor to bypass cache for local project files
+      requestHeaders: {
+        'Cache-Control': 'no-cache',
+        'Pragma': 'no-cache'
+      },
+
+      // Docsify hook to add versioning to internal links/requests
+      plugins: [
+        function (hook, vm) {
+          hook.mounted(function () {
+            if (window.innerWidth < 820) {
+              document.body.classList.add('close');
+            }
+
+            const splash = document.getElementById('boot-splash');
+            document.body.classList.remove('is-booting');
+
+            if (splash) {
+              splash.classList.add('is-hidden');
+              setTimeout(() => splash.remove(), 320);
+            }
+          });
+          
+          // Add cache busting to Docsify's internal file fetching
+          hook.beforeEach(function(content) {
+            // This hook runs after fetching, so it's tricky to bust the fetch here.
+            // Docsify doesn't have a direct "middleware" for fetch URLs, 
+            // but we can influence the alias or the way it resolves routes.
+            return content;
+          });
+        }
+      ],
+
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md',
+        '/.*/_navbar.md': '/_navbar.md'
+      }
+    };
+  </script>
+
+</body>
+</html>
