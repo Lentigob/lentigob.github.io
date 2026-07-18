@@ -139,8 +139,10 @@
       plugins: [
         function (hook, vm) {
           hook.mounted(function () {
-            if (window.innerWidth < 820) {
-              document.body.classList.add('close');
+
+            // Cerrando la sidebar automáticamente en pantallas pequeñas al cargar la página
+            if (window.innerWidth < 820 && document.body.classList.contains('close')) {
+              document.body.classList.remove('close');
             }
 
             const splash = document.getElementById('boot-splash');
@@ -150,14 +152,6 @@
               splash.classList.add('is-hidden');
               setTimeout(() => splash.remove(), 320);
             }
-          });
-          
-          // Add cache busting to Docsify's internal file fetching
-          hook.beforeEach(function(content) {
-            // This hook runs after fetching, so it's tricky to bust the fetch here.
-            // Docsify doesn't have a direct "middleware" for fetch URLs, 
-            // but we can influence the alias or the way it resolves routes.
-            return content;
           });
         }
       ],
