@@ -18,8 +18,9 @@
             .trim();
         
         if (!rawMd) return;
+
+        let html = marked.parse(rawMd, { breaks: container.classList.contains('no-breaks') });
         
-        let html = marked.parse(rawMd);
         // Unwrap SVGs from accidental <p> tags created by the parser
         container.innerHTML = html.replace(/<p>\s*(<svg[\s\S]*?<\/svg>)\s*<\/p>/g, '$1');
     };
@@ -172,6 +173,9 @@
             // We do this on the raw string first so attributes (src, href) are filled 
             // before the browser tries to parse the HTML.
             let html = this.replaceVars(this.contentBlueprint, item);
+
+            // Remover enlaces vacíos de Markdown (por ejemplo, [texto]())
+            html = html.replace(/\[([^\]]*)\]\(\s*\)/g, '');
 
             // 2. Create temporary DOM to process Markdown blocks
             const temp = document.createElement('div');

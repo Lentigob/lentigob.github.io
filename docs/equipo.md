@@ -12,8 +12,10 @@ A continuación presentamos al equipo de investigadores y colaboradores de nuest
                 <img src="assets/img/equipo/{{ foto_auto }}.png" alt="{{ nombre }}" class="image-photo" onerror="this.style.display='none'">
             </div>
             <div class="card__body">
-                <div class="blueprint-markdown align-right">
-                    [<svg class="icon-svg small gray" title="LinkedIn"><use xlink:href="assets/icons/sprite.svg#bxl-linkedin"></use></svg>]({{ linkedin }})
+                <div class="blueprint-markdown align-right no-break">
+                    <span x-if="{{linkedin}}">[<svg class="icon-svg small gray" title="LinkedIn"><use xlink:href="assets/icons/sprite.svg#bx-linkedin"></use></svg>]({{ linkedin }})</span>
+                    <span x-if="{{contacto}}">[<svg class="icon-svg small gray" title="Contacto"><use xlink:href="assets/icons/sprite.svg#bx-envelope"></use></svg>]({{ contacto }})</span>
+                    <span x-if="{{pagina}}">[<svg class="icon-svg small gray" title="Pagina"><use xlink:href="assets/icons/sprite.svg#bx-link-alt"></use></svg>]({{ pagina }})</span>
                 </div>
                 <div class="blueprint-markdown">
                     ### {{ nombre }}
@@ -43,8 +45,10 @@ A continuación presentamos al equipo de investigadores y colaboradores de nuest
                 <img src="assets/img/equipo/{{ foto_auto }}.png" alt="{{ nombre }}" class="image-photo" onerror="this.style.display='none'">
             </div>
             <div class="card__body">
-                <div class="blueprint-markdown align-right">
-                    [<svg class="icon-svg small gray" title="LinkedIn"><use xlink:href="assets/icons/sprite.svg#bxl-linkedin"></use></svg>]({{ linkedin }})
+                <div class="blueprint-markdown align-right no-break">
+                    <span x-if="{{linkedin}}">[<svg class="icon-svg small gray" title="LinkedIn"><use xlink:href="assets/icons/sprite.svg#bx-linkedin"></use></svg>]({{ linkedin }})</span>
+                    <span x-if="{{contacto}}">[<svg class="icon-svg small gray" title="Contacto"><use xlink:href="assets/icons/sprite.svg#bx-envelope"></use></svg>]({{ contacto }})</span>
+                    <span x-if="{{pagina}}">[<svg class="icon-svg small gray" title="Pagina"><use xlink:href="assets/icons/sprite.svg#bx-link-alt"></use></svg>]({{ pagina }})</span>
                 </div>
                 <div class="blueprint-markdown">
                     ### {{ nombre }}
@@ -70,8 +74,10 @@ A continuación presentamos al equipo de investigadores y colaboradores de nuest
     <script type="text/template" class="blueprint">
         <div class="card card--inactive">
             <div class="card__body">
-                <div class="blueprint-markdown align-right">
-                    [<svg class="icon-svg small gray" title="LinkedIn"><use xlink:href="assets/icons/sprite.svg#bxl-linkedin"></use></svg>]({{ linkedin }})
+                <div class="blueprint-markdown align-right no-break">
+                    <span x-if="{{linkedin}}">[<svg class="icon-svg small gray" title="LinkedIn"><use xlink:href="assets/icons/sprite.svg#bx-linkedin"></use></svg>]({{ linkedin }})</span>
+                    <span x-if="{{contacto}}">[<svg class="icon-svg small gray" title="Contacto"><use xlink:href="assets/icons/sprite.svg#bx-envelope"></use></svg>]({{ contacto }})</span>
+                    <span x-if="{{pagina}}">[<svg class="icon-svg small gray" title="Pagina"><use xlink:href="assets/icons/sprite.svg#bx-link-alt"></use></svg>]({{ pagina }})</span>
                 </div>
                 <div class="blueprint-markdown">
                     ### {{ nombre }}
