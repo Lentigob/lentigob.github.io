@@ -8,4 +8,3 @@
 - [Equipo](/docs/equipo)
 - [Eventos](/docs/eventos)
 - [Contacto](/docs/contacto)
-- [GitHub](https://github.com/Lentigob/lentigob.github.io ':target=_blank :class=gihub-logo')
