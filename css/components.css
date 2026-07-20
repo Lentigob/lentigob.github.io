@@ -93,7 +93,7 @@ a.card {
 .markdown-section a.card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-md);
-    border-color: var(--theme-color);
+    border: var(--border-width) solid var(--theme-color);
 }
 
 .card__body {
