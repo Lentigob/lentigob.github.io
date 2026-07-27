@@ -93,8 +93,8 @@
 
   <div id="app"></div>
 
-  <!-- Alpine.js (Lightweight Interactivity) -->
-  <script src="https://unpkg.com/alpinejs" defer></script>
+  <!-- Vue (global build, incluye el compilador de plantillas en tiempo de ejecución) -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
   <!-- Markdown Parser (Marked) -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -108,8 +108,10 @@
   <!-- PapaParse para lectura de archivos CSV -->
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5/papaparse.min.js"></script>
 
-  <!-- Lógica de componentes Alpine (Cache Busting) -->
-  <script src="js/data-loader.js?v=1.0.1"></script>
+  <!-- Web Components basados en Vue (Cache Busting) -->
+  <script src="js/components/md-content.js?v=0.1.0"></script>
+  <script src="js/components/vue-mount.js?v=0.1.0"></script>
+  <script src="js/components/csv-loader.js?v=0.1.0"></script>
 
   <script>
     // Simple Cache Buster for Docsify AJAX requests

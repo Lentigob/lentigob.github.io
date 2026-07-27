@@ -2,60 +2,52 @@
 
 Catálogo de desarrollos técnicos y soluciones de software.
 
-<div x-data="dataLoader('data/Software.csv', 'producto', 'Todos')">
-    <div class="filters">
-        <div class="filter-group">
-            <input type="text" x-model="searchQuery" placeholder="Buscar software, autor o proyecto..." class="form-control" style="max-width: 300px; display: inline-block;">
-            <select x-model="selectedYear" class="form-control" style="max-width: 150px; display: inline-block;">
-                <template x-for="year in years">
-                    <option :value="year" x-text="year === 'Todos' ? 'Todos los años' : year"></option>
-                </template>
-            </select>
+<div class="vue-mount">
+<csv-loader src="data/Software.csv" filter-col="producto" category="Todos">
+    <script type="text/template">
+        <div class="filters">
+            <div class="filter-group">
+                <input type="text" v-model="searchQuery" placeholder="Buscar software, autor o proyecto..." class="form-control" style="max-width: 300px; display: inline-block;">
+                <select v-model="selectedYear" class="form-control" style="max-width: 150px; display: inline-block;">
+                    <option v-for="year in years" :value="year">{{ year === 'Todos' ? 'Todos los años' : year }}</option>
+                </select>
+            </div>
+            <div class="filters__tags">
+                <button v-for="cat in categories" @click="activeCategory = cat" :class="{'active': activeCategory === cat}" class="filter-chip">{{ cat }}</button>
+            </div>
         </div>
-        <div class="filters__tags">
-            <template x-for="cat in categories">
-                <button 
-                    @click="activeCategory = cat" 
-                    :class="{'active': activeCategory === cat}"
-                    class="filter-chip"
-                    x-text="cat">
-                </button>
-            </template>
+        <div v-show="loading" class="loading-state">
+            <svg class="icon-svg bx-spin"><use xlink:href="assets/icons/sprite.svg#bx-loader-alt"></use></svg> Cargardo catálogo técnico...
         </div>
-    </div>
-    <div x-show="loading" class="loading-state">
-        <svg class="icon-svg bx-spin"><use xlink:href="assets/icons/sprite.svg#bx-loader-alt"></use></svg> Cargardo catálogo técnico...
-    </div>
-    <div x-show="!loading" class="data-panel">
-        <table class="data-table">
-            <thead>
-                <tr>
-                    <th @click="sortBy('nombre')">Software <span class="sort-icon">⇅</span></th>
-                    <th @click="sortBy('producto')">Tipo <span class="sort-icon">⇅</span></th>
-                    <th @click="sortBy('madureztecnologica')">Madurez <span class="sort-icon">⇅</span></th>
-                    <th @click="sortBy('etapa')">Estado <span class="sort-icon">⇅</span></th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <template x-for="sw in items">
+        <div v-show="!loading" class="data-panel">
+            <table class="data-table">
+                <thead>
                     <tr>
+                        <th @click="sortBy('nombre')">Software <span class="sort-icon">⇅</span></th>
+                        <th @click="sortBy('producto')">Tipo <span class="sort-icon">⇅</span></th>
+                        <th @click="sortBy('madureztecnologica')">Madurez <span class="sort-icon">⇅</span></th>
+                        <th @click="sortBy('etapa')">Estado <span class="sort-icon">⇅</span></th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="sw in items" :key="sw.nombre">
                         <td>
-                            <strong class="data-table__title" x-text="sw.nombre"></strong>
-                            <span class="data-table__subtitle" x-text="sw.participantes"></span>
+                            <strong class="data-table__title">{{ sw.nombre }}</strong>
+                            <span class="data-table__subtitle">{{ sw.participantes }}</span>
                         </td>
                         <td>
-                            <span class="component-chip" x-text="sw.producto"></span>
+                            <span class="component-chip">{{ sw.producto }}</span>
                         </td>
                         <td>
-                            <span class="badge badge-gray badge-outline" x-text="sw.madureztecnologica"></span>
+                            <span class="badge badge-gray badge-outline">{{ sw.madureztecnologica }}</span>
                         </td>
                         <td>
                             <span class="badge" :class="{
                                 'badge-green': sw.etapa.toLowerCase() === 'terminado',
                                 'badge-yellow': sw.etapa.toLowerCase() === 'activo',
                                 'badge-red': sw.etapa.toLowerCase() === 'pausado'
-                            }" x-text="sw.etapa"></span>
+                            }">{{ sw.etapa }}</span>
                         </td>
                         <td>
                             <a :href="'https://github.com/Lentigob/' + sw.nombre" target="_blank" class="data-action">
@@ -64,12 +56,12 @@ Catálogo de desarrollos técnicos y soluciones de software.
                             </a>
                         </td>
                     </tr>
-                </template>
-            </tbody>
-        </table>
-        <div x-show="items.length === 0" class="no-results">
-            No se encontraron herramientas con los criterios seleccionados.
+                </tbody>
+            </table>
+            <div v-show="items.length === 0" class="no-results">
+                No se encontraron herramientas con los criterios seleccionados.
+            </div>
         </div>
-    </div>
+    </script>
+</csv-loader>
 </div>
-

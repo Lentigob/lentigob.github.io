@@ -2,63 +2,50 @@
 
 Congresos, talleres y seminarios donde participamos.
 
-<div x-data="dataLoader('data/Eventos.csv', 'tipo', 'Todos')">
-    <div class="filters">
-        <div class="filter-group">
-            <input type="text" x-model="searchQuery" placeholder="Buscar evento, ponente o tema..." class="form-control" style="max-width: 300px; display: inline-block;">
-            <select x-model="selectedYear" class="form-control" style="max-width: 150px; display: inline-block;">
-                <template x-for="year in years">
-                    <option :value="year" x-text="year === 'Todos' ? 'Todos los años' : year"></option>
-                </template>
-            </select>
+<div class="vue-mount">
+<csv-loader src="data/Eventos.csv" filter-col="tipo" category="Todos">
+    <script type="text/template">
+        <div class="filters">
+            <div class="filter-group">
+                <input type="text" v-model="searchQuery" placeholder="Buscar evento, ponente o tema..." class="form-control" style="max-width: 300px; display: inline-block;">
+                <select v-model="selectedYear" class="form-control" style="max-width: 150px; display: inline-block;">
+                    <option v-for="year in years" :value="year">{{ year === 'Todos' ? 'Todos los años' : year }}</option>
+                </select>
+            </div>
+            <div class="filters__tags">
+                <button v-for="cat in categories" @click="activeCategory = cat" :class="{'active': activeCategory === cat}" class="filter-chip">{{ cat }}</button>
+            </div>
         </div>
-        <div class="filters__tags">
-            <template x-for="cat in categories">
-                <button 
-                    @click="activeCategory = cat" 
-                    :class="{'active': activeCategory === cat}"
-                    class="filter-chip"
-                    x-text="cat">
-                </button>
-            </template>
+        <div v-show="loading" class="loading-state">
+            <svg class="icon-svg bx-spin"><use xlink:href="assets/icons/sprite.svg#bx-loader-alt"></use></svg> Cargardo agenda de eventos...
         </div>
-    </div>
-    <div x-show="loading" class="loading-state">
-        <svg class="icon-svg bx-spin"><use xlink:href="assets/icons/sprite.svg#bx-loader-alt"></use></svg> Cargardo agenda de eventos...
-    </div>
-    <div x-show="!loading" class="layout-grid">
-        <script type="text/template" class="blueprint">
-            <div class="card card--interactive card--accent-left">
+        <div v-show="!loading" class="layout-grid">
+            <div class="card card--interactive card--accent-left" v-for="ev in items" :key="ev.nombreevento">
                 <div class="card__section card__section--top card__section--muted">
                     <div class="card-row card-row--between">
-                        <span class="badge badge-blue">{{ tipo }}</span>
-                        <span class="card-inline"><svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-calendar"></use></svg> {{ fechainicio }} - {{ fechafin }}</span>
+                        <span class="badge badge-blue">{{ ev.tipo }}</span>
+                        <span class="card-inline"><svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-calendar"></use></svg> {{ ev.fechainicio }} - {{ ev.fechafin }}</span>
                     </div>
                 </div>
                 <div class="card__body card__body--stack">
-                    <div class="blueprint-markdown">#### {{ nombreevento }}</div>
-                    <div class="blueprint-markdown">
-                        *{{ titulo }}*
-                    </div>
+                    <md-content>#### {{ ev.nombreevento }}</md-content>
+                    <md-content>*{{ ev.titulo }}*</md-content>
                 </div>
                 <div class="card__section card__section--bottom card__section--muted">
                     <div class="card-row card-row--left">
-                        <span class="card-inline"><svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-user"></use></svg> {{ autores }}</span>
-                        <span class="card-inline"><svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-map-pin"></use></svg> {{ institucionsede }} ({{ alcance }})</span>
+                        <span class="card-inline"><svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-user"></use></svg> {{ ev.autores }}</span>
+                        <span class="card-inline"><svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-map-pin"></use></svg> {{ ev.institucionsede }} ({{ ev.alcance }})</span>
                     </div>
                     <div class="card-row card-row--between">
-                        <span class="card-inline"><svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-briefcase"></use></svg> {{ organizador }}</span>
-                        <span class="card-inline"><svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-flag"></use></svg> {{ etapa }}</span>
+                        <span class="card-inline"><svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-briefcase"></use></svg> {{ ev.organizador }}</span>
+                        <span class="card-inline"><svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-flag"></use></svg> {{ ev.etapa }}</span>
                     </div>
                 </div>
             </div>
-        </script>
-        <template x-for="ev in items">
-            <div x-html="render(ev)"></div>
-        </template>
-        <div x-show="items.length === 0" class="no-results">
-            No se encontraron eventos con los criterios seleccionados.
+            <div v-show="items.length === 0" class="no-results">
+                No se encontraron eventos con los criterios seleccionados.
+            </div>
         </div>
-    </div>
+    </script>
+</csv-loader>
 </div>
-

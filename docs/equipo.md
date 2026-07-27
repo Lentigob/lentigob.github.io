@@ -1,98 +1,97 @@
-﻿# Equipo de Trabajo
+# Equipo de Trabajo
 
 A continuación presentamos al equipo de investigadores y colaboradores de nuestro laboratorio.
 
 ## Investigadores Principales
 
-<div x-data="dataLoader('data/Equipo.csv', 'Tipo', 'Investigador', { estado: 'activo' })">
-    <script type="text/template" class="blueprint">
-        <div class="card">
-            <div class="team-image-container">
-                <img src="assets/img/logo.png" class="image-placeholder">
-                <img src="assets/img/equipo/{{ foto_auto }}.png" alt="{{ nombre }}" class="image-photo" onerror="this.style.display='none'">
-            </div>
-            <div class="card__body">
-                <div class="blueprint-markdown align-right no-break">
-                    <span x-if="{{linkedin}}">[<svg class="icon-svg small gray" title="LinkedIn"><use xlink:href="assets/icons/sprite.svg#bx-linkedin"></use></svg>]({{ linkedin }})</span>
-                    <span x-if="{{contacto}}">[<svg class="icon-svg small gray" title="Contacto"><use xlink:href="assets/icons/sprite.svg#bx-envelope"></use></svg>]({{ contacto }})</span>
-                    <span x-if="{{pagina}}">[<svg class="icon-svg small gray" title="Pagina"><use xlink:href="assets/icons/sprite.svg#bx-link-alt"></use></svg>]({{ pagina }})</span>
+<div class="vue-mount">
+<csv-loader src="data/Equipo.csv" filter-col="Tipo" category="Investigador"
+            base-filter='{"estado":"activo"}'>
+    <script type="text/template">
+        <div v-show="loading" class="loading-state">Cargando...</div>
+        <div v-show="!loading" class="layout-grid">
+            <div class="card" v-for="item in items" :key="item.nombre">
+                <div class="team-image-container">
+                    <img src="assets/img/logo.png" class="image-placeholder">
+                    <img :src="`assets/img/equipo/${item.foto_auto}.png`" :alt="item.nombre" class="image-photo" @error="$event.target.style.display='none'">
                 </div>
-                <div class="blueprint-markdown">
-                    ### {{ nombre }}
-                    **{{ rol }}**  
-                    *{{ institucion }}*
-                    {{ departamento }}
+                <div class="card__body">
+                    <div class="icon-links align-right no-break">
+                        <a v-if="item.linkedin" :href="item.linkedin" title="LinkedIn"><svg class="icon-svg small gray"><use xlink:href="assets/icons/sprite.svg#bx-linkedin"></use></svg></a>
+                        <a v-if="item.contacto" :href="item.contacto" title="Contacto"><svg class="icon-svg small gray"><use xlink:href="assets/icons/sprite.svg#bx-envelope"></use></svg></a>
+                        <a v-if="item.pagina" :href="item.pagina" title="Pagina"><svg class="icon-svg small gray"><use xlink:href="assets/icons/sprite.svg#bx-link-alt"></use></svg></a>
+                    </div>
+                    <md-content>
+                        ### {{ item.nombre }}
+                        **{{ item.rol }}**  
+                        *{{ item.institucion }}*
+                        {{ item.departamento }}
+                    </md-content>
                 </div>
             </div>
+            <div v-show="items.length === 0" class="no-results">No se encontraron integrantes activos en esta categoría.</div>
         </div>
     </script>
-    <div class="data-loader-container layout-grid">
-        <div x-show="loading" class="loading-state">Cargando...</div>
-        <template x-for="item in items">
-            <div x-html="render(item)"></div>
-        </template>
-        <div x-show="!loading && items.length === 0" class="no-results">No se encontraron integrantes activos en esta categoría.</div>
-    </div>
+</csv-loader>
 </div>
 
 ## Colaboradores y Estudiantes
 
-<div x-data="dataLoader('data/Equipo.csv', 'Tipo', ['Colaborador', 'Estudiante', 'Asociado'], { estado: 'activo' })">
-    <script type="text/template" class="blueprint">
-        <div class="card">
-            <div class="team-image-container">
-                <img src="assets/img/logo.png" class="image-placeholder">
-                <img src="assets/img/equipo/{{ foto_auto }}.png" alt="{{ nombre }}" class="image-photo" onerror="this.style.display='none'">
-            </div>
-            <div class="card__body">
-                <div class="blueprint-markdown align-right no-break">
-                    <span x-if="{{linkedin}}">[<svg class="icon-svg small gray" title="LinkedIn"><use xlink:href="assets/icons/sprite.svg#bx-linkedin"></use></svg>]({{ linkedin }})</span>
-                    <span x-if="{{contacto}}">[<svg class="icon-svg small gray" title="Contacto"><use xlink:href="assets/icons/sprite.svg#bx-envelope"></use></svg>]({{ contacto }})</span>
-                    <span x-if="{{pagina}}">[<svg class="icon-svg small gray" title="Pagina"><use xlink:href="assets/icons/sprite.svg#bx-link-alt"></use></svg>]({{ pagina }})</span>
+<div class="vue-mount">
+<csv-loader src="data/Equipo.csv" filter-col="Tipo" category="Colaborador,Estudiante,Asociado"
+            base-filter='{"estado":"activo"}'>
+    <script type="text/template">
+        <div v-show="loading" class="loading-state">Cargando...</div>
+        <div v-show="!loading" class="layout-grid">
+            <div class="card" v-for="item in items" :key="item.nombre">
+                <div class="team-image-container">
+                    <img src="assets/img/logo.png" class="image-placeholder">
+                    <img :src="`assets/img/equipo/${item.foto_auto}.png`" :alt="item.nombre" class="image-photo" @error="$event.target.style.display='none'">
                 </div>
-                <div class="blueprint-markdown">
-                    ### {{ nombre }}
-                    **{{ rol }}**  
-                    *{{ institucion }}*
-                    {{ departamento }}
+                <div class="card__body">
+                    <div class="icon-links align-right no-break">
+                        <a v-if="item.linkedin" :href="item.linkedin" title="LinkedIn"><svg class="icon-svg small gray"><use xlink:href="assets/icons/sprite.svg#bx-linkedin"></use></svg></a>
+                        <a v-if="item.contacto" :href="item.contacto" title="Contacto"><svg class="icon-svg small gray"><use xlink:href="assets/icons/sprite.svg#bx-envelope"></use></svg></a>
+                        <a v-if="item.pagina" :href="item.pagina" title="Pagina"><svg class="icon-svg small gray"><use xlink:href="assets/icons/sprite.svg#bx-link-alt"></use></svg></a>
+                    </div>
+                    <md-content>
+                        ### {{ item.nombre }}
+                        **{{ item.rol }}**  
+                        *{{ item.institucion }}*
+                        {{ item.departamento }}
+                    </md-content>
                 </div>
             </div>
+            <div v-show="items.length === 0" class="no-results">No se encontraron integrantes.</div>
         </div>
     </script>
-    <div class="layout-grid">
-        <div x-show="loading" class="loading-state">Cargando...</div>
-        <template x-for="item in items">
-            <div x-html="render(item)"></div>
-        </template>
-        <div x-show="!loading && items.length === 0" class="no-results">No se encontraron integrantes.</div>
-    </div>
+</csv-loader>
 </div>
 
 ## Integrantes Anteriores (Inactivos)
 
-<div x-data="dataLoader('data/Equipo.csv', 'Estado', 'Inactivo')">
-    <script type="text/template" class="blueprint">
-        <div class="card card--inactive">
-            <div class="card__body">
-                <div class="blueprint-markdown align-right no-break">
-                    <span x-if="{{linkedin}}">[<svg class="icon-svg small gray" title="LinkedIn"><use xlink:href="assets/icons/sprite.svg#bx-linkedin"></use></svg>]({{ linkedin }})</span>
-                    <span x-if="{{contacto}}">[<svg class="icon-svg small gray" title="Contacto"><use xlink:href="assets/icons/sprite.svg#bx-envelope"></use></svg>]({{ contacto }})</span>
-                    <span x-if="{{pagina}}">[<svg class="icon-svg small gray" title="Pagina"><use xlink:href="assets/icons/sprite.svg#bx-link-alt"></use></svg>]({{ pagina }})</span>
-                </div>
-                <div class="blueprint-markdown">
-                    ### {{ nombre }}
-                    **{{ rol }}**  
-                    *{{ institucion }}*
-                    {{ departamento }}
+<div class="vue-mount">
+<csv-loader src="data/Equipo.csv" filter-col="Estado" category="Inactivo">
+    <script type="text/template">
+        <div v-show="loading" class="loading-state">Cargando...</div>
+        <div v-show="!loading" class="layout-grid">
+            <div class="card card--inactive" v-for="item in items" :key="item.nombre">
+                <div class="card__body">
+                    <div class="icon-links align-right no-break">
+                        <a v-if="item.linkedin" :href="item.linkedin" title="LinkedIn"><svg class="icon-svg small gray"><use xlink:href="assets/icons/sprite.svg#bx-linkedin"></use></svg></a>
+                        <a v-if="item.contacto" :href="item.contacto" title="Contacto"><svg class="icon-svg small gray"><use xlink:href="assets/icons/sprite.svg#bx-envelope"></use></svg></a>
+                        <a v-if="item.pagina" :href="item.pagina" title="Pagina"><svg class="icon-svg small gray"><use xlink:href="assets/icons/sprite.svg#bx-link-alt"></use></svg></a>
+                    </div>
+                    <md-content>
+                        ### {{ item.nombre }}
+                        **{{ item.rol }}**  
+                        *{{ item.institucion }}*
+                        {{ item.departamento }}
+                    </md-content>
                 </div>
             </div>
+            <div v-show="items.length === 0" class="no-results">No hay registros inactivos.</div>
         </div>
     </script>
-    <div class="layout-grid">
-        <div x-show="loading" class="loading-state">Cargando...</div>
-        <template x-for="item in items">
-            <div x-html="render(item)"></div>
-        </template>
-        <div x-show="!loading && items.length === 0" class="no-results">No hay registros inactivos.</div>
-    </div>
+</csv-loader>
 </div>
