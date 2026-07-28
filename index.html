@@ -164,6 +164,27 @@
           hook.doneEach(function () {
             document.title = vm.config.name;
           });
+
+          // Agrega automáticamente un enlace "Volver" en cualquier página que
+          // viva en una subcarpeta de docs/ (p.ej. docs/proyectos/P-004.md),
+          // apuntando a su sección padre (docs/proyectos). Así el cliente no
+          // tiene que escribir ese enlace a mano en cada página de detalle
+          // que cree - y evita el problema de los links en Markdown ([texto](#/ruta))
+          // que Docsify interpreta como anclas de la misma página en vez de
+          // navegación real; por eso aquí se inyecta HTML crudo (<a href="#...">),
+          // igual que en el resto del sitio.
+          hook.afterEach(function (html, next) {
+            var parts = vm.route.path.split('/').filter(Boolean);
+            if (parts.length >= 3 && parts[0] === 'docs') {
+              var parentPath = '/' + parts.slice(0, 2).join('/');
+              html =
+                '<p><a href="#' +
+                parentPath +
+                '" class="hero-btn btn-secondary">← Volver</a></p>' +
+                html;
+            }
+            next(html);
+          });
         }
       ],
 

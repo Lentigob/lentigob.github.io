@@ -1,5 +1,5 @@
 Institución,Código,Avance,Título,Investigadores,FechaInicio,FechaFin,Financiamiento,Situación,LineaInv,Grupo,Prioridad,URL,Imagen
-UNAM,P-001,80%,Monitoreo Lenti,Juan Perez,2023-01,2024-12,Interno,Activo,IA,BioG,Alta,#/docs/reportes,https://picsum.photos/seed/monitoreo/600/400
-MIT,P-002,20%,Global Optics,Alice Smith,2024-03,2025-06,Externo,Inicio,Optica,OptiQ,Media,#/docs/reportes,https://picsum.photos/seed/globaloptics/600/400
-UBA,P-003,50%,Redes Neuronales,Carlos Ruiz,2022-06,2024-06,Público,Activo,IA,BioG,Alta,,
-CONICET,P-004,10%,Blockchain for Science,Pedro Gomez,2024-01,2025-12,Privado,En Proceso,Seguridad,Crypto,Baja,,
+UNAM,P-001,80%,Monitoreo Lenti,Juan Perez,2023-01,2024-12,Interno,Activo,IA,BioG,Alta,#/docs/proyectos/P-001,https://picsum.photos/seed/monitoreo/600/400
+MIT,P-002,20%,Global Optics,Alice Smith,2024-03,2025-06,Externo,Inicio,Optica,OptiQ,Media,#/docs/proyectos/P-002,https://picsum.photos/seed/globaloptics/600/400
+UBA,P-003,50%,Redes Neuronales,Carlos Ruiz,2022-06,2024-06,Público,Activo,IA,BioG,Alta,#/docs/proyectos/P-003,
+CONICET,P-004,10%,Blockchain for Science,Pedro Gomez,2024-01,2025-12,Privado,En Proceso,Seguridad,Crypto,Baja,#/docs/proyectos/P-004,
