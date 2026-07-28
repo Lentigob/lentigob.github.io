@@ -1,5 +1,5 @@
-Producto,Nombre,Participantes,Descripcion,Beneficiario,Impacto,Financiamiento,MadurezTecnologica,FechaInicio,FechaFin,Proyecto,Etapa
-WebTool,LentiView,Perez & Garcia,Visualizador de datos,Academia,Alto,CONACYT,TRL-6,2023-01,2023-12,Lenti,Finalizado
-Library,LentiLib,Alice S.,Procesamiento de señales,Investigadores,Medio,Interno,TRL-4,2024-02,,Lenti,Desarrollo
-MobileApp,LentiGo,Gomez P.,App de campo,Usuarios finales,Medio,Donaciones,TRL-8,2023-05,2024-05,Lenti,Finalizado
-Desktop,LentiAnalyzer,Ruiz C.,Analizador estad�stico,Cient�ficos,Bajo,Interno,TRL-3,2024-01,,IA,Prototipo
+Producto,Nombre,Participantes,Descripcion,Beneficiario,Impacto,Financiamiento,MadurezTecnologica,FechaInicio,FechaFin,Proyecto,Etapa,URL
+WebTool,LentiView,Perez & Garcia,Visualizador de datos,Academia,Alto,CONACYT,TRL-6,2023-01,2023-12,Lenti,Finalizado,https://github.com/Lentigob/LentiView
+Library,LentiLib,Alice S.,Procesamiento de señales,Investigadores,Medio,Interno,TRL-4,2024-02,,Lenti,Desarrollo,https://github.com/Lentigob/LentiLib
+MobileApp,LentiGo,Gomez P.,App de campo,Usuarios finales,Medio,Donaciones,TRL-8,2023-05,2024-05,Lenti,Finalizado,https://github.com/Lentigob/LentiGo
+Desktop,LentiAnalyzer,Ruiz C.,Analizador estadístico,Científicos,Bajo,Interno,TRL-3,2024-01,,IA,Prototipo,

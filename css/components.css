@@ -218,8 +218,9 @@ a.card {
 .badge-pill { border-radius: 20px; }
 .badge-outline { border: 1px solid var(--color-border); }
 
-/* Team cards */
-.team-image-container {
+/* Team cards / cualquier card con imagen clicable (p.ej. Eventos) */
+.team-image-container,
+.card-image-container {
     position: relative;
     width: 100%;
     aspect-ratio: 1;
@@ -238,7 +239,8 @@ a.card {
     z-index: 1;
 }
 
-.team-image-container .image-photo {
+.team-image-container .image-photo,
+.card-image-container .image-photo {
     position: relative;
     width: 100%;
     height: 100%;
@@ -318,6 +320,14 @@ a.card {
     color: var(--color-text-muted);
     display: block;
     margin-top: var(--space-2xs);
+}
+
+.data-table__thumbnail {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: var(--radius-sm, 6px);
+    display: block;
 }
 
 .sort-icon {

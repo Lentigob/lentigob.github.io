@@ -37,6 +37,12 @@ Registro completo de actividades académicas e instituciones.
                         <span class="card-inline"><svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-graduation-cap"></use></svg> {{ item.programa }}</span>
                         <span class="card-inline"><svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-time-five"></use></svg> {{ item.horastotales }} horas</span>
                     </div>
+                    <div class="card-row card-row--left" v-if="item.url">
+                        <a :href="item.url" target="_blank" class="data-action">
+                            <svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-link-external"></use></svg>
+                            Ver curso
+                        </a>
+                    </div>
                 </div>
             </div>
             <div v-show="items.length === 0" class="no-results">

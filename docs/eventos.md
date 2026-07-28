@@ -21,6 +21,11 @@ Congresos, talleres y seminarios donde participamos.
         </div>
         <div v-show="!loading" class="layout-grid">
             <div class="card card--interactive card--accent-left" v-for="ev in items" :key="ev.nombreevento">
+                <div class="card-image-container" v-if="ev.imagen">
+                    <a :href="ev.imagen" target="_blank" title="Ver imagen completa">
+                        <img :src="ev.imagen" :alt="ev.nombreevento" class="image-photo" @error="$event.target.parentElement.parentElement.style.display='none'">
+                    </a>
+                </div>
                 <div class="card__section card__section--top card__section--muted">
                     <div class="card-row card-row--between">
                         <span class="badge badge-blue">{{ ev.tipo }}</span>
@@ -39,6 +44,12 @@ Congresos, talleres y seminarios donde participamos.
                     <div class="card-row card-row--between">
                         <span class="card-inline"><svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-briefcase"></use></svg> {{ ev.organizador }}</span>
                         <span class="card-inline"><svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-flag"></use></svg> {{ ev.etapa }}</span>
+                    </div>
+                    <div class="card-row card-row--left" v-if="ev.url">
+                        <a :href="ev.url" target="_blank" class="data-action">
+                            <svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-link-external"></use></svg>
+                            Ver evento
+                        </a>
                     </div>
                 </div>
             </div>

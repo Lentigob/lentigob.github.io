@@ -1,5 +1,5 @@
-Tipo,NombreEvento,Organizador,Alcance,Instituci贸nSede,Direccion,A帽o,FechaInicio,FechaFin,T铆tulo,Autores,Proyecto,Etapa
-Congreso,AI Summit,IEEE,Internacional,City Hall,Av. Central,2024,2024-08-10,2024-08-12,AI in Lenti,Perez J.,Lenti,Presentaci贸n
-Taller,Python for Science,UNAM,Local,Facultad de Ciencias,Circuito Exterior,2023,2023-11-05,2023-11-07,Analysis with Lenti,Garcia A.,Lenti,Tutorial
-Webinar,Future of Tech,ACM,Global,Online,N/A,2024,2024-05-15,2024-05-15,Trends in Innovation,Perez J.,Lenti,Difusi髇
-Coloquio,Seminario de Verano,UTN,Nacional,Sede Central,Calle Real,2022,2022-07-20,2022-07-22,History of Science,Ruiz C.,IA,Charla
+Tipo,NombreEvento,Organizador,Alcance,Instituci贸nSede,Direccion,A帽o,FechaInicio,FechaFin,T铆tulo,Autores,Proyecto,Etapa,URL,Imagen
+Congreso,AI Summit,IEEE,Internacional,City Hall,Av. Central,2024,2024-08-10,2024-08-12,AI in Lenti,Perez J.,Lenti,Presentaci贸n,https://ieee.org/ai-summit-2024,https://picsum.photos/seed/aisummit/600/400
+Taller,Python for Science,UNAM,Local,Facultad de Ciencias,Circuito Exterior,2023,2023-11-05,2023-11-07,Analysis with Lenti,Garcia A.,Lenti,Tutorial,,https://picsum.photos/seed/pythonscience/600/400
+Webinar,Future of Tech,ACM,Global,Online,N/A,2024,2024-05-15,2024-05-15,Trends in Innovation,Perez J.,Lenti,Difusi贸n,https://acm.org/future-of-tech,
+Coloquio,Seminario de Verano,UTN,Nacional,Sede Central,Calle Real,2022,2022-07-20,2022-07-22,History of Science,Ruiz C.,IA,Charla,,

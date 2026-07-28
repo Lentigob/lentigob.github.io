@@ -23,6 +23,7 @@ Proyectos de investigación y desarrollo técnico.
             <table class="data-table">
                 <thead>
                     <tr>
+                        <th style="width: 64px;"></th>
                         <th @click="sortBy('titulo')">Proyecto <span class="sort-icon">⇅</span></th>
                         <th @click="sortBy('institucion')">Entidad <span class="sort-icon">⇅</span></th>
                         <th @click="sortBy('avance')">Avance <span class="sort-icon">⇅</span></th>
@@ -32,6 +33,11 @@ Proyectos de investigación y desarrollo técnico.
                 </thead>
                 <tbody>
                     <tr v-for="p in items" :key="p.titulo">
+                        <td>
+                            <a v-if="p.imagen" :href="p.imagen" target="_blank" title="Ver imagen completa">
+                                <img :src="p.imagen" :alt="p.titulo" class="data-table__thumbnail" @error="$event.target.parentElement.style.display='none'">
+                            </a>
+                        </td>
                         <td>
                             <strong class="data-table__title">{{ p.titulo }}</strong>
                             <span class="data-table__subtitle">{{ 'Investigadores: ' + p.investigadores }}</span>
@@ -53,7 +59,7 @@ Proyectos de investigación y desarrollo técnico.
                             }">{{ p.situacion }}</span>
                         </td>
                         <td>
-                            <a :href="p.url" class="data-action">
+                            <a v-if="p.url" :href="p.url" class="data-action">
                                 <svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-right-arrow-alt"></use></svg>
                                 Detalles
                             </a>

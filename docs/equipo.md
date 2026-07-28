@@ -13,7 +13,9 @@ A continuación presentamos al equipo de investigadores y colaboradores de nuest
             <div class="card" v-for="item in items" :key="item.nombre">
                 <div class="team-image-container">
                     <img src="assets/img/logo.png" class="image-placeholder">
-                    <img :src="`assets/img/equipo/${item.foto_auto}.png`" :alt="item.nombre" class="image-photo" @error="$event.target.style.display='none'">
+                    <a v-if="item.imagen" :href="item.imagen" target="_blank" title="Ver imagen completa">
+                        <img :src="item.imagen" :alt="item.nombre" class="image-photo" @error="$event.target.style.display='none'">
+                    </a>
                 </div>
                 <div class="card__body">
                     <div class="icon-links align-right no-break">
@@ -46,7 +48,9 @@ A continuación presentamos al equipo de investigadores y colaboradores de nuest
             <div class="card" v-for="item in items" :key="item.nombre">
                 <div class="team-image-container">
                     <img src="assets/img/logo.png" class="image-placeholder">
-                    <img :src="`assets/img/equipo/${item.foto_auto}.png`" :alt="item.nombre" class="image-photo" @error="$event.target.style.display='none'">
+                    <a v-if="item.imagen" :href="item.imagen" target="_blank" title="Ver imagen completa">
+                        <img :src="item.imagen" :alt="item.nombre" class="image-photo" @error="$event.target.style.display='none'">
+                    </a>
                 </div>
                 <div class="card__body">
                     <div class="icon-links align-right no-break">
@@ -76,6 +80,12 @@ A continuación presentamos al equipo de investigadores y colaboradores de nuest
         <div v-show="loading" class="loading-state">Cargando...</div>
         <div v-show="!loading" class="layout-grid">
             <div class="card card--inactive" v-for="item in items" :key="item.nombre">
+                <div class="team-image-container">
+                    <img src="assets/img/logo.png" class="image-placeholder">
+                    <a v-if="item.imagen" :href="item.imagen" target="_blank" title="Ver imagen completa">
+                        <img :src="item.imagen" :alt="item.nombre" class="image-photo" @error="$event.target.style.display='none'">
+                    </a>
+                </div>
                 <div class="card__body">
                     <div class="icon-links align-right no-break">
                         <a v-if="item.linkedin" :href="item.linkedin" title="LinkedIn"><svg class="icon-svg small gray"><use xlink:href="assets/icons/sprite.svg#bx-linkedin"></use></svg></a>

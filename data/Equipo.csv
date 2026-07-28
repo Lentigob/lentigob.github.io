@@ -1,13 +1,13 @@
-Tipo,Grado,Nombre,Institución,Programa,Contacto,Redes,ORCID,CVU,Departamento,Proyecto,FechaInicio,FechaFin,Estado,Rol,Tutor,Observaciones,LinkedIn,Pagina,Telefono
-Investigador,Dr.,Juan Perez,UNAM,Postgrado,jperez@mail.com,@jperez,0000-0001,,Física,Lenti,2020,2025,Activo,PI,,Principal,https://linkedin.com/in/juanperez,https://juanperez.com,555-1234
-Estudiante,Lic.,Ana Garcia,UNAM,Grado,agarcia@mail.com,,0000-0002,,Física,Lenti,2023,2024,Activo,Asistente,J. Perez,Beca,,,
-Colaborador,Dr.,Carlos Ruiz,UBA,Sistemas,cruiz@mail.com,,0000-0003,,Computación,IA,2022,2026,Activo,Investigador,J. Perez,,https://linkedin.com/in/cruiz,,
-Asociado,Msc.,Elena Blanco,UCM,Física,eblanco@mail.com,,0000-0004,,Física,Optica,2021,2024,Inactivo,Analista,,Finalizado,https://linkedin.com/in/eblanco,https://elenablanco.es,
-Investigador,Dra.,Sofía Méndez,ITESM,Ingeniería,smendez@mail.com,,0000-0005,12345,Mecatrónica,Robótica,2021,2025,Activo,Co-PI,,Experta en control,https://linkedin.com/in/smendez,,555-9876
-Estudiante,Mtre.,Luis Torres,UNAM,Maestría,ltorres@mail.com,,0000-0006,,Física,Lenti,2024,2026,Activo,Becario,Juan Perez,,,https://ltorres.mx,
-Colaborador,Dr.,Roberto Gómez,IPN,Matemáticas,rgomez@mail.com,,0000-0007,,Matemáticas,Modelado,2020,2025,Activo,Consultor,,Externo,https://linkedin.com/in/rgomez,,
-Estudiante,Lic.,Maria Jose,UNAM,Grado,mjose@mail.com,,0000-0008,,Física,Optica,2023,2025,Activo,Pasante,Elena Blanco,,,
-Investigador,Dr.,Ricardo S.,UCLA,Physics,ricardo@mail.com,,0000-0009,,Physics,Cosmology,2019,2024,Inactivo,Adjunct,,,https://linkedin.com/in/ricardo,,
-Estudiante,Lic.,Fernanda R.,UNAM,Grado,fer@mail.com,,0000-0010,,Física,Lenti,2023,2024,Activo,Asistente,Juan Perez,,Tesis en curso,,,
-Asociado,Dra.,Laura K.,Oxford,Biology,laura@mail.com,,0000-0011,,Bio,Genetics,2022,2025,Activo,Researcher,,,https://linkedin.com/in/laurak,,
-Estudiante,Msc.,Pablo M.,UNAM,Maestría,pablo@mail.com,,0000-0012,,Física,Lenti,2024,2026,Activo,Becario,Ricardo S.,,,https://pablom.me,
+Tipo,Grado,Nombre,Institución,Programa,Contacto,Redes,ORCID,CVU,Departamento,Proyecto,FechaInicio,FechaFin,Estado,Rol,Tutor,Observaciones,LinkedIn,Pagina,Telefono,Imagen
+Investigador,Dr.,Juan Perez,UNAM,Postgrado,jperez@mail.com,@jperez,0000-0001,,Física,Lenti,2020,2025,Activo,PI,,Principal,https://linkedin.com/in/juanperez,https://juanperez.com,555-1234,https://i.pravatar.cc/300?img=12
+Estudiante,Lic.,Ana Garcia,UNAM,Grado,agarcia@mail.com,,0000-0002,,Física,Lenti,2023,2024,Activo,Asistente,J. Perez,Beca,,,,
+Colaborador,Dr.,Carlos Ruiz,UBA,Sistemas,cruiz@mail.com,,0000-0003,,Computación,IA,2022,2026,Activo,Investigador,J. Perez,,https://linkedin.com/in/cruiz,,,
+Asociado,Msc.,Elena Blanco,UCM,Física,eblanco@mail.com,,0000-0004,,Física,Optica,2021,2024,Inactivo,Analista,,Finalizado,https://linkedin.com/in/eblanco,https://elenablanco.es,,
+Investigador,Dra.,Sofía Méndez,ITESM,Ingeniería,smendez@mail.com,,0000-0005,12345,Mecatrónica,Robótica,2021,2025,Activo,Co-PI,,Experta en control,https://linkedin.com/in/smendez,,555-9876,https://i.pravatar.cc/300?img=47
+Estudiante,Mtre.,Luis Torres,UNAM,Maestría,ltorres@mail.com,,0000-0006,,Física,Lenti,2024,2026,Activo,Becario,Juan Perez,,,https://ltorres.mx,,
+Colaborador,Dr.,Roberto Gómez,IPN,Matemáticas,rgomez@mail.com,,0000-0007,,Matemáticas,Modelado,2020,2025,Activo,Consultor,,Externo,https://linkedin.com/in/rgomez,,,
+Estudiante,Lic.,Maria Jose,UNAM,Grado,mjose@mail.com,,0000-0008,,Física,Optica,2023,2025,Activo,Pasante,Elena Blanco,,,,
+Investigador,Dr.,Ricardo S.,UCLA,Physics,ricardo@mail.com,,0000-0009,,Physics,Cosmology,2019,2024,Inactivo,Adjunct,,,https://linkedin.com/in/ricardo,,,
+Estudiante,Lic.,Fernanda R.,UNAM,Grado,fer@mail.com,,0000-0010,,Física,Lenti,2023,2024,Activo,Asistente,Juan Perez,,Tesis en curso,,,,
+Asociado,Dra.,Laura K.,Oxford,Biology,laura@mail.com,,0000-0011,,Bio,Genetics,2022,2025,Activo,Researcher,,,https://linkedin.com/in/laurak,,,
+Estudiante,Msc.,Pablo M.,UNAM,Maestría,pablo@mail.com,,0000-0012,,Física,Lenti,2024,2026,Activo,Becario,Ricardo S.,,,https://pablom.me,,

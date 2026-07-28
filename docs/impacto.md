@@ -38,6 +38,12 @@ Logros e impactos del proyecto en el ámbito académico e industrial.
                         <span class="card-inline"><svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-map-pin"></use></svg> {{ item.institucion }}</span>
                         <span class="card-inline"><svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-world"></use></svg> {{ item.pais }}</span>
                     </div>
+                    <div class="card-row card-row--left" v-if="item.url">
+                        <a :href="item.url" target="_blank" class="data-action">
+                            <svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-link-external"></use></svg>
+                            Ver más
+                        </a>
+                    </div>
                 </div>
             </div>
             <div v-show="items.length === 0" class="no-results">

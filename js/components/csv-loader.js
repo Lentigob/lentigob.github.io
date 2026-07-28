@@ -23,11 +23,26 @@
 //   searchQuery, sortKey, sortAsc, loading, sortBy(key)
 //
 // Atributos:
-//   src (requerido), filter-col, category (valor inicial de activeCategory,
-//   acepta lista separada por comas), base-filter (JSON, filtro fijo oculto,
-//   p.ej. '{"estado":"activo"}'), empty-message (no se usa directamente aquí;
-//   el "no hay resultados" se controla en la plantilla con v-show="items.length === 0"
-//   igual que con Alpine).
+//   src (requerido; admite varios CSV separados por comas, p.ej.
+//     "data/A.csv,data/B.csv" - las filas de todos se combinan en una sola
+//     lista de items), filter-col, category (valor inicial de
+//     activeCategory, acepta lista separada por comas), base-filter (JSON,
+//     filtro fijo oculto, p.ej. '{"estado":"activo"}'), empty-message (no se
+//     usa directamente aquí; el "no hay resultados" se controla en la
+//     plantilla con v-show="items.length === 0").
+//
+// Para combinar varios CSV con columnas distintas en una sola vista con
+// pestañas de categoría (p.ej. Resultados = Reportes + Publicaciones + Datos
+// + Software, donde Software.csv no tiene columna "Tipo"):
+//   src-category: lista separada por comas, en el mismo orden que "src". Da
+//     un valor de categoría por defecto a las filas de esa fuente cuando les
+//     falta la columna de "filter-col" (p.ej. "" para el CSV que ya trae
+//     Tipo, "Software" para el que no).
+//   category-map: JSON que renombra valores crudos de "filter-col" a la
+//     categoría que se muestra/filtra, p.ej.
+//     '{"Reporte":"Reportes","Dataset":"Datos","Artículo":"Publicaciones","Libro":"Publicaciones","Ponencia":"Publicaciones"}'
+//     Los valores no listados se quedan igual (útil para "Software", que ya
+//     llega con el nombre de categoría final vía src-category).
 (function () {
   function normalizeKey(key) {
     return key
@@ -36,6 +51,31 @@
       .normalize('NFD')
       .replace(/[̀-ͯ]/g, '')
       .replace(/\s+/g, '');
+  }
+
+  function fetchAndParseCsv(url) {
+    return fetch(url)
+      .then((res) => res.text())
+      .then(
+        (rawText) =>
+          // Normaliza saltos de línea antes de parsear: Papa.parse detecta un
+          // único estilo (\r\n o \n) para todo el archivo, así que un CSV
+          // editado a mano con estilos mezclados (típico al editar en Excel
+          // vs. otro editor) corrompe silenciosamente las filas del otro estilo.
+          rawText.replace(/\r\n/g, '\n').replace(/\r/g, '\n')
+      )
+      .then(
+        (text) =>
+          new Promise((resolve, reject) => {
+            Papa.parse(text, {
+              header: true,
+              skipEmptyLines: 'greedy',
+              transformHeader: normalizeKey,
+              complete: (results) => resolve(results.data),
+              error: reject
+            });
+          })
+      );
   }
 
   class CsvLoader extends HTMLElement {
@@ -60,11 +100,25 @@
         }
       }
 
+      const sources = src ? src.split(',').map((s) => s.trim()).filter(Boolean) : [];
+      const srcCategoryAttr = this.getAttribute('src-category') || '';
+      const srcCategories = srcCategoryAttr.split(',').map((s) => s.trim());
+
+      const categoryMapAttr = this.getAttribute('category-map');
+      let categoryMap = null;
+      if (categoryMapAttr) {
+        try {
+          categoryMap = JSON.parse(categoryMapAttr);
+        } catch (e) {
+          console.error('csv-loader: "category-map" no es JSON válido:', categoryMapAttr, e);
+        }
+      }
+
       const templateEl = this.querySelector('script[type="text/template"]');
       const template = templateEl ? templateEl.textContent.trim() : '';
       if (templateEl) templateEl.remove();
 
-      if (!src || !template) {
+      if (!sources.length || !template) {
         console.error('csv-loader: se requieren los atributos "src" y una <script type="text/template"> hija.');
         return;
       }
@@ -174,47 +228,41 @@
         },
         async mounted() {
           try {
-            const res = await fetch(src);
-            const rawText = await res.text();
-            // Normaliza saltos de línea antes de parsear: Papa.parse detecta
-            // un único estilo (\r\n o \n) para todo el archivo, así que un CSV
-            // editado a mano con estilos mezclados (típico al editar en Excel
-            // vs. otro editor) corrompe silenciosamente las filas del otro estilo.
-            const text = rawText.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
-            Papa.parse(text, {
-              header: true,
-              skipEmptyLines: 'greedy',
-              transformHeader: normalizeKey,
-              complete: (results) => {
-                this.rawItems = results.data.map((item) => {
-                  if (!item.anio) {
-                    const dateVal = item.ano || item.fecha || item.fechainicio || item.publicacion || '';
-                    item.anio = dateVal ? String(dateVal).trim().substring(0, 4) : '';
-                  }
-                  if (!item.foto_auto) {
-                    const name = item.nombre || item.name || item.titulo || item.title || 'default';
-                    item.foto_auto = name
-                      .toLowerCase()
-                      .trim()
-                      .normalize('NFD')
-                      .replace(/[̀-ͯ]/g, '')
-                      .replace(/\s+/g, '-');
-                  }
-                  return item;
-                });
+            const col = filterCol ? normalizeKey(filterCol) : '';
 
-                if (filterCol) {
-                  const col = normalizeKey(filterCol);
-                  const unique = [...new Set(this.rawItems.map((i) => i[col]))].filter(Boolean);
-                  this.categories = ['Todos', ...unique.sort()];
+            const rowsPerSource = await Promise.all(sources.map((url) => fetchAndParseCsv(url)));
+
+            const merged = [];
+            rowsPerSource.forEach((rows, i) => {
+              const defaultCategory = srcCategories[i];
+              rows.forEach((row) => {
+                if (defaultCategory && col && !row[col]) {
+                  row[col] = defaultCategory;
                 }
-
-                this.applyFilters();
-                this.loading = false;
-              }
+                merged.push(row);
+              });
             });
+
+            this.rawItems = merged.map((item) => {
+              if (!item.anio) {
+                const dateVal = item.ano || item.fecha || item.fechainicio || item.publicacion || '';
+                item.anio = dateVal ? String(dateVal).trim().substring(0, 4) : '';
+              }
+              if (categoryMap && col && categoryMap[item[col]]) {
+                item[col] = categoryMap[item[col]];
+              }
+              return item;
+            });
+
+            if (col) {
+              const unique = [...new Set(this.rawItems.map((i) => i[col]))].filter(Boolean);
+              this.categories = ['Todos', ...unique.sort()];
+            }
+
+            this.applyFilters();
+            this.loading = false;
           } catch (e) {
-            console.error('csv-loader: error al cargar el CSV', src, e);
+            console.error('csv-loader: error al cargar el CSV', sources, e);
             this.loading = false;
           }
         }
