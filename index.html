@@ -159,9 +159,10 @@
 
           // Docsify cambia document.title al primer encabezado de cada página;
           // doneEach corre después de eso en cada navegación, así que lo
-          // pisamos para que la pestaña siempre diga "Lentigob".
+          // pisamos para que la pestaña siempre diga el nombre del sitio
+          // (vm.config.name, la misma config de arriba, sin repetir el string).
           hook.doneEach(function () {
-            document.title = 'Lentigob';
+            document.title = vm.config.name;
           });
         }
       ],
