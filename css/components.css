@@ -341,8 +341,7 @@ a.card {
     opacity: 1;
 }
 
-.data-table__title-link,
-.card__title-link {
+.data-table__title-link {
     text-decoration: none !important;
     color: inherit;
     display: block;
@@ -352,7 +351,16 @@ a.card {
     text-decoration: underline;
 }
 
-.card__title-link:hover {
+/* Título de tarjeta con link: el <a> lo genera Marked dentro del heading
+   (ver docs/impacto.md, eventos.md, docencia.md), no un wrapper nuestro. */
+.card__body--stack h3 a,
+.card__body--stack h4 a {
+    color: inherit;
+    text-decoration: none !important;
+}
+
+.card__body--stack h3 a:hover,
+.card__body--stack h4 a:hover {
     text-decoration: underline !important;
 }
 

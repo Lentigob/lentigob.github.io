@@ -39,29 +39,37 @@
             <a href="#/docs/proyectos" class="card card--interactive">
                 <div class="card__body centered-content">
                     <svg class="icon-svg large"><use xlink:href="assets/icons/sprite.svg#bx-folder"></use></svg>
-                    <md-content>### Proyectos
-                        Investigación aplicada y desarrollo tecnológico en curso.</md-content>
+                    <md-content>
+                        ### Proyectos
+                        Investigación aplicada y desarrollo tecnológico en curso.
+                    </md-content>
                 </div>
             </a>
             <a href="#/docs/resultados" class="card card--interactive">
                 <div class="card__body centered-content">
                     <svg class="icon-svg large"><use xlink:href="assets/icons/sprite.svg#bx-book"></use></svg>
-                    <md-content>### Resultados
-                        Reportes, publicaciones, datos abiertos y software desarrollado.</md-content>
+                    <md-content>
+                        ### Resultados
+                        Reportes, publicaciones, datos abiertos y software desarrollado.
+                    </md-content>
                 </div>
             </a>
             <a href="#/docs/equipo" class="card card--interactive">
                 <div class="card__body centered-content">
                     <svg class="icon-svg large"><use xlink:href="assets/icons/sprite.svg#bx-group"></use></svg>
-                    <md-content>### Equipo
-                        Conoce a los investigadores y colaboradores del LENTI.</md-content>
+                    <md-content>
+                        ### Equipo
+                        Conoce a los investigadores y colaboradores del LENTI.
+                    </md-content>
                 </div>
             </a>
             <a href="#/docs/impacto" class="card card--interactive">
                 <div class="card__body centered-content">
                     <svg class="icon-svg large"><use xlink:href="assets/icons/sprite.svg#bx-trophy"></use></svg>
-                    <md-content>### Impacto
-                        Premios, menciones y resultados de transferencia.</md-content>
+                    <md-content>
+                        ### Impacto
+                        Premios, menciones y resultados de transferencia.
+                    </md-content>
                 </div>
             </a>
         </div>

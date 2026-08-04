@@ -17,14 +17,32 @@
 // ni asteriscos/almohadillas alrededor) y la línea siguiente TAMBIÉN es solo
 // un mustache, Vue colapsa el salto de línea entre ambos a un simple espacio
 // (es un caso especial del compilador de Vue, no un bug de este componente).
-// Por eso campos independientes (p.ej. un título y una descripción) deben ir
-// en DOS <md-content> separados, no uno solo con ambos en líneas distintas:
-//   <md-content>#### {{ item.nombre }}</md-content>
-//   <md-content>{{ item.descripcion }}</md-content>
 // Esto NO afecta a líneas que ya traen sintaxis de Markdown pegada al
-// mustache (### título, **negrita**, *cursiva*), como en el ejemplo de arriba
-// con nombre/rol/institución: ahí sí puede ir todo junto en un solo tag.
+// mustache (### título, **negrita**, *cursiva*), como el ejemplo de arriba
+// con nombre/rol/institución: ahí el salto sí sobrevive tal cual.
+//
+// Para forzar un salto entre dos mustaches "pelones" sin depender de eso,
+// se puede escribir un <br> literal entre ellos:
+//   <md-content>#### {{ item.nombre }}<br>{{ item.descripcion }}</md-content>
+// render() no usa this.textContent (que aplanaría el <br> a nada, pegando
+// las dos palabras) sino que recorre los nodos hijos a mano y convierte cada
+// <br> en un '\n' antes de pasarle el texto a Marked.
 (function () {
+  // Recorre los child nodes en vez de usar textContent para poder traducir
+  // <br> (que Vue conserva como elemento real incluso cuando colapsa el
+  // whitespace circundante) a un salto de línea explícito.
+  function nodeToText(node) {
+    let out = '';
+    node.childNodes.forEach((child) => {
+      if (child.nodeType === Node.TEXT_NODE) {
+        out += child.textContent;
+      } else if (child.nodeType === Node.ELEMENT_NODE) {
+        out += child.tagName === 'BR' ? '\n' : nodeToText(child);
+      }
+    });
+    return out;
+  }
+
   function unescapeAndDedent(text) {
     return text
       .replace(/&lt;/g, '<')
@@ -42,7 +60,7 @@
     }
 
     render() {
-      const rawMd = unescapeAndDedent(this.textContent || '');
+      const rawMd = unescapeAndDedent(nodeToText(this));
       if (!rawMd) return;
 
       const html = marked.parse(rawMd, { breaks: !this.hasAttribute('no-breaks') });
