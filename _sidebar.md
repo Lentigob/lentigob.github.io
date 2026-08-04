@@ -2,7 +2,7 @@
 * [Proyectos](/docs/proyectos)
 * [Resultados](/docs/resultados)
 * [Equipo](/docs/equipo)
-* [Impacto y Trayectoria](/docs/impacto)
+* [Impacto](/docs/impacto)
 * [Eventos](/docs/eventos)
 * [Docencia](/docs/docencia)
 * [Contacto](/docs/contacto)

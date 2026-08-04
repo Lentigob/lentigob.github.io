@@ -42,10 +42,20 @@ Reportes, publicaciones, datos abiertos y software desarrollado por el laborator
                         <td><span class="badge badge-blue">{{ item.tipo }}</span></td>
                         <td>{{ item.anio }}</td>
                         <td>
-                            <a v-if="item.url" :href="item.url" target="_blank" class="data-action">
-                                <svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-link-external"></use></svg>
-                                Ver
-                            </a>
+                            <span class="data-table__actions">
+                                <a v-if="item.url" :href="item.url" target="_blank" class="data-action">
+                                    <svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-link-external"></use></svg>
+                                    Ver
+                                </a>
+                                <a v-if="item.pdf" :href="item.pdf" download class="data-action">
+                                    <svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-download"></use></svg>
+                                    PDF
+                                </a>
+                                <a v-if="item.doi && item.doi !== 'N/A'" :href="'https://doi.org/' + item.doi" target="_blank" class="data-action">
+                                    <svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-link-external"></use></svg>
+                                    DOI
+                                </a>
+                            </span>
                         </td>
                     </tr>
                 </tbody>

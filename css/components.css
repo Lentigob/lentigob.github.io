@@ -341,6 +341,12 @@ a.card {
     opacity: 1;
 }
 
+.data-table__actions {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
 .data-action {
     display: inline-flex;
     align-items: center;
