@@ -39,7 +39,10 @@ Proyectos de investigación y desarrollo técnico.
                             </a>
                         </td>
                         <td>
-                            <strong class="data-table__title">{{ p.titulo }}</strong>
+                            <a v-if="p.url" :href="p.url" target="_blank" class="data-table__title-link">
+                                <strong class="data-table__title">{{ p.titulo }}</strong>
+                            </a>
+                            <strong v-else class="data-table__title">{{ p.titulo }}</strong>
                             <span class="data-table__subtitle">{{ 'Investigadores: ' + p.investigadores }}</span>
                         </td>
                         <td>
@@ -59,7 +62,7 @@ Proyectos de investigación y desarrollo técnico.
                             }">{{ p.situacion }}</span>
                         </td>
                         <td>
-                            <a v-if="p.url" :href="p.url" class="data-action">
+                            <a v-if="p.url" :href="p.url" target="_blank" class="data-action">
                                 <svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-right-arrow-alt"></use></svg>
                                 Detalles
                             </a>

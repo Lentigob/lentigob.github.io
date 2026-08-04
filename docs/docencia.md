@@ -28,7 +28,10 @@ Registro completo de actividades académicas e instituciones.
                     </div>
                 </div>
                 <div class="card__body card__body--stack">
-                    <md-content>#### {{ item.curso }}</md-content>
+                    <a v-if="item.url" :href="item.url" target="_blank" class="card__title-link">
+                        <md-content>#### {{ item.curso }}</md-content>
+                    </a>
+                    <md-content v-else>#### {{ item.curso }}</md-content>
                     <md-content>{{ item.descripcion }}</md-content>
                 </div>
                 <div class="card__section card__section--bottom card__section--muted">

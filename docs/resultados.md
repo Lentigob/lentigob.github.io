@@ -35,7 +35,10 @@ Reportes, publicaciones, datos abiertos y software desarrollado por el laborator
                 <tbody>
                     <tr v-for="item in items" :key="(item.titulo || item.nombre) + item.anio">
                         <td>
-                            <strong class="data-table__title">{{ item.titulo || item.nombre }}</strong>
+                            <a v-if="item.url" :href="item.url" target="_blank" class="data-table__title-link">
+                                <strong class="data-table__title">{{ item.titulo || item.nombre }}</strong>
+                            </a>
+                            <strong v-else class="data-table__title">{{ item.titulo || item.nombre }}</strong>
                             <span class="data-table__subtitle">{{ item.autores || item.participantes }}</span>
                             <span class="data-table__subtitle" style="font-style: italic;" v-if="item.revistaeditorial">{{ item.revistaeditorial }}</span>
                         </td>

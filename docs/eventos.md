@@ -33,7 +33,10 @@ Congresos, talleres y seminarios donde participamos.
                     </div>
                 </div>
                 <div class="card__body card__body--stack">
-                    <md-content>#### {{ ev.nombreevento }}</md-content>
+                    <a v-if="ev.url" :href="ev.url" target="_blank" class="card__title-link">
+                        <md-content>#### {{ ev.nombreevento }}</md-content>
+                    </a>
+                    <md-content v-else>#### {{ ev.nombreevento }}</md-content>
                     <md-content>*{{ ev.titulo }}*</md-content>
                 </div>
                 <div class="card__section card__section--bottom card__section--muted">

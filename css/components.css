@@ -341,6 +341,21 @@ a.card {
     opacity: 1;
 }
 
+.data-table__title-link,
+.card__title-link {
+    text-decoration: none !important;
+    color: inherit;
+    display: block;
+}
+
+.data-table__title-link:hover .data-table__title {
+    text-decoration: underline;
+}
+
+.card__title-link:hover {
+    text-decoration: underline !important;
+}
+
 .data-table__actions {
     display: inline-flex;
     flex-wrap: wrap;

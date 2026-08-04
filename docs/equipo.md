@@ -19,9 +19,9 @@ A continuación presentamos al equipo de investigadores y colaboradores de nuest
                 </div>
                 <div class="card__body">
                     <div class="icon-links align-right no-break">
-                        <a v-if="item.linkedin" :href="item.linkedin" title="LinkedIn"><svg class="icon-svg small gray"><use xlink:href="assets/icons/sprite.svg#bx-linkedin"></use></svg></a>
-                        <a v-if="item.contacto" :href="item.contacto" title="Contacto"><svg class="icon-svg small gray"><use xlink:href="assets/icons/sprite.svg#bx-envelope"></use></svg></a>
-                        <a v-if="item.pagina" :href="item.pagina" title="Pagina"><svg class="icon-svg small gray"><use xlink:href="assets/icons/sprite.svg#bx-link-alt"></use></svg></a>
+                        <a v-if="item.linkedin" :href="item.linkedin" target="_blank" title="LinkedIn"><svg class="icon-svg small gray"><use xlink:href="assets/icons/sprite.svg#bx-linkedin"></use></svg></a>
+                        <a v-if="item.contacto" :href="item.contacto" target="_blank" title="Contacto"><svg class="icon-svg small gray"><use xlink:href="assets/icons/sprite.svg#bx-envelope"></use></svg></a>
+                        <a v-if="item.pagina" :href="item.pagina" target="_blank" title="Pagina"><svg class="icon-svg small gray"><use xlink:href="assets/icons/sprite.svg#bx-link-alt"></use></svg></a>
                     </div>
                     <md-content>
                         ### {{ item.nombre }}
@@ -54,9 +54,9 @@ A continuación presentamos al equipo de investigadores y colaboradores de nuest
                 </div>
                 <div class="card__body">
                     <div class="icon-links align-right no-break">
-                        <a v-if="item.linkedin" :href="item.linkedin" title="LinkedIn"><svg class="icon-svg small gray"><use xlink:href="assets/icons/sprite.svg#bx-linkedin"></use></svg></a>
-                        <a v-if="item.contacto" :href="item.contacto" title="Contacto"><svg class="icon-svg small gray"><use xlink:href="assets/icons/sprite.svg#bx-envelope"></use></svg></a>
-                        <a v-if="item.pagina" :href="item.pagina" title="Pagina"><svg class="icon-svg small gray"><use xlink:href="assets/icons/sprite.svg#bx-link-alt"></use></svg></a>
+                        <a v-if="item.linkedin" :href="item.linkedin" target="_blank" title="LinkedIn"><svg class="icon-svg small gray"><use xlink:href="assets/icons/sprite.svg#bx-linkedin"></use></svg></a>
+                        <a v-if="item.contacto" :href="item.contacto" target="_blank" title="Contacto"><svg class="icon-svg small gray"><use xlink:href="assets/icons/sprite.svg#bx-envelope"></use></svg></a>
+                        <a v-if="item.pagina" :href="item.pagina" target="_blank" title="Pagina"><svg class="icon-svg small gray"><use xlink:href="assets/icons/sprite.svg#bx-link-alt"></use></svg></a>
                     </div>
                     <md-content>
                         ### {{ item.nombre }}
@@ -88,9 +88,9 @@ A continuación presentamos al equipo de investigadores y colaboradores de nuest
                 </div>
                 <div class="card__body">
                     <div class="icon-links align-right no-break">
-                        <a v-if="item.linkedin" :href="item.linkedin" title="LinkedIn"><svg class="icon-svg small gray"><use xlink:href="assets/icons/sprite.svg#bx-linkedin"></use></svg></a>
-                        <a v-if="item.contacto" :href="item.contacto" title="Contacto"><svg class="icon-svg small gray"><use xlink:href="assets/icons/sprite.svg#bx-envelope"></use></svg></a>
-                        <a v-if="item.pagina" :href="item.pagina" title="Pagina"><svg class="icon-svg small gray"><use xlink:href="assets/icons/sprite.svg#bx-link-alt"></use></svg></a>
+                        <a v-if="item.linkedin" :href="item.linkedin" target="_blank" title="LinkedIn"><svg class="icon-svg small gray"><use xlink:href="assets/icons/sprite.svg#bx-linkedin"></use></svg></a>
+                        <a v-if="item.contacto" :href="item.contacto" target="_blank" title="Contacto"><svg class="icon-svg small gray"><use xlink:href="assets/icons/sprite.svg#bx-envelope"></use></svg></a>
+                        <a v-if="item.pagina" :href="item.pagina" target="_blank" title="Pagina"><svg class="icon-svg small gray"><use xlink:href="assets/icons/sprite.svg#bx-link-alt"></use></svg></a>
                     </div>
                     <md-content>
                         ### {{ item.nombre }}
