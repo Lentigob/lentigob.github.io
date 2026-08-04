@@ -20,7 +20,7 @@ Reportes, publicaciones, datos abiertos y software desarrollado por el laborator
             </div>
         </div>
         <div v-show="loading" class="loading-state">
-            <svg class="icon-svg bx-spin"><use xlink:href="assets/icons/sprite.svg#bx-loader-alt"></use></svg> Cargando resultados...
+            <icon-svg name="bx-loader-alt" class="bx-spin"></icon-svg> Cargando resultados...
         </div>
         <div v-show="!loading" class="data-panel">
             <table class="data-table">
@@ -47,15 +47,15 @@ Reportes, publicaciones, datos abiertos y software desarrollado por el laborator
                         <td>
                             <span class="data-table__actions">
                                 <a v-if="item.url" :href="item.url" target="_blank" class="data-action">
-                                    <svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-link-external"></use></svg>
+                                    <icon-svg name="bx-link-external"></icon-svg>
                                     Ver
                                 </a>
                                 <a v-if="item.pdf" :href="item.pdf" download class="data-action">
-                                    <svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-download"></use></svg>
+                                    <icon-svg name="bx-download"></icon-svg>
                                     PDF
                                 </a>
                                 <a v-if="item.doi && item.doi !== 'N/A'" :href="'https://doi.org/' + item.doi" target="_blank" class="data-action">
-                                    <svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-link-external"></use></svg>
+                                    <icon-svg name="bx-link-external"></icon-svg>
                                     DOI
                                 </a>
                             </span>

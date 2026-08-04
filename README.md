@@ -13,7 +13,7 @@
     <script type="text/template">
         <div class="news-container">
             <div v-show="loading" class="loading-state">
-                <svg class="icon-svg bx-spin"><use xlink:href="assets/icons/sprite.svg#bx-loader-alt"></use></svg> Cargando novedades...
+                <icon-svg name="bx-loader-alt" class="bx-spin"></icon-svg> Cargando novedades...
             </div>
             <a v-for="item in items.slice(0, 5)" :key="item.titulo" :href="item.url" target="_blank" class="news-strip">
                 <div class="news-meta">
@@ -38,7 +38,7 @@
         <div class="layout-grid layout-grid--spaced">
             <a href="#/docs/proyectos" class="card card--interactive">
                 <div class="card__body centered-content">
-                    <svg class="icon-svg large"><use xlink:href="assets/icons/sprite.svg#bx-folder"></use></svg>
+                    <icon-svg name="bx-folder" class="large"></icon-svg>
                     <md-content>
                         ### Proyectos
                         Investigación aplicada y desarrollo tecnológico en curso.
@@ -47,7 +47,7 @@
             </a>
             <a href="#/docs/resultados" class="card card--interactive">
                 <div class="card__body centered-content">
-                    <svg class="icon-svg large"><use xlink:href="assets/icons/sprite.svg#bx-book"></use></svg>
+                    <icon-svg name="bx-book" class="large"></icon-svg>
                     <md-content>
                         ### Resultados
                         Reportes, publicaciones, datos abiertos y software desarrollado.
@@ -56,7 +56,7 @@
             </a>
             <a href="#/docs/equipo" class="card card--interactive">
                 <div class="card__body centered-content">
-                    <svg class="icon-svg large"><use xlink:href="assets/icons/sprite.svg#bx-group"></use></svg>
+                    <icon-svg name="bx-group" class="large"></icon-svg>
                     <md-content>
                         ### Equipo
                         Conoce a los investigadores y colaboradores del LENTI.
@@ -65,7 +65,7 @@
             </a>
             <a href="#/docs/impacto" class="card card--interactive">
                 <div class="card__body centered-content">
-                    <svg class="icon-svg large"><use xlink:href="assets/icons/sprite.svg#bx-trophy"></use></svg>
+                    <icon-svg name="bx-trophy" class="large"></icon-svg>
                     <md-content>
                         ### Impacto
                         Premios, menciones y resultados de transferencia.

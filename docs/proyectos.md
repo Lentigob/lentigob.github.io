@@ -17,7 +17,7 @@ Proyectos de investigación y desarrollo técnico.
             </div>
         </div>
         <div v-show="loading" class="loading-state">
-            <svg class="icon-svg bx-spin"><use xlink:href="assets/icons/sprite.svg#bx-loader-alt"></use></svg> Cargando proyectos...
+            <icon-svg name="bx-loader-alt" class="bx-spin"></icon-svg> Cargando proyectos...
         </div>
         <div v-show="!loading" class="data-panel">
             <table class="data-table">
@@ -63,7 +63,7 @@ Proyectos de investigación y desarrollo técnico.
                         </td>
                         <td>
                             <a v-if="p.url" :href="p.url" target="_blank" class="data-action">
-                                <svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-right-arrow-alt"></use></svg>
+                                <icon-svg name="bx-right-arrow-alt"></icon-svg>
                                 Detalles
                             </a>
                         </td>

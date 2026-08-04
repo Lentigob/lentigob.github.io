@@ -17,7 +17,7 @@ Congresos, talleres y seminarios donde participamos.
             </div>
         </div>
         <div v-show="loading" class="loading-state">
-            <svg class="icon-svg bx-spin"><use xlink:href="assets/icons/sprite.svg#bx-loader-alt"></use></svg> Cargardo agenda de eventos...
+            <icon-svg name="bx-loader-alt" class="bx-spin"></icon-svg> Cargardo agenda de eventos...
         </div>
         <div v-show="!loading" class="layout-grid">
             <div class="card card--interactive card--accent-left" v-for="ev in items" :key="ev.nombreevento">
@@ -29,7 +29,7 @@ Congresos, talleres y seminarios donde participamos.
                 <div class="card__section card__section--top card__section--muted">
                     <div class="card-row card-row--between">
                         <span class="badge badge-blue">{{ ev.tipo }}</span>
-                        <span class="card-inline"><svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-calendar"></use></svg> {{ ev.fechainicio }} - {{ ev.fechafin }}</span>
+                        <span class="card-inline"><icon-svg name="bx-calendar"></icon-svg> {{ ev.fechainicio }} - {{ ev.fechafin }}</span>
                     </div>
                 </div>
                 <div class="card__body card__body--stack">
@@ -41,16 +41,16 @@ Congresos, talleres y seminarios donde participamos.
                 </div>
                 <div class="card__section card__section--bottom card__section--muted">
                     <div class="card-row card-row--left">
-                        <span class="card-inline"><svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-user"></use></svg> {{ ev.autores }}</span>
-                        <span class="card-inline"><svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-map-pin"></use></svg> {{ ev.institucionsede }} ({{ ev.alcance }})</span>
+                        <span class="card-inline"><icon-svg name="bx-user"></icon-svg> {{ ev.autores }}</span>
+                        <span class="card-inline"><icon-svg name="bx-map-pin"></icon-svg> {{ ev.institucionsede }} ({{ ev.alcance }})</span>
                     </div>
                     <div class="card-row card-row--between">
-                        <span class="card-inline"><svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-briefcase"></use></svg> {{ ev.organizador }}</span>
-                        <span class="card-inline"><svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-flag"></use></svg> {{ ev.etapa }}</span>
+                        <span class="card-inline"><icon-svg name="bx-briefcase"></icon-svg> {{ ev.organizador }}</span>
+                        <span class="card-inline"><icon-svg name="bx-flag"></icon-svg> {{ ev.etapa }}</span>
                     </div>
                     <div class="card-row card-row--left" v-if="ev.url">
                         <a :href="ev.url" target="_blank" class="data-action">
-                            <svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-link-external"></use></svg>
+                            <icon-svg name="bx-link-external"></icon-svg>
                             Ver evento
                         </a>
                     </div>

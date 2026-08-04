@@ -17,14 +17,14 @@ Registro completo de actividades académicas e instituciones.
             </div>
         </div>
         <div v-show="loading" class="loading-state">
-            <svg class="icon-svg bx-spin"><use xlink:href="assets/icons/sprite.svg#bx-loader-alt"></use></svg> Cargado programa académico...
+            <icon-svg name="bx-loader-alt" class="bx-spin"></icon-svg> Cargado programa académico...
         </div>
         <div v-show="!loading" class="layout-grid">
             <div class="card card--accent-left" v-for="item in items" :key="item.curso">
                 <div class="card__section card__section--top card__section--muted">
                     <div class="card-row card-row--between">
                         <span class="badge badge-gray">{{ item.tipo }}</span>
-                        <span class="card-inline"><svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-calendar"></use></svg> {{ item.anio }}</span>
+                        <span class="card-inline"><icon-svg name="bx-calendar"></icon-svg> {{ item.anio }}</span>
                     </div>
                 </div>
                 <div class="card__body card__body--stack">
@@ -36,13 +36,13 @@ Registro completo de actividades académicas e instituciones.
                 </div>
                 <div class="card__section card__section--bottom card__section--muted">
                     <div class="card-row card-row--left">
-                        <span class="card-inline"><svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-map-pin"></use></svg> {{ item.institucion }}</span>
-                        <span class="card-inline"><svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-graduation-cap"></use></svg> {{ item.programa }}</span>
-                        <span class="card-inline"><svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-time-five"></use></svg> {{ item.horastotales }} horas</span>
+                        <span class="card-inline"><icon-svg name="bx-map-pin"></icon-svg> {{ item.institucion }}</span>
+                        <span class="card-inline"><icon-svg name="bx-graduation-cap"></icon-svg> {{ item.programa }}</span>
+                        <span class="card-inline"><icon-svg name="bx-time-five"></icon-svg> {{ item.horastotales }} horas</span>
                     </div>
                     <div class="card-row card-row--left" v-if="item.url">
                         <a :href="item.url" target="_blank" class="data-action">
-                            <svg class="icon-svg"><use xlink:href="assets/icons/sprite.svg#bx-link-external"></use></svg>
+                            <icon-svg name="bx-link-external"></icon-svg>
                             Ver curso
                         </a>
                     </div>
