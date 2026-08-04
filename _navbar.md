@@ -1,4 +1,4 @@
-- [![Lentigob](assets/logo.svg)](/)
+- [<img src="assets/logo-mark.svg" alt="Lentigob">](/)
 - [Inicio](/)
 - [Proyectos](/docs/proyectos)
 - [Resultados](/docs/resultados)
