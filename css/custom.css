@@ -57,6 +57,56 @@
   padding-top: 5rem;
 }
 
+/* En pantallas angostas la barra de navegación superior envuelve a 3 líneas
+   (8 secciones + logo), así que necesita más espacio para no encimarse con
+   el contenido de la página. */
+@media (max-width: 480px) {
+  .app-nav:not(:empty) ~ main .markdown-section {
+    padding-top: 9rem;
+  }
+}
+
+/* Logo dentro de la barra de navegación superior: es el único elemento de
+   marca que sigue visible en móvil (el sidebar con el nombre "Lentigob"
+   se oculta fuera de pantalla ahí). Sin este tamaño explícito el SVG
+   (width/height:100%) intentaría llenar todo el <li>. */
+.app-nav > ul > li:first-child {
+  display: flex;
+  align-items: center;
+  margin-right: var(--space-xs, 0.5rem);
+}
+
+.app-nav > ul > li:first-child img {
+  height: 28px;
+  width: 28px;
+  display: block;
+}
+
+/* Logo del sidebar (window.$docsify.logo): al configurarlo, Docsify
+   reemplaza el título de la página por únicamente la imagen dentro de
+   .app-name-link, así que sin límite de tamaño el SVG (width/height:100%)
+   llenaría todo el contenedor del nombre. */
+.app-name-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-name-link img {
+  display: block;
+  height: 64px;
+  width: 64px;
+  margin: 0 auto;
+}
+
+.app-name-link::after {
+  content: 'Lentigob';
+  margin-top: 0.5rem;
+  font-size: var(--font-size-l, 1.25rem);
+  font-weight: normal;
+  color: var(--sidebar-name-color, var(--theme-color));
+}
+
 /* Navbar dropdown readability overrides */
 .app-nav ul li ul {
   background: var(--navbar-background);
