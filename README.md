@@ -2,7 +2,7 @@
 <div class="hero-section">
   <h1>LENTI</h1>
   <p>Laboratorio de Estudios sobre Nuevas Tecnologas e Innovación. Investigación interdisciplinaria para el futuro digital.</p>
-  <a href="#/docsx/proyectos" class="hero-btn">Explorar Proyectos</a>
+  <a href="#/docs/proyectos" class="hero-btn">Explorar Proyectos</a>
 </div>
 
 <!-- Novedades -->
@@ -36,12 +36,12 @@
 <vue-mount>
     <script type="text/template">
         <div class="layout-grid">
-            <a href="#/docs/proyectos" class="card interactive">
+            <a href="#/docs/eventos" class="card interactive">
                 <div class="card__body centered-content">
                     <icon-svg name="bx-folder" class="large"></icon-svg>
                     <md-content>
-                        ### Proyectos
-                        Investigación aplicada y desarrollo tecnológico en curso.
+                        ### Eventos
+                        Actividades y encuentros de divulgación.
                     </md-content>
                 </div>
             </a>
