@@ -114,16 +114,15 @@ a.card {
 
 .card.interactive:hover,
 .card.interactive:focus,
-.card.interactive:active {
-    color: var(--color-text-primary);
+.card.interactive:active,
+.card.interactive a {
+    color: inherit;
+    text-decoration: none;
 }
 
-.card.interactive > .card__body > * ,
-.card.interactive:focus > .card__body > *,
-.card.interactive:active > .card__body > *,
-.card.interactive:hover > .card__body > * {
+.card.interactive .card__body * {
     text-decoration: none;
-    color: 
+    color: inherit;
 }
 
 .card > .card__body {

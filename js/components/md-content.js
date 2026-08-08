@@ -65,8 +65,17 @@
 
       const html = marked.parse(rawMd, { breaks: !this.hasAttribute('no-breaks') });
 
+      // window.marked es reemplazado por docsify con su propio compilador,
+      // que envuelve cada encabezado en un <a class="anchor"> (permalink de
+      // su TOC). Aquí no aplica: rompería el <a> exterior de las cartas
+      // (nesting inválido) y arrastraría los estilos de link de docsify.
+      const unwrappedHeadings = html.replace(
+        /<h([1-6])[^>]*>\s*<a[^>]*class="anchor"[^>]*>\s*<span>([\s\S]*?)<\/span>\s*<\/a>\s*<\/h\1>/g,
+        '<h$1>$2</h$1>'
+      );
+
       // Desenvuelve SVGs que Marked haya envuelto en <p> por error
-      this.innerHTML = html.replace(/<p>\s*(<svg[\s\S]*?<\/svg>)\s*<\/p>/g, '$1');
+      this.innerHTML = unwrappedHeadings.replace(/<p>\s*(<svg[\s\S]*?<\/svg>)\s*<\/p>/g, '$1');
     }
   }
 
