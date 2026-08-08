@@ -99,7 +99,7 @@ a.card {
     box-shadow: var(--shadow-sm);
     text-decoration: none;
     color: inherit;
-    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0s ease;
 }
 
 .card.interactive a {
@@ -110,6 +110,14 @@ a.card {
 .card.interactive:hover {
     box-shadow: var(--shadow-md);
     transform: translateY(-2px);
+}
+
+.card.interactive:focus {
+    outline: none;
+}
+
+.card.interactive:focus-visible {
+    box-shadow: var(--shadow-focus);
 }
 
 .card.interactive:hover,
