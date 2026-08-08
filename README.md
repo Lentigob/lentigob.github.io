@@ -35,8 +35,8 @@
 <div class="vue-mount">
 <vue-mount>
     <script type="text/template">
-        <div class="layout-grid layout-grid--spaced">
-            <a href="#/docs/proyectos" class="card card--interactive">
+        <div class="layout-grid">
+            <a href="#/docs/proyectos" class="card interactive">
                 <div class="card__body centered-content">
                     <icon-svg name="bx-folder" class="large"></icon-svg>
                     <md-content>
@@ -45,7 +45,7 @@
                     </md-content>
                 </div>
             </a>
-            <a href="#/docs/resultados" class="card card--interactive">
+            <a href="#/docs/resultados" class="card interactive">
                 <div class="card__body centered-content">
                     <icon-svg name="bx-book" class="large"></icon-svg>
                     <md-content>
@@ -54,7 +54,7 @@
                     </md-content>
                 </div>
             </a>
-            <a href="#/docs/equipo" class="card card--interactive">
+            <a href="#/docs/equipo" class="card interactive">
                 <div class="card__body centered-content">
                     <icon-svg name="bx-group" class="large"></icon-svg>
                     <md-content>
@@ -63,7 +63,7 @@
                     </md-content>
                 </div>
             </a>
-            <a href="#/docs/impacto" class="card card--interactive">
+            <a href="#/docs/impacto" class="card interactive">
                 <div class="card__body centered-content">
                     <icon-svg name="bx-trophy" class="large"></icon-svg>
                     <md-content>

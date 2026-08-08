@@ -91,7 +91,7 @@
     app.component('card-block', {
       props: { interactive: { type: Boolean, default: false } },
       template: `
-        <div :class="['card', { 'card--interactive': interactive }]">
+        <div :class="['card', { 'interactive': interactive }]">
             <slot name="image"></slot>
             <div class="card__body">
                 <slot></slot>

@@ -20,7 +20,7 @@ Congresos, talleres y seminarios donde participamos.
             <icon-svg name="bx-loader-alt" class="bx-spin"></icon-svg> Cargardo agenda de eventos...
         </div>
         <div v-show="!loading" class="layout-grid">
-            <card-block v-for="ev in items" :key="ev.nombreevento" class="card--interactive card--accent-left">
+            <card-block v-for="ev in items" :key="ev.nombreevento" class="interactive">
                 <template #image>
                     <div class="card-image-container" v-if="ev.imagen">
                         <a :href="ev.imagen" target="_blank" title="Ver imagen completa">

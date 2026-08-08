@@ -5,8 +5,8 @@
 <div class="vue-mount">
 <vue-mount>
     <script type="text/template">
-        <div class="layout-grid layout-grid--spaced">
-            <a href="https://maps.app.goo.gl/tURaLFw6wMZgphDj6" target="_blank" class="card card--interactive">
+        <div class="layout-grid spaced">
+            <a href="https://maps.app.goo.gl/tURaLFw6wMZgphDj6" target="_blank" class="card interactive">
                 <div class="card__body centered-content">
                     <icon-svg name="bx-map-pin" class="large"></icon-svg>
                     <md-content>

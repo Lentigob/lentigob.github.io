@@ -20,7 +20,7 @@ Logros e impactos del proyecto en el ámbito académico e industrial.
             <icon-svg name="bx-loader-alt" class="bx-spin"></icon-svg> Cargardo trayectoria...
         </div>
         <div v-show="!loading" class="layout-grid">
-            <card-block v-for="item in items" :key="item.nombre" class="card--interactive card--accent-left">
+            <card-block v-for="item in items" :key="item.nombre" interactive>
                 <div class="muted row space-between">
                     <span class="badge badge-amber">{{ item.tipologro }}</span>
                     <span class="card-inline"><icon-svg name="bx-trophy"></icon-svg> {{ item.fecha }}</span>
