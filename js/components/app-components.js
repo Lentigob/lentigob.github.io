@@ -31,12 +31,6 @@
         <td>
             <span class="badge badge-blue">{{ item.institucion }}</span>
         </td>
-        <td style="min-width: 120px;">
-            <div class="progress-track">
-                <div class="progress-fill" :style="'width: ' + item.avance"></div>
-            </div>
-            <span style="font-size: 0.75rem; color: #64748b;">{{ item.avance }}</span>
-        </td>
         <td>
             <span class="badge" :class="{
                 'badge-green': item.situacion.toLowerCase() === 'terminado',

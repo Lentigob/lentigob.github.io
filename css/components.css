@@ -14,6 +14,20 @@
     gap: var(--space-2xl);
 }
 
+/** Componente Md-content (markdown) **/
+.markdown-section md-content > p {
+    margin-top: var(--space-2xs);
+    margin-bottom: var(--space-2xs);
+}
+
+.markdown-section md-content > p:first-child {
+    margin-top: 0;
+}
+
+.markdown-section md-content > p:last-child {
+    margin-bottom: 0;
+}
+
 /* Filters */
 .filters {
     margin-bottom: var(--space-xl);
@@ -101,14 +115,7 @@ a.card {
 
 .card > .card__body > * {
     display: block;
-}
-
-.card > .card__body > * {
-    padding: var(--space-sm) var(--space-md) 0 var(--space-md);
-}
-
-.card > .card__body > *:last-child {
-    padding-bottom: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
 }
 
 .card > .card__body > .muted {
@@ -133,11 +140,18 @@ a.card {
     flex-grow: 1;
 }
 
-.card-separator {
+.card > .card__body > .card-separator {
     height: 1px;
-    width: 100%;
-    background: var(--color-surface-muted);
-    margin: var(--space-2xs) 0;
+    display: flex;
+    align-items: center;
+    padding: 0 var(--space-md);
+}
+
+.card > .card__body > .card-separator::before {
+    content: "";
+    flex-grow: 1;
+    height: 1px;
+    background: var(--color-border);
 }
 
 .card-inline {

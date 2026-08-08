@@ -24,6 +24,7 @@ A continuación presentamos al equipo de investigadores y colaboradores de nuest
                     <a v-if="item.contacto" :href="item.contacto" target="_blank" title="Contacto"><icon-svg name="bx-envelope" class="small gray"></icon-svg></a>
                     <a v-if="item.pagina" :href="item.pagina" target="_blank" title="Pagina"><icon-svg name="bx-link-alt" class="small gray"></icon-svg></a>
                 </div>
+                <div class="card-separator"></div>
                 <md-content class="card-content">
                     ### {{ item.nombre }}
                     **{{ item.rol }}**
@@ -59,6 +60,7 @@ A continuación presentamos al equipo de investigadores y colaboradores de nuest
                     <a v-if="item.contacto" :href="item.contacto" target="_blank" title="Contacto"><icon-svg name="bx-envelope" class="small gray"></icon-svg></a>
                     <a v-if="item.pagina" :href="item.pagina" target="_blank" title="Pagina"><icon-svg name="bx-link-alt" class="small gray"></icon-svg></a>
                 </div>
+                <div class="card-separator"></div>
                 <md-content class="card-content">
                     ### {{ item.nombre }}
                     **{{ item.rol }}**
@@ -93,6 +95,7 @@ A continuación presentamos al equipo de investigadores y colaboradores de nuest
                     <a v-if="item.contacto" :href="item.contacto" target="_blank" title="Contacto"><icon-svg name="bx-envelope" class="small gray"></icon-svg></a>
                     <a v-if="item.pagina" :href="item.pagina" target="_blank" title="Pagina"><icon-svg name="bx-link-alt" class="small gray"></icon-svg></a>
                 </div>
+                <div class="card-separator"></div>
                 <md-content class="card-content">
                     ### {{ item.nombre }}
                     **{{ item.rol }}**
