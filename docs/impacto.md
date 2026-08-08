@@ -20,33 +20,29 @@ Logros e impactos del proyecto en el ámbito académico e industrial.
             <icon-svg name="bx-loader-alt" class="bx-spin"></icon-svg> Cargardo trayectoria...
         </div>
         <div v-show="!loading" class="layout-grid">
-            <div class="card card--interactive card--accent-left" v-for="item in items" :key="item.nombre">
-                <div class="card__section card__section--top card__section--muted">
-                    <div class="card-row card-row--between">
-                        <span class="badge badge-amber">{{ item.tipologro }}</span>
-                        <span class="card-inline"><icon-svg name="bx-trophy"></icon-svg> {{ item.fecha }}</span>
-                    </div>
+            <card-block v-for="item in items" :key="item.nombre" class="card--interactive card--accent-left">
+                <div class="muted row space-between">
+                    <span class="badge badge-amber">{{ item.tipologro }}</span>
+                    <span class="card-inline"><icon-svg name="bx-trophy"></icon-svg> {{ item.fecha }}</span>
                 </div>
-                <div class="card__body card__body--stack">
-                    <md-content>
-                        #### {{ item.url ? ('<a href="' + item.url + '" target="_blank">' + item.nombre + '</a>') : item.nombre }} 
-                        <br>
-                        {{ item.descripcion }}
-                    </md-content>
-                </div>
-                <div class="card__section card__section--bottom card__section--muted">
-                    <div class="card-row card-row--left">
+                <md-content class="card-content">
+                    #### {{ item.url ? ('<a href="' + item.url + '" target="_blank">' + item.nombre + '</a>') : item.nombre }}
+                    <br>
+                    {{ item.descripcion }}
+                </md-content>
+                <div class="muted">
+                    <div class="row">
                         <span class="card-inline"><icon-svg name="bx-map-pin"></icon-svg> {{ item.institucion }}</span>
                         <span class="card-inline"><icon-svg name="bx-world"></icon-svg> {{ item.pais }}</span>
                     </div>
-                    <div class="card-row card-row--left" v-if="item.url">
+                    <div class="row" v-if="item.url">
                         <a :href="item.url" target="_blank" class="data-action">
                             <icon-svg name="bx-link-external"></icon-svg>
                             Ver más
                         </a>
                     </div>
                 </div>
-            </div>
+            </card-block>
             <div v-show="items.length === 0" class="no-results">
                 No se encontraron logros con los criterios seleccionados.
             </div>

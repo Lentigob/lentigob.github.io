@@ -20,34 +20,26 @@ Registro completo de actividades académicas e instituciones.
             <icon-svg name="bx-loader-alt" class="bx-spin"></icon-svg> Cargado programa académico...
         </div>
         <div v-show="!loading" class="layout-grid">
-            <div class="card card--accent-left" v-for="item in items" :key="item.curso">
-                <div class="card__section card__section--top card__section--muted">
-                    <div class="card-row card-row--between">
-                        <span class="badge badge-gray">{{ item.tipo }}</span>
-                        <span class="card-inline"><icon-svg name="bx-calendar"></icon-svg> {{ item.anio }}</span>
-                    </div>
+            <card-block v-for="item in items" :key="item.curso">
+                <div class="muted row space-between">
+                    <span class="badge badge-gray">{{ item.tipo }}</span>
+                    <span class="card-inline"><icon-svg name="bx-calendar"></icon-svg> {{ item.anio }}</span>
                 </div>
-                <div class="card__body card__body--stack">
-                    <md-content>
-                        #### {{ item.url ? ('<a href="' + item.url + '" target="_blank">' + item.curso + '</a>') : item.curso }}
-                        <br>
-                        {{ item.descripcion }}
-                    </md-content>
-                </div>
-                <div class="card__section card__section--bottom card__section--muted">
-                    <div class="card-row card-row--left">
+                <md-content>#### {{ item.url ? ('<a href="' + item.url + '" target="_blank">' + item.curso + '</a>') : item.curso }}<br>{{ item.descripcion }}</md-content>
+                <div class="muted">
+                    <div class="row">
                         <span class="card-inline"><icon-svg name="bx-map-pin"></icon-svg> {{ item.institucion }}</span>
                         <span class="card-inline"><icon-svg name="bx-graduation-cap"></icon-svg> {{ item.programa }}</span>
                         <span class="card-inline"><icon-svg name="bx-time-five"></icon-svg> {{ item.horastotales }} horas</span>
                     </div>
-                    <div class="card-row card-row--left" v-if="item.url">
+                    <div class="row" v-if="item.url">
                         <a :href="item.url" target="_blank" class="data-action">
                             <icon-svg name="bx-link-external"></icon-svg>
                             Ver curso
                         </a>
                     </div>
                 </div>
-            </div>
+            </card-block>
             <div v-show="items.length === 0" class="no-results">
                 No se encontraron cursos con los criterios seleccionados.
             </div>

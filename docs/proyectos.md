@@ -33,40 +33,7 @@ Proyectos de investigación y desarrollo técnico.
                 </thead>
                 <tbody>
                     <tr v-for="p in items" :key="p.titulo">
-                        <td>
-                            <a v-if="p.imagen" :href="p.imagen" target="_blank" title="Ver imagen completa">
-                                <img :src="p.imagen" :alt="p.titulo" class="data-table__thumbnail" @error="$event.target.parentElement.style.display='none'">
-                            </a>
-                        </td>
-                        <td>
-                            <a v-if="p.url" :href="p.url" target="_blank" class="data-table__title-link">
-                                <strong class="data-table__title">{{ p.titulo }}</strong>
-                            </a>
-                            <strong v-else class="data-table__title">{{ p.titulo }}</strong>
-                            <span class="data-table__subtitle">{{ 'Investigadores: ' + p.investigadores }}</span>
-                        </td>
-                        <td>
-                            <span class="badge badge-blue">{{ p.institucion }}</span>
-                        </td>
-                        <td style="min-width: 120px;">
-                            <div class="progress-track">
-                                <div class="progress-fill" :style="'width: ' + p.avance"></div>
-                            </div>
-                            <span style="font-size: 0.75rem; color: #64748b;">{{ p.avance }}</span>
-                        </td>
-                        <td>
-                            <span class="badge" :class="{
-                                'badge-green': p.situacion.toLowerCase() === 'terminado',
-                                'badge-yellow': p.situacion.toLowerCase() === 'activo',
-                                'badge-red': p.situacion.toLowerCase() === 'pausado'
-                            }">{{ p.situacion }}</span>
-                        </td>
-                        <td>
-                            <a v-if="p.url" :href="p.url" target="_blank" class="data-action">
-                                <icon-svg name="bx-right-arrow-alt"></icon-svg>
-                                Detalles
-                            </a>
-                        </td>
+                        <proyecto-row :item="p"></proyecto-row>
                     </tr>
                 </tbody>
             </table>

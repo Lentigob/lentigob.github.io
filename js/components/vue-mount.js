@@ -33,6 +33,7 @@
 
       const app = Vue.createApp({ template });
       app.config.compilerOptions.whitespace = 'preserve';
+      window.registerAppComponents(app);
 
       this._app = app;
       app.mount(this);

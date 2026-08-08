@@ -273,6 +273,7 @@
       // "duros" de Markdown (dos espacios + salto) si alguien escribe
       // Markdown directo como texto de un <md-content>. "preserve" lo evita.
       app.config.compilerOptions.whitespace = 'preserve';
+      window.registerAppComponents(app);
 
       this._app = app;
       app.mount(this);

@@ -34,32 +34,7 @@ Reportes, publicaciones, datos abiertos y software desarrollado por el laborator
                 </thead>
                 <tbody>
                     <tr v-for="item in items" :key="(item.titulo || item.nombre) + item.anio">
-                        <td>
-                            <a v-if="item.url" :href="item.url" target="_blank" class="data-table__title-link">
-                                <strong class="data-table__title">{{ item.titulo || item.nombre }}</strong>
-                            </a>
-                            <strong v-else class="data-table__title">{{ item.titulo || item.nombre }}</strong>
-                            <span class="data-table__subtitle">{{ item.autores || item.participantes }}</span>
-                            <span class="data-table__subtitle" style="font-style: italic;" v-if="item.revistaeditorial">{{ item.revistaeditorial }}</span>
-                        </td>
-                        <td><span class="badge badge-blue">{{ item.tipo }}</span></td>
-                        <td>{{ item.anio }}</td>
-                        <td>
-                            <span class="data-table__actions">
-                                <a v-if="item.url" :href="item.url" target="_blank" class="data-action">
-                                    <icon-svg name="bx-link-external"></icon-svg>
-                                    Ver
-                                </a>
-                                <a v-if="item.pdf" :href="item.pdf" download class="data-action">
-                                    <icon-svg name="bx-download"></icon-svg>
-                                    PDF
-                                </a>
-                                <a v-if="item.doi && item.doi !== 'N/A'" :href="'https://doi.org/' + item.doi" target="_blank" class="data-action">
-                                    <icon-svg name="bx-link-external"></icon-svg>
-                                    DOI
-                                </a>
-                            </span>
-                        </td>
+                        <resultado-row :item="item"></resultado-row>
                     </tr>
                 </tbody>
             </table>

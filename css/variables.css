@@ -5,8 +5,8 @@
 :root {
   /* Brand colours */
   /* Estas variables pueden declararse temprano en index.html para evitar parpadeos en el loader. */
-  --theme-color: var(--app-theme-color, #4f7cff);
-  --theme-color-dark: var(--app-theme-color-dark, #2d55d6);
+  --theme-color: var(--app-theme-color, #4fff67);
+  --theme-color-dark: var(--app-theme-color-dark, #41d62d);
   --theme-color-dark-rgb: var(--app-theme-color-dark-rgb, 45, 85, 214);
 
   /* Semantic color system */

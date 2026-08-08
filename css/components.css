@@ -1,5 +1,5 @@
 /* =============================================
-   Unified Content Components
+   Componentes genéricos de la app (tarjetas, filtros, tablas, badges, etc.)
    ============================================= */
 
 /* Layout containers */
@@ -64,11 +64,11 @@
     grid-column: 1 / -1;
 }
 
-/* Generic cards */
+/******** Generic cards *********/
 .card,
 a.card {
     background: var(--base-background-color);
-    border-radius: var(--border-radius-m);
+    border-radius: var(--border-radius-s);
     border: var(--border-width) solid var(--color-border);
     overflow: hidden;
     height: 100%;
@@ -76,81 +76,61 @@ a.card {
     flex-direction: column;
 }
 
-.card--inactive {
+.card.inactive {
     opacity: 0.8;
     filter: grayscale(0.8);
 }
 
-.card--interactive,
-.markdown-section a.card {
+.card.interactive {
     box-shadow: var(--shadow-sm);
     text-decoration: none;
     color: inherit;
     transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
 }
 
-.card--interactive:hover,
-.markdown-section a.card:hover {
+.card.interactive:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-md);
-    border: var(--border-width) solid var(--theme-color);
 }
 
-.card__body {
-    padding: var(--space-lg);
+.card > .card__body {
     flex-grow: 1;
-}
-
-.card__section {
-    padding: var(--space-sm) var(--space-lg);
-}
-
-.card__section--muted {
-    background: var(--color-surface-muted);
-}
-
-.card__section--top {
-    border-bottom: 1px solid var(--color-border);
-}
-
-.card__section--bottom {
-    border-top: 1px solid var(--color-border);
-}
-
-.card-row {
-    display: flex;
-    align-items: center;
-    gap: var(--space-xs);
-    flex-wrap: wrap;
-}
-
-.card-row--left {
-    justify-content: flex-start;
-    text-align: left;
-}
-
-.card-row--center {
-    justify-content: center;
-    text-align: center;
-}
-
-.card-row--right {
-    justify-content: flex-end;
-    text-align: right;
-}
-
-.card-row--between {
-    justify-content: space-between;
-}
-
-.card--accent-left {
-    border-left: 5px solid var(--theme-color);
-}
-
-.card__body--stack {
     display: flex;
     flex-direction: column;
-    gap: var(--space-sm);
+}
+
+.card > .card__body > * {
+    display: block;
+}
+
+.card > .card__body > * {
+    padding: var(--space-sm) var(--space-md) 0 var(--space-md);
+}
+
+.card > .card__body > *:last-child {
+    padding-bottom: var(--space-sm);
+}
+
+.card > .card__body > .muted {
+    color: var(--color-text-muted);
+    background-color: var(--color-surface-muted);
+    font-size: 0.85rem;
+    border: 1px solid var(--color-border-strong);
+    border-width: 1px 0 1px 0;
+    padding-top: var(--space-xs);
+    padding-bottom: var(--space-xs);
+}
+
+.card > .card__body > .muted:first-child {
+    border-top: none;
+}
+
+.card > .card__body > .muted:last-child {
+    border-bottom: none;
+}
+
+.card > .card__body > .card-content {
+    flex-grow: 1;
 }
 
 .card-separator {
@@ -351,19 +331,6 @@ a.card {
     text-decoration: underline;
 }
 
-/* Título de tarjeta con link: el <a> lo genera Marked dentro del heading
-   (ver docs/impacto.md, eventos.md, docencia.md), no un wrapper nuestro. */
-.card__body--stack h3 a,
-.card__body--stack h4 a {
-    color: inherit;
-    text-decoration: none !important;
-}
-
-.card__body--stack h3 a:hover,
-.card__body--stack h4 a:hover {
-    text-decoration: underline !important;
-}
-
 .data-table__actions {
     display: inline-flex;
     flex-wrap: wrap;
@@ -417,4 +384,24 @@ a.card {
     height: 100%;
     background: var(--theme-color);
     border-radius: 4px;
+}
+
+/** Row utility classes for content **/
+.row,
+.card > .card__body > .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.row.align-right {
+  justify-content: flex-end;
+}
+
+.row.space-between {
+  justify-content: space-between;
+}
+
+.row.align-center {
+  align-items: center;
 }

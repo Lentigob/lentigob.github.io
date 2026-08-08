@@ -54,7 +54,7 @@
 
 /* Mas espacio para el contenido en caso de que la barra de navegación esté presente */
 .app-nav:not(:empty) ~ main .markdown-section {
-  padding-top: 5rem;
+  padding-top: 7rem;
 }
 
 /* En pantallas angostas la barra de navegación superior envuelve a 3 líneas
@@ -67,7 +67,7 @@
 }
 
 /* Logo dentro de la barra de navegación superior: es el único elemento de
-   marca que sigue visible en móvil (el sidebar con el nombre "Lentigob"
+   marca que sigue visible en móvil (el sidebar con el nombre de la imagen
    se oculta fuera de pantalla ahí). Sin este tamaño explícito el SVG
    (width/height:100%) intentaría llenar todo el <li>. */
 .app-nav > ul > li:first-child {
@@ -226,7 +226,6 @@
   transform: scale(1.05);
   box-shadow: var(--shadow-md);
 }
-
 
 .news-strip {
   background: #f8f9ff;

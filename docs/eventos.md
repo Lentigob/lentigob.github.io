@@ -20,42 +20,36 @@ Congresos, talleres y seminarios donde participamos.
             <icon-svg name="bx-loader-alt" class="bx-spin"></icon-svg> Cargardo agenda de eventos...
         </div>
         <div v-show="!loading" class="layout-grid">
-            <div class="card card--interactive card--accent-left" v-for="ev in items" :key="ev.nombreevento">
-                <div class="card-image-container" v-if="ev.imagen">
-                    <a :href="ev.imagen" target="_blank" title="Ver imagen completa">
-                        <img :src="ev.imagen" :alt="ev.nombreevento" class="image-photo" @error="$event.target.parentElement.parentElement.style.display='none'">
-                    </a>
-                </div>
-                <div class="card__section card__section--top card__section--muted">
-                    <div class="card-row card-row--between">
-                        <span class="badge badge-blue">{{ ev.tipo }}</span>
-                        <span class="card-inline"><icon-svg name="bx-calendar"></icon-svg> {{ ev.fechainicio }} - {{ ev.fechafin }}</span>
+            <card-block v-for="ev in items" :key="ev.nombreevento" class="card--interactive card--accent-left">
+                <template #image>
+                    <div class="card-image-container" v-if="ev.imagen">
+                        <a :href="ev.imagen" target="_blank" title="Ver imagen completa">
+                            <img :src="ev.imagen" :alt="ev.nombreevento" class="image-photo" @error="$event.target.parentElement.parentElement.style.display='none'">
+                        </a>
                     </div>
+                </template>
+                <div class="muted row space-between">
+                    <span class="badge badge-blue">{{ ev.tipo }}</span>
+                    <span class="card-inline"><icon-svg name="bx-calendar"></icon-svg> {{ ev.fechainicio }} - {{ ev.fechafin }}</span>
                 </div>
-                <div class="card__body card__body--stack">
-                    <md-content>
-                        #### {{ ev.url ? ('<a href="' + ev.url + '" target="_blank">' + ev.nombreevento + '</a>') : ev.nombreevento }}
-                        <br>
-                        *{{ ev.titulo }}*
-                    </md-content>
-                </div>
-                <div class="card__section card__section--bottom card__section--muted">
-                    <div class="card-row card-row--left">
+                <md-content>#### {{ ev.url ? ('<a href="' + ev.url + '" target="_blank">' + ev.nombreevento + '</a>') : ev.nombreevento }}<br>*{{ ev.titulo }}*</md-content>
+                <div class="muted">
+                    <div class="row">
                         <span class="card-inline"><icon-svg name="bx-user"></icon-svg> {{ ev.autores }}</span>
                         <span class="card-inline"><icon-svg name="bx-map-pin"></icon-svg> {{ ev.institucionsede }} ({{ ev.alcance }})</span>
                     </div>
-                    <div class="card-row card-row--between">
+                    <div class="row space-between">
                         <span class="card-inline"><icon-svg name="bx-briefcase"></icon-svg> {{ ev.organizador }}</span>
                         <span class="card-inline"><icon-svg name="bx-flag"></icon-svg> {{ ev.etapa }}</span>
                     </div>
-                    <div class="card-row card-row--left" v-if="ev.url">
+                    <div class="row" v-if="ev.url">
                         <a :href="ev.url" target="_blank" class="data-action">
                             <icon-svg name="bx-link-external"></icon-svg>
                             Ver evento
                         </a>
                     </div>
                 </div>
-            </div>
+            </card-block>
             <div v-show="items.length === 0" class="no-results">
                 No se encontraron eventos con los criterios seleccionados.
             </div>
