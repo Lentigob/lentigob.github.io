@@ -6,19 +6,6 @@
 <vue-mount>
     <script type="text/template">
         <div class="layout-grid spaced">
-            <a href="https://maps.app.goo.gl/tURaLFw6wMZgphDj6" target="_blank" class="card interactive">
-                <div class="card__body centered-content">
-                    <icon-svg name="bx-map-pin" class="large"></icon-svg>
-                    <md-content>
-                        ### Ubicación
-                        Centro de Investigaciones Interdisciplinarias en Ciencias y Humanidades,  
-                        Cto. Interior de C.U.  
-                        Torre II de Humanidades 4 piso.  
-                        Ciudad Universitaria, Cd.Mex.  
-                        **Horario:** Lunes a viernes de 9:30 a 14:30 hrs.
-                    </md-content>
-                </div>
-            </a>
             <div class="card">
                 <div class="card__body centered-content">
                     <icon-svg name="bx-envelope" class="large"></icon-svg>
@@ -34,9 +21,21 @@
                     <icon-svg name="bx-share-alt" class="large"></icon-svg>
                     <md-content>
                         ### Redes y Enlaces
-                        Phone: [5555-5555](#)  
+                        Teléfono: [5555-5555](#)  
                         LinkedIn: [LENTI - UNAM](#)  
                         Twitter: [@LentiLab](#)
+                    </md-content>
+                </div>
+            </div>
+                        <div class="card">
+                <div class="card__body centered-content">
+                    <icon-svg name="bx-map-pin" class="large"></icon-svg>
+                    <md-content>
+                        ### Ubicación
+                        [Centro de Investigaciones Interdisciplinarias en Ciencias y Humanidades, Cto. Interior de C.U.](https://maps.app.goo.gl/tURaLFw6wMZgphDj6)
+                        Torre II de Humanidades 4 piso.  
+                        Ciudad Universitaria, Cd.Mex.  
+                        **Horario:** Lunes a viernes de 9:30 a 14:30 hrs.
                     </md-content>
                 </div>
             </div>
