@@ -25,7 +25,7 @@ Registro completo de actividades académicas e instituciones.
                     <span class="badge badge-gray">{{ item.tipo }}</span>
                     <span class="card-inline"><icon-svg name="bx-calendar"></icon-svg> {{ item.anio }}</span>
                 </div>
-                <md-content>#### {{ item.url ? ('<a href="' + item.url + '" target="_blank">' + item.curso + '</a>') : item.curso }}<br>{{ item.descripcion }}</md-content>
+                <md-content class="card-content">#### {{ item.url ? ('<a href="' + item.url + '" target="_blank">' + item.curso + '</a>') : item.curso }}<br>{{ item.descripcion }}</md-content>
                 <div class="muted">
                     <div class="row">
                         <span class="card-inline"><icon-svg name="bx-map-pin"></icon-svg> {{ item.institucion }}</span>

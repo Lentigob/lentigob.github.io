@@ -85,7 +85,6 @@ a.card {
     border-radius: var(--border-radius-s);
     border: var(--border-width) solid var(--color-border);
     overflow: hidden;
-    height: 100%;
     display: flex;
     flex-direction: column;
 }

@@ -32,7 +32,7 @@ Congresos, talleres y seminarios donde participamos.
                     <span class="badge badge-blue">{{ ev.tipo }}</span>
                     <span class="card-inline"><icon-svg name="bx-calendar"></icon-svg> {{ ev.fechainicio }} - {{ ev.fechafin }}</span>
                 </div>
-                <md-content>#### {{ ev.url ? ('<a href="' + ev.url + '" target="_blank">' + ev.nombreevento + '</a>') : ev.nombreevento }}<br>*{{ ev.titulo }}*</md-content>
+                <md-content class="card-content">#### {{ ev.url ? ('<a href="' + ev.url + '" target="_blank">' + ev.nombreevento + '</a>') : ev.nombreevento }}<br>*{{ ev.titulo }}*</md-content>
                 <div class="muted">
                     <div class="row">
                         <span class="card-inline"><icon-svg name="bx-user"></icon-svg> {{ ev.autores }}</span>
