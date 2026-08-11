@@ -41,7 +41,7 @@
 &nbsp;
 
 <!-- Logos de fuentes de financiamiento -->
-## Fuentes de Financiamiento
+## Opoyo y Financiamiento
 
 <div class="row align-center logos">
     <img src="assets\other\logo_SECIHTI.svg">
