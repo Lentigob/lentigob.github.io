@@ -29,6 +29,27 @@
 
 &nbsp;
 
+<!-- Logos de instituciones Participantes -->
+## Instituciones Participantes
+
+<div class="row align-center logos">
+    <img src="assets\other\logo_INER.svg">
+    <img src="assets\other\logo_CEIICH.svg">
+    <img src="assets\other\logo_CIMAT.svg">
+</div>
+
+&nbsp;
+
+<!-- Logos de fuentes de financiamiento -->
+## Fuentes de Financiamiento
+
+<div class="row align-center logos">
+    <img src="assets\other\logo_SECIHTI.svg">
+</div>
+
+&nbsp;
+
+
 <!-- Grid de Navegación -->
 ## Descubre nuestro trabajo
 

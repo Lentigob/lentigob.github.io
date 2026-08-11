@@ -444,3 +444,17 @@ a.card {
 .row.align-center {
   align-items: center;
 }
+
+/* Complemento de .row para franjas de logos (instituciones, financiamiento):
+   normaliza el tamaño de cada <img> para que la fila tenga sentido (mismo
+   alto, gap y wrap ya los da .row) y centra la franja horizontalmente. */
+.row.logos {
+  justify-content: center;
+  gap: var(--space-2xl);
+}
+
+.row.logos img {
+  height: 6em;
+  width: auto;
+  object-fit: contain;
+}
