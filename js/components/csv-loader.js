@@ -135,8 +135,8 @@
             activeCategory: initialCategory,
             searchQuery: '',
             loading: true,
-            sortKey: '',
-            sortAsc: true,
+            sortKey: 'anio',
+            sortAsc: false,
             selectedYear: 'Todos'
           };
         },
