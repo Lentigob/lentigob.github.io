@@ -6,7 +6,7 @@ Reportes, publicaciones, datos abiertos y software desarrollado por el laborator
 <csv-loader src="data/Publicaciones_Datos.csv,data/Software.csv"
             filter-col="tipo" category="Todos"
             src-category=",Software"
-            category-map='{"Reporte":"Reportes","Dataset":"Datos","Artículo":"Publicaciones","Libro":"Publicaciones","Ponencia":"Publicaciones"}'>
+            category-map='{"Reporte":"Reportes","Dataset":"Datos","Artículo":"Publicaciones","Libro":"Publicaciones","Ponencia":"Publicaciones","Capítulo":"Publicaciones"}'>
     <script type="text/template">
         <div class="filters">
             <div class="filter-group">

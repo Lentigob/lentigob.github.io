@@ -1,5 +1,7 @@
 TipoLogro,Fecha,Nombre,Institución,País,Descripción,Prioridad,URL
-Premio,2023-11,Excelencia Académica,SEP,México,Reconocimiento a la trayectoria,Alta,#/docs/impacto
-Mención,2024-02,I+D Innovador,Techno,Chile,Innovación en software,Media,#/docs/impacto
-Beca,2022-01,Fullbright Scholarship,Fullbright Commission,EEUU,Beca de investigación doctoral,Alta,
-Certificación,2024-05,AWS Certified Solutions,Amazon,Global,Certificación profesional,Baja,https://aws.amazon.com
+Financiamiento,2025,Convocatoria Ciencia Básica y de Frontera 2025,SECIHTI,México,"La solicitud CBF-2025-G-1031, titulada Metodos de IA para la homologacion, integracion y analisis de bases de datos de salud y seguridad, ha sido aprobada en el marco de la Convocatoria Ciencia Básica y de Frontera 2025, con un monto total autorizado de $ 1,990,800 (00/100 M.N).",,
+Reconocimiento,2026,Investigador en ciencias médicas A,Secretaría de Salud,México,,,
+SNII-1,2025,Sistema Nacional de Investigadores,CONACYT,México,Duración: 2026-2030,,
+Reconocimiento,2025,10 años de labor docente,UNAM,México,,,
+Agradecimiento,2024,Mecanismo de Esclarecimiento Histórico,SEGOB,México,"Colaboración: Informe final del Mecanismo para la Verdad y el Esclarecimiento Histórico, CdMx, Octubre.",,
+Mención,2023,Buena práctica,ONU,ONU,Mención del Angelus como buena práctica en el reporte A/HRC/54/22/Add.5 sobre desaparición forzada de la ONU.,,

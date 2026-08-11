@@ -17,9 +17,10 @@
       props: { item: { type: Object, required: true } },
       template: `
         <td>
-            <a v-if="item.imagen" :href="item.imagen" target="_blank" title="Ver imagen completa">
+            <a v-if="item.imagen && item.url" :href="item.url" target="_blank" title="Ver información">
                 <img :src="item.imagen" :alt="item.titulo" class="data-table__thumbnail" @error="$event.target.parentElement.style.display='none'">
             </a>
+            <img v-else-if="item.imagen" :src="item.imagen" :alt="item.titulo" class="data-table__thumbnail" @error="$event.target.style.display='none'">
         </td>
         <td>
             <a v-if="item.url" :href="item.url" target="_blank" class="data-table__title-link">

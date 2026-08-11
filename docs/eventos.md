@@ -23,9 +23,10 @@ Congresos, talleres y seminarios donde participamos.
             <card-block v-for="ev in items" :key="ev.nombreevento" class="interactive">
                 <template #image>
                     <div class="card-image-container" v-if="ev.imagen">
-                        <a :href="ev.imagen" target="_blank" title="Ver imagen completa">
+                        <a v-if="ev.url" :href="ev.url" target="_blank" title="Ver información">
                             <img :src="ev.imagen" :alt="ev.nombreevento" class="image-photo" @error="$event.target.parentElement.parentElement.style.display='none'">
                         </a>
+                        <img v-else :src="ev.imagen" :alt="ev.nombreevento" class="image-photo" @error="$event.target.parentElement.style.display='none'">
                     </div>
                 </template>
                 <div class="muted row space-between">
