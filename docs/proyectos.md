@@ -27,6 +27,7 @@ Proyectos de investigación y desarrollo técnico.
                         <th @click="sortBy('titulo')">Proyecto <span class="sort-icon">⇅</span></th>
                         <th @click="sortBy('institucion')">Entidad <span class="sort-icon">⇅</span></th>
                         <th @click="sortBy('situacion')">Estado <span class="sort-icon">⇅</span></th>
+                        <th @click="sortBy('anio')">Año <span class="sort-icon">⇅</span></th>
                         <th>Acciones</th>
                     </tr>
                 </thead>

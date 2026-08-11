@@ -336,10 +336,14 @@ a.card {
 
 .data-table__title {
     font-weight: var(--font-weight-bold);
-    color: var(--heading-color);
+    color: var(--color-text-muted);
     display: block;
     font-size: var(--font-size-base);
     line-height: 1.3;
+}
+
+.data-table__title-link .data-table__title {
+    color: var(--heading-color);
 }
 
 .data-table__subtitle {

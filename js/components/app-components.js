@@ -39,6 +39,7 @@
                 'badge-red': item.situacion.toLowerCase() === 'pausado'
             }">{{ item.situacion }}</span>
         </td>
+        <td>{{ item.anio }}</td>
         <td>
             <a v-if="item.url" :href="item.url" target="_blank" class="data-action">
                 <icon-svg name="bx-right-arrow-alt"></icon-svg>
