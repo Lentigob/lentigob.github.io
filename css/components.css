@@ -326,6 +326,14 @@ a.card {
     border-bottom: none;
 }
 
+.data-table__title,
+.data-table__subtitle,
+.data-table__title-link {
+    max-width: calc(var(--content-max-width) * 0.7);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .data-table__title {
     font-weight: var(--font-weight-bold);
     color: var(--heading-color);

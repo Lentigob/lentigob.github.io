@@ -24,10 +24,10 @@
         </td>
         <td>
             <a v-if="item.url" :href="item.url" target="_blank" class="data-table__title-link">
-                <strong class="data-table__title">{{ item.titulo }}</strong>
+                <strong class="data-table__title" :title="item.titulo">{{ item.titulo }}</strong>
             </a>
-            <strong v-else class="data-table__title">{{ item.titulo }}</strong>
-            <span class="data-table__subtitle">{{ 'Investigadores: ' + item.investigadores }}</span>
+            <strong v-else class="data-table__title" :title="item.titulo">{{ item.titulo }}</strong>
+            <span class="data-table__subtitle" :title="'Investigadores: ' + item.investigadores">{{ 'Investigadores: ' + item.investigadores }}</span>
         </td>
         <td>
             <span class="badge badge-blue">{{ item.institucion }}</span>
@@ -53,11 +53,11 @@
       template: `
         <td>
             <a v-if="item.url" :href="item.url" target="_blank" class="data-table__title-link">
-                <strong class="data-table__title">{{ item.titulo || item.nombre }}</strong>
+                <strong class="data-table__title" :title="item.titulo || item.nombre">{{ item.titulo || item.nombre }}</strong>
             </a>
-            <strong v-else class="data-table__title">{{ item.titulo || item.nombre }}</strong>
-            <span class="data-table__subtitle">{{ item.autores || item.participantes }}</span>
-            <span class="data-table__subtitle" style="font-style: italic;" v-if="item.revistaeditorial">{{ item.revistaeditorial }}</span>
+            <strong v-else class="data-table__title" :title="item.titulo || item.nombre">{{ item.titulo || item.nombre }}</strong>
+            <span class="data-table__subtitle" :title="item.autores || item.participantes">{{ item.autores || item.participantes }}</span>
+            <span class="data-table__subtitle" style="font-style: italic;" v-if="item.revistaeditorial" :title="item.revistaeditorial">{{ item.revistaeditorial }}</span>
         </td>
         <td><span class="badge badge-blue">{{ item.tipo }}</span></td>
         <td>{{ item.anio }}</td>
