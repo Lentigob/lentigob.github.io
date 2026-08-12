@@ -12,7 +12,20 @@
 // componente - evita agregar media docena de <script> más a index.html por
 // piezas que solo se usan una vez cada una.
 (function () {
+  function isEmail(value) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  }
+
+  // Convierte un valor de contacto (URL o correo suelto) en un href usable:
+  // si parece un correo le antepone "mailto:", si no lo deja tal cual.
+  function toHref(value) {
+    if (!value) return value;
+    return isEmail(value) ? 'mailto:' + value : value;
+  }
+
   function registerAppComponents(app) {
+    app.config.globalProperties.$toHref = toHref;
+
     app.component('proyecto-row', {
       props: { item: { type: Object, required: true } },
       template: `
@@ -94,6 +107,54 @@
     //    .interactive - agrega hover y box-shadow, para tarjetas que son links
     // Clases de utilidad para el contenido de la tarjeta:
     //    .row (align-right, space-between) - para alinear elementos en fila dentro de la tarjeta
+
+    // <contact-icons> - fila de iconos de contacto (linkedin, correo, etc.),
+    // reutilizable en cualquier tarjeta que necesite mostrarlos. No sabe nada
+    // de "equipo" ni de tarjetas: solo recibe una lista de campos a leer del
+    // item y arma los links, evitando duplicados cuando dos campos apuntan al
+    // mismo valor (p.ej. una columna "url" genérica que repite el correo).
+    //
+    // Uso:
+    //   <contact-icons :item="item" :fields="[
+    //       { key: 'url', title: 'Contacto' },
+    //       { key: 'contacto', icon: 'bx-envelope', title: 'Correo' },
+    //       { key: 'linkedin', icon: 'bx-linkedin', title: 'LinkedIn' },
+    //       { key: 'pagina', icon: 'bx-link-alt', title: 'Página' }
+    //   ]"></contact-icons>
+    // Si un campo no trae "icon", se detecta automáticamente email vs. link.
+    app.component('contact-icons', {
+      props: {
+        item: { type: Object, required: true },
+        fields: { type: Array, required: true }
+      },
+      computed: {
+        links() {
+          const seen = new Set();
+          const links = [];
+          this.fields.forEach(({ key, icon, title }) => {
+            const raw = this.item[key];
+            if (!raw) return;
+            const norm = String(raw).trim();
+            if (!norm || seen.has(norm)) return;
+            seen.add(norm);
+            const email = isEmail(norm);
+            links.push({
+              href: toHref(norm),
+              icon: icon || (email ? 'bx-envelope' : 'bx-link-alt'),
+              title: title || key
+            });
+          });
+          return links;
+        }
+      },
+      template: `
+        <div class="row align-right">
+            <a v-for="link in links" :key="link.href" :href="link.href" target="_blank" :title="link.title">
+                <icon-svg :name="link.icon" class="small gray"></icon-svg>
+            </a>
+        </div>
+      `
+    });
 
     app.component('card-block', {
       props: { interactive: { type: Boolean, default: false } },

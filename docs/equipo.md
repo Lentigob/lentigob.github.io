@@ -12,21 +12,23 @@ A continuación presentamos al equipo de investigadores y colaboradores de nuest
             <div class="layout-grid">
                 <card-block v-for="item in items" :key="item.nombre">
                     <template #image>
-                        <div class="team-image-container">
+                        <a v-if="item.url || item.imagen" :href="item.url ? $toHref(item.url) : item.imagen" target="_blank" :title="item.url ? 'Ver contacto' : 'Ver imagen completa'" class="team-image-container">
                             <img src="assets/img/logo.png" class="image-placeholder">
-                            <a v-if="item.imagen" :href="item.imagen" target="_blank" title="Ver imagen completa">
-                                <img :src="item.imagen" :alt="item.nombre" class="image-photo" @error="$event.target.style.display='none'">
-                            </a>
+                            <img v-if="item.imagen" :src="item.imagen" :alt="item.nombre" class="image-photo" @error="$event.target.style.display='none'">
+                        </a>
+                        <div v-else class="team-image-container">
+                            <img src="assets/img/logo.png" class="image-placeholder">
                         </div>
                     </template>
-                    <div class="row align-right">
-                        <a v-if="item.linkedin" :href="item.linkedin" target="_blank" title="LinkedIn"><icon-svg name="bx-linkedin" class="small gray"></icon-svg></a>
-                        <a v-if="item.contacto" :href="item.contacto" target="_blank" title="Contacto"><icon-svg name="bx-envelope" class="small gray"></icon-svg></a>
-                        <a v-if="item.pagina" :href="item.pagina" target="_blank" title="Pagina"><icon-svg name="bx-link-alt" class="small gray"></icon-svg></a>
-                    </div>
+                    <contact-icons :item="item" :fields="[
+                        { key: 'url', title: 'Contacto' },
+                        { key: 'contacto', icon: 'bx-envelope', title: 'Correo' },
+                        { key: 'linkedin', icon: 'bx-linkedin', title: 'LinkedIn' },
+                        { key: 'pagina', icon: 'bx-link-alt', title: 'Página' }
+                    ]"></contact-icons>
                     <div class="card-separator"></div>
                     <md-content class="card-content">
-                        ### {{ item.nombre }}
+                        ### {{ item.url ? '[' + item.nombre + '](' + $toHref(item.url) + ')' : item.nombre }}
                         **{{ item.rol }}**
                         *{{ item.institucion }}*
                         {{ item.departamento }}
@@ -48,21 +50,23 @@ A continuación presentamos al equipo de investigadores y colaboradores de nuest
             <div class="layout-grid">
                 <card-block v-for="item in items" :key="item.nombre">
                     <template #image>
-                        <div class="team-image-container">
+                        <a v-if="item.url || item.imagen" :href="item.url ? $toHref(item.url) : item.imagen" target="_blank" :title="item.url ? 'Ver contacto' : 'Ver imagen completa'" class="team-image-container">
                             <img src="assets/img/logo.png" class="image-placeholder">
-                            <a v-if="item.imagen" :href="item.imagen" target="_blank" title="Ver imagen completa">
-                                <img :src="item.imagen" :alt="item.nombre" class="image-photo" @error="$event.target.style.display='none'">
-                            </a>
+                            <img v-if="item.imagen" :src="item.imagen" :alt="item.nombre" class="image-photo" @error="$event.target.style.display='none'">
+                        </a>
+                        <div v-else class="team-image-container">
+                            <img src="assets/img/logo.png" class="image-placeholder">
                         </div>
                     </template>
-                    <div class="row align-right">
-                        <a v-if="item.linkedin" :href="item.linkedin" target="_blank" title="LinkedIn"><icon-svg name="bx-linkedin" class="small gray"></icon-svg></a>
-                        <a v-if="item.contacto" :href="item.contacto" target="_blank" title="Contacto"><icon-svg name="bx-envelope" class="small gray"></icon-svg></a>
-                        <a v-if="item.pagina" :href="item.pagina" target="_blank" title="Pagina"><icon-svg name="bx-link-alt" class="small gray"></icon-svg></a>
-                    </div>
+                    <contact-icons :item="item" :fields="[
+                        { key: 'url', title: 'Contacto' },
+                        { key: 'contacto', icon: 'bx-envelope', title: 'Correo' },
+                        { key: 'linkedin', icon: 'bx-linkedin', title: 'LinkedIn' },
+                        { key: 'pagina', icon: 'bx-link-alt', title: 'Página' }
+                    ]"></contact-icons>
                     <div class="card-separator"></div>
                     <md-content class="card-content">
-                        ### {{ item.nombre }}
+                        ### {{ item.url ? '[' + item.nombre + '](' + $toHref(item.url) + ')' : item.nombre }}
                         **{{ item.rol }}**
                         *{{ item.institucion }}*
                         {{ item.departamento }}
@@ -83,21 +87,23 @@ A continuación presentamos al equipo de investigadores y colaboradores de nuest
             <div class="layout-grid">
                 <card-block v-for="item in items" :key="item.nombre" class="inactive">
                     <template #image>
-                        <div class="team-image-container">
+                        <a v-if="item.url || item.imagen" :href="item.url ? $toHref(item.url) : item.imagen" target="_blank" :title="item.url ? 'Ver contacto' : 'Ver imagen completa'" class="team-image-container">
                             <img src="assets/img/logo.png" class="image-placeholder">
-                            <a v-if="item.imagen" :href="item.imagen" target="_blank" title="Ver imagen completa">
-                                <img :src="item.imagen" :alt="item.nombre" class="image-photo" @error="$event.target.style.display='none'">
-                            </a>
+                            <img v-if="item.imagen" :src="item.imagen" :alt="item.nombre" class="image-photo" @error="$event.target.style.display='none'">
+                        </a>
+                        <div v-else class="team-image-container">
+                            <img src="assets/img/logo.png" class="image-placeholder">
                         </div>
                     </template>
-                    <div class="row align-right">
-                        <a v-if="item.linkedin" :href="item.linkedin" target="_blank" title="LinkedIn"><icon-svg name="bx-linkedin" class="small gray"></icon-svg></a>
-                        <a v-if="item.contacto" :href="item.contacto" target="_blank" title="Contacto"><icon-svg name="bx-envelope" class="small gray"></icon-svg></a>
-                        <a v-if="item.pagina" :href="item.pagina" target="_blank" title="Pagina"><icon-svg name="bx-link-alt" class="small gray"></icon-svg></a>
-                    </div>
+                    <contact-icons :item="item" :fields="[
+                        { key: 'url', title: 'Contacto' },
+                        { key: 'contacto', icon: 'bx-envelope', title: 'Correo' },
+                        { key: 'linkedin', icon: 'bx-linkedin', title: 'LinkedIn' },
+                        { key: 'pagina', icon: 'bx-link-alt', title: 'Página' }
+                    ]"></contact-icons>
                     <div class="card-separator"></div>
                     <md-content class="card-content">
-                        ### {{ item.nombre }}
+                        ### {{ item.url ? '[' + item.nombre + '](' + $toHref(item.url) + ')' : item.nombre }}
                         **{{ item.rol }}**
                         {{ item.institucion }}
                         {{ item.departamento }}
