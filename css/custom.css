@@ -188,16 +188,62 @@
 
 /* ---------- Home Page Styles ---------- */
 .hero-section {
+  position: relative;
+  overflow: hidden;
   padding: 4.5rem 1.5rem;
   text-align: center;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(var(--theme-color-rgb), 0.18) 0%, transparent 38%),
-    radial-gradient(circle at 80% 15%, rgba(255, 255, 255, 0.08) 0%, transparent 40%),
-    linear-gradient(135deg, #141829 0%, var(--theme-color-dark) 55%, var(--theme-color) 100%);
   color: white;
   border-radius: var(--border-radius-m);
   margin: 1rem 0 3.5rem;
   box-shadow: var(--shadow-lg);
+}
+
+/* Foto de fondo: para cambiarla basta con reemplazar el "src" del <img
+   class="hero-bg-image"> en README.md por otra imagen de assets/media. */
+.hero-bg-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transform: scale(1);
+  transform-origin: 42% 90%;
+  transition: transform 4s ease;
+}
+
+.hero-section:hover .hero-bg-image {
+  transform: scale(2);
+}
+
+/* Degradado semitransparente encima de la foto para que el texto blanco
+   siga siendo legible sobre cualquier imagen, con tinte azul del tema. Al
+   pasar el mouse se desvanece casi del todo para dejar ver la foto; el
+   texto/botón (.hero-content) se atenúan junto con él. */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(var(--theme-color-rgb), 0.22) 0%, transparent 38%),
+    radial-gradient(circle at 80% 15%, rgba(255, 255, 255, 0.06) 0%, transparent 40%),
+    linear-gradient(135deg, rgba(20, 24, 41, 0.55) 0%, rgba(var(--theme-color-dark-rgb), 0.55) 55%, rgba(var(--theme-color-rgb), 0.5) 100%);
+  transition: opacity 1.4s ease;
+}
+
+.hero-section:hover::before {
+  opacity: 0.12;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  transition: opacity 1.4s ease;
+}
+
+.hero-section:hover .hero-content {
+  opacity: 0.08;
 }
 
 .hero-section h1 {
