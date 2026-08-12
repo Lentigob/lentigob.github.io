@@ -188,14 +188,22 @@
 
 /* ---------- Home Page Styles ---------- */
 .hero-section {
-  position: relative;
+  display: block;
   overflow: hidden;
-  padding: 4.5rem 1.5rem;
   text-align: center;
   color: white;
+  text-decoration: none;
   border-radius: var(--border-radius-m);
   margin: 1rem 0 3.5rem;
   box-shadow: var(--shadow-lg);
+}
+
+/* Zona de la foto: el <img> y el degradado solo cubren esta zona, no la
+   barra .hero-cta de abajo, para que la foto no quede tapada por ella. */
+.hero-photo {
+  position: relative;
+  overflow: hidden;
+  padding: 4.5rem 1.5rem;
 }
 
 /* Foto de fondo: para cambiarla basta con reemplazar el "src" del <img
@@ -219,8 +227,8 @@
 /* Degradado semitransparente encima de la foto para que el texto blanco
    siga siendo legible sobre cualquier imagen, con tinte azul del tema. Al
    pasar el mouse se desvanece casi del todo para dejar ver la foto; el
-   texto/botón (.hero-content) se atenúan junto con él. */
-.hero-section::before {
+   texto (.hero-content) se atenúa junto con él. */
+.hero-photo::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -232,7 +240,7 @@
   transition: opacity 1.4s ease;
 }
 
-.hero-section:hover::before {
+.hero-section:hover .hero-photo::before {
   opacity: 0.12;
 }
 
@@ -244,6 +252,13 @@
 
 .hero-section:hover .hero-content {
   opacity: 0.08;
+}
+
+.hero-section,
+.hero-section *,
+.hero-section:hover,
+.hero-section:hover * {
+  text-decoration: none !important;
 }
 
 .hero-section h1 {
@@ -262,21 +277,23 @@
   color: #c5cae9;
 }
 
-.hero-btn {
-  background: #ffffff;
-  color: var(--heading-color) !important;
-  padding: 12px 30px;
-  border-radius: 30px;
+/* Barra "botón" debajo de la foto (.hero-photo), no encima: así no le quita
+   espacio a la imagen ni se desvanece con el texto al pasar el mouse (ver
+   .hero-section:hover .hero-content más arriba). Todo .hero-section es un
+   <a>, así que tanto la foto como el texto como esta barra llevan a
+   Proyectos; esta barra solo hace explícito que es clickeable. */
+.hero-cta {
+  padding: .2rem 1rem;
+  background: rgba(20, 24, 41, 0.92);
+  color: #ffffff;
   font-weight: var(--font-weight-bold);
+  letter-spacing: 0.02em;
   text-decoration: none !important;
-  transition: transform 0.2s, box-shadow 0.2s;
-  display: inline-block;
-  box-shadow: var(--shadow-sm);
+  transition: background-color 0.2s;
 }
 
-.hero-btn:hover {
-  transform: scale(1.05);
-  box-shadow: var(--shadow-md);
+.hero-section:hover .hero-cta {
+  background: rgba(20, 24, 41, 0.98);
 }
 
 .news-strip {
