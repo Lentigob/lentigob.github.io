@@ -21,27 +21,28 @@ Logros e impactos del proyecto en el ámbito académico e industrial.
         </div>
         <div v-show="!loading" class="layout-grid">
             <card-block v-for="item in items" :key="item.nombre" interactive>
-                <template #top>
-                    <div class="row space-between">
-                        <span class="badge badge-amber">{{ item.tipologro }}</span>
-                        <span class="card-inline text-xs"><icon-svg name="bx-trophy"></icon-svg> {{ item.fecha }}</span>
-                    </div>
-                </template>
+                <div class="row align-right">
+                    <span class="badge badge-amber">{{ item.tipologro }}</span>
+                </div>
+                <div class="card-separator"></div>
                 <md-content class="card-content">
                     #### {{ item.url ? ('<a href="' + item.url + '" target="_blank">' + item.nombre + '</a>') : item.nombre }}
                     <br>
                     {{ item.descripcion }}
                 </md-content>
+                <div class="row" v-if="item.url">
+                    <a :href="item.url" target="_blank" class="data-action">
+                        <icon-svg name="bx-link-external"></icon-svg>
+                        Ver más
+                    </a>
+                </div>
                 <template #bottom>
-                    <div class="row">
-                        <span class="card-inline"><icon-svg name="bx-map-pin"></icon-svg> {{ item.institucion }}</span>
-                        <span class="card-inline"><icon-svg name="bx-world"></icon-svg> {{ item.pais }}</span>
-                    </div>
-                    <div class="row" v-if="item.url">
-                        <a :href="item.url" target="_blank" class="data-action">
-                            <icon-svg name="bx-link-external"></icon-svg>
-                            Ver más
-                        </a>
+                    <div class="row space-between">
+                        <div>
+                            <span class="card-inline text-xs"><icon-svg name="bx-map-pin"></icon-svg> {{ item.institucion }}</span>
+                            <span class="card-inline text-xs"><icon-svg name="bx-world"></icon-svg> {{ item.pais }}</span>
+                        </div>
+                        <span class="card-inline text-xs"><icon-svg name="bx-trophy"></icon-svg> {{ item.fecha }}</span>
                     </div>
                 </template>
             </card-block>

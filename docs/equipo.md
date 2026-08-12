@@ -20,19 +20,23 @@ A continuación presentamos al equipo de investigadores y colaboradores de nuest
                             <img src="assets/img/logo.png" class="image-placeholder">
                         </div>
                     </template>
-                    <contact-icons :item="item" :fields="[
-                        { key: 'url', title: 'Contacto' },
-                        { key: 'contacto', icon: 'bx-envelope', title: 'Correo' },
-                        { key: 'linkedin', icon: 'bx-linkedin', title: 'LinkedIn' },
-                        { key: 'pagina', icon: 'bx-link-alt', title: 'Página' }
-                    ]"></contact-icons>
-                    <div class="card-separator"></div>
                     <md-content class="card-content">
                         #### {{ item.url ? '[' + item.nombre + '](' + $toHref(item.url) + ')' : item.nombre }}
+                    </md-content>
+                    <div class="card-separator"></div>
+                    <md-content class="card-content">
                         **{{ item.rol }}**
                         *{{ item.institucion }}*
                         {{ item.departamento }}
                     </md-content>
+                    <template #bottom>
+                        <contact-icons :item="item" :fields="[
+                            { key: 'url', title: 'Contacto' },
+                            { key: 'contacto', icon: 'bx-envelope', title: 'Correo' },
+                            { key: 'linkedin', icon: 'bx-linkedin', title: 'LinkedIn' },
+                            { key: 'pagina', icon: 'bx-link-alt', title: 'Página' }
+                        ]"></contact-icons>
+                    </template>
                 </card-block>
             </div>
         </template>
@@ -58,19 +62,23 @@ A continuación presentamos al equipo de investigadores y colaboradores de nuest
                             <img src="assets/img/logo.png" class="image-placeholder">
                         </div>
                     </template>
-                    <contact-icons :item="item" :fields="[
-                        { key: 'url', title: 'Contacto' },
-                        { key: 'contacto', icon: 'bx-envelope', title: 'Correo' },
-                        { key: 'linkedin', icon: 'bx-linkedin', title: 'LinkedIn' },
-                        { key: 'pagina', icon: 'bx-link-alt', title: 'Página' }
-                    ]"></contact-icons>
-                    <div class="card-separator"></div>
                     <md-content class="card-content">
                         #### {{ item.url ? '[' + item.nombre + '](' + $toHref(item.url) + ')' : item.nombre }}
+                    </md-content>
+                    <div class="card-separator"></div>
+                    <md-content class="card-content">
                         **{{ item.rol }}**
                         *{{ item.institucion }}*
                         {{ item.departamento }}
                     </md-content>
+                    <template #bottom>
+                        <contact-icons :item="item" :fields="[
+                            { key: 'url', title: 'Contacto' },
+                            { key: 'contacto', icon: 'bx-envelope', title: 'Correo' },
+                            { key: 'linkedin', icon: 'bx-linkedin', title: 'LinkedIn' },
+                            { key: 'pagina', icon: 'bx-link-alt', title: 'Página' }
+                        ]"></contact-icons>
+                    </template>
                 </card-block>
             </div>
         </template>
@@ -95,19 +103,23 @@ A continuación presentamos al equipo de investigadores y colaboradores de nuest
                             <img src="assets/img/logo.png" class="image-placeholder">
                         </div>
                     </template>
-                    <contact-icons :item="item" :fields="[
-                        { key: 'url', title: 'Contacto' },
-                        { key: 'contacto', icon: 'bx-envelope', title: 'Correo' },
-                        { key: 'linkedin', icon: 'bx-linkedin', title: 'LinkedIn' },
-                        { key: 'pagina', icon: 'bx-link-alt', title: 'Página' }
-                    ]"></contact-icons>
-                    <div class="card-separator"></div>
                     <md-content class="card-content">
                         #### {{ item.url ? '[' + item.nombre + '](' + $toHref(item.url) + ')' : item.nombre }}
+                    </md-content>
+                    <div class="card-separator"></div>
+                    <md-content class="card-content">
                         **{{ item.rol }}**
                         {{ item.institucion }}
                         {{ item.departamento }}
                     </md-content>
+                    <template #bottom>
+                        <contact-icons :item="item" :fields="[
+                            { key: 'url', title: 'Contacto' },
+                            { key: 'contacto', icon: 'bx-envelope', title: 'Correo' },
+                            { key: 'linkedin', icon: 'bx-linkedin', title: 'LinkedIn' },
+                            { key: 'pagina', icon: 'bx-link-alt', title: 'Página' }
+                        ]"></contact-icons>
+                    </template>
                 </card-block>
             </div>
         </template>
