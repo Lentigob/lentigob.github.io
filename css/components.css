@@ -127,7 +127,10 @@ a.card {
     text-decoration: none;
 }
 
-.card.interactive .card__body * {
+/* :not(.badge) para que los badges (categoría/tipo, etc.) conserven siempre
+   su propio color semántico (--badge-*-text), en vez de heredar el color de
+   texto ambiente de la tarjeta solo porque están dentro de una .interactive. */
+.card.interactive .card__body *:not(.badge) {
     text-decoration: none;
     color: inherit;
 }
