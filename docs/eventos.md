@@ -37,7 +37,7 @@ Congresos, talleres y seminarios donde participamos.
                 <div class="card-content">
                     <md-content>
                         #### {{ ev.url ? ('<a href="' + ev.url + '" target="_blank">' + ev.nombreevento + '</a>') : ev.nombreevento }} <br>
-                        *{{ ev.titulo }}*
+                        {{ ev.titulo ? '*' + ev.titulo + '*' : '' }}
                     </md-content>
                     <ul class="icon-bullets">
                         <li><icon-svg name="bx-user"></icon-svg><span>{{ ev.autores }}</span></li>
