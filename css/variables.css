@@ -31,6 +31,14 @@
   --color-accent-amber: #fbbf24;
   --color-accent-red: #ef4444;
 
+  /* Superficies oscuras y texto sobre ellas (sidebar, navbar, hero, bloques
+     de código): mismo azul marino en todos lados para que se sientan parte
+     del mismo sistema. */
+  --color-surface-dark: #1a1d2e;
+  --color-surface-dark-rgb: 26, 29, 46;
+  --color-text-on-dark: #ffffff;
+  --color-text-on-dark-muted: #c5cae9;
+
   /* Badge semantic colors */
   /* .badge-default sigue el color del tema (--theme-color); .badge-blue es
      azul fijo a propósito, no cambia aunque cambie --app-theme-color. */

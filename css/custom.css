@@ -191,7 +191,7 @@
   display: block;
   overflow: hidden;
   text-align: center;
-  color: white;
+  color: var(--color-text-on-dark);
   text-decoration: none;
   border-radius: var(--border-radius-m);
   margin: 1rem 0 3.5rem;
@@ -236,7 +236,7 @@
   background:
     radial-gradient(circle at 20% 20%, rgba(var(--theme-color-rgb), 0.22) 0%, transparent 38%),
     radial-gradient(circle at 80% 15%, rgba(255, 255, 255, 0.06) 0%, transparent 40%),
-    linear-gradient(135deg, rgba(20, 24, 41, 0.55) 0%, rgba(var(--theme-color-dark-rgb), 0.55) 55%, rgba(var(--theme-color-rgb), 0.5) 100%);
+    linear-gradient(135deg, rgba(var(--color-surface-dark-rgb), 0.55) 0%, rgba(var(--theme-color-dark-rgb), 0.55) 55%, rgba(var(--theme-color-rgb), 0.5) 100%);
   transition: opacity 1.4s ease;
 }
 
@@ -262,7 +262,7 @@
 }
 
 .hero-section h1 {
-  color: white !important;
+  color: var(--color-text-on-dark) !important;
   font-size: var(--font-size-hero) !important;
   margin-bottom: 1rem !important;
   border: none !important;
@@ -271,10 +271,9 @@
 
 .hero-section p {
   font-size: 1.25rem;
-  opacity: 0.92;
   max-width: 650px;
   margin: 0 auto 2.5rem;
-  color: #c5cae9;
+  color: var(--color-text-on-dark);
 }
 
 /* Barra "botón" debajo de la foto (.hero-photo), no encima: así no le quita
@@ -284,8 +283,8 @@
    Proyectos; esta barra solo hace explícito que es clickeable. */
 .hero-cta {
   padding: .2rem 1rem;
-  background: rgba(20, 24, 41, 0.92);
-  color: #ffffff;
+  background: rgba(var(--color-surface-dark-rgb), 0.92);
+  color: var(--color-text-on-dark);
   font-weight: var(--font-weight-bold);
   letter-spacing: 0.02em;
   text-decoration: none !important;
@@ -293,7 +292,7 @@
 }
 
 .hero-section:hover .hero-cta {
-  background: rgba(20, 24, 41, 0.98);
+  background: rgba(var(--color-surface-dark-rgb), 0.98);
 }
 
 .news-strip {
