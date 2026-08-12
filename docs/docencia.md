@@ -22,7 +22,7 @@ Registro completo de actividades académicas e instituciones.
         <div v-show="!loading" class="layout-grid">
             <card-block v-for="item in items" :key="item.curso">
                 <div class="card-content">
-                    <md-content class="card-content">
+                    <md-content>
                         #### {{ item.url ? ('<a href="' + item.url + '" target="_blank">' + item.curso + '</a>') : item.curso }} <br>
                         {{ item.descripcion }}
                     </md-content>
@@ -37,13 +37,15 @@ Registro completo de actividades académicas e instituciones.
                         </a>
                     </div>
                 </div>
-                <div class="muted row space-between">
-                    <span class="badge badge-gray">{{ item.tipo }}</span>
-                    <div class="row row-xs align-center">
-                        <span v-if="Number.isFinite(Number(item.horastotales))" class="card-inline"><icon-svg name="bx-time-five"></icon-svg> {{ item.horastotales }} horas </span>
-                        <span class="card-inline"><icon-svg name="bx-calendar"></icon-svg> {{ item.anio }}</span>
+                <template #bottom>
+                    <div class="row space-between">
+                        <span class="badge badge-gray">{{ item.tipo }}</span>
+                        <div class="row row-xs align-center">
+                            <span v-if="Number.isFinite(Number(item.horastotales))" class="card-inline"><icon-svg name="bx-time-five"></icon-svg> {{ item.horastotales }} horas </span>
+                            <span class="card-inline"><icon-svg name="bx-calendar"></icon-svg> {{ item.anio }}</span>
+                        </div>
                     </div>
-                </div>
+                </template>
             </card-block>
             <div v-show="items.length === 0" class="no-results">
                 No se encontraron cursos con los criterios seleccionados.

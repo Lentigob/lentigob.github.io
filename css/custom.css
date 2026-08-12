@@ -17,12 +17,15 @@
 }
 
 /* Iconos SVG personalizados */
+/* display:flex (no inline-flex): un <svg> inline hereda el line-height del
+   texto de alrededor y el navegador le reserva ese alto completo aunque el
+   ícono mida menos, descentrándolo dentro de cualquier .row/.card-inline que
+   lo acompañe. Como bloque, su alto real es solo el del ícono (16/24px). */
 .icon-svg {
   width: 24px;
   height: 24px;
   fill: currentColor;
-  vertical-align: middle;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
 }

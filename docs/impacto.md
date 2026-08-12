@@ -21,16 +21,18 @@ Logros e impactos del proyecto en el ámbito académico e industrial.
         </div>
         <div v-show="!loading" class="layout-grid">
             <card-block v-for="item in items" :key="item.nombre" interactive>
-                <div class="muted row space-between">
-                    <span class="badge badge-amber">{{ item.tipologro }}</span>
-                    <span class="card-inline text-xs"><icon-svg name="bx-trophy"></icon-svg> {{ item.fecha }}</span>
-                </div>
+                <template #top>
+                    <div class="row space-between">
+                        <span class="badge badge-amber">{{ item.tipologro }}</span>
+                        <span class="card-inline text-xs"><icon-svg name="bx-trophy"></icon-svg> {{ item.fecha }}</span>
+                    </div>
+                </template>
                 <md-content class="card-content">
                     #### {{ item.url ? ('<a href="' + item.url + '" target="_blank">' + item.nombre + '</a>') : item.nombre }}
                     <br>
                     {{ item.descripcion }}
                 </md-content>
-                <div class="muted">
+                <template #bottom>
                     <div class="row">
                         <span class="card-inline"><icon-svg name="bx-map-pin"></icon-svg> {{ item.institucion }}</span>
                         <span class="card-inline"><icon-svg name="bx-world"></icon-svg> {{ item.pais }}</span>
@@ -41,7 +43,7 @@ Logros e impactos del proyecto en el ámbito académico e industrial.
                             Ver más
                         </a>
                     </div>
-                </div>
+                </template>
             </card-block>
             <div v-show="items.length === 0" class="no-results">
                 No se encontraron logros con los criterios seleccionados.

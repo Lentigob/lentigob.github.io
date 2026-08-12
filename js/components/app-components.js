@@ -81,13 +81,18 @@
       `
     });
 
-    // Molde genérico de tarjeta. 
-    // Slot nombrado: #image (opcional) - imagen arriba de la tarjeta
-    // Slot default: contenido principal de la tarjeta
+    // Molde genérico de tarjeta.
+    // Slots nombrados:
+    //    #image (opcional) - imagen arriba de la tarjeta
+    //    #top (opcional)   - franja gris arriba del contenido (p.ej. badge + fecha).
+    //                        card-block ya la envuelve en .muted; el contenido del
+    //                        slot solo pone su(s) .row de adentro.
+    //    #bottom (opcional) - misma idea que #top pero abajo del contenido
+    //                         (p.ej. badge + link "Ver más").
+    // Slot default: contenido principal de la tarjeta (md-content, listas, etc.)
     // Las clases modificadoras:
     //    .interactive - agrega hover y box-shadow, para tarjetas que son links
     // Clases de utilidad para el contenido de la tarjeta:
-    //    .muted - texto gris, para subtítulos o secciones secundarias
     //    .row (align-right, space-between) - para alinear elementos en fila dentro de la tarjeta
 
     app.component('card-block', {
@@ -96,7 +101,13 @@
         <div :class="['card', { 'interactive': interactive }]">
             <slot name="image"></slot>
             <div class="card__body">
+                <div v-if="$slots.top" class="muted">
+                    <slot name="top"></slot>
+                </div>
                 <slot></slot>
+                <div v-if="$slots.bottom" class="muted">
+                    <slot name="bottom"></slot>
+                </div>
             </div>
         </div>
       `

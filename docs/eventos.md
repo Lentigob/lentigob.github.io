@@ -29,9 +29,11 @@ Congresos, talleres y seminarios donde participamos.
                         <img v-else :src="ev.imagen" :alt="ev.nombreevento" class="image-photo" @error="$event.target.parentElement.style.display='none'">
                     </div>
                 </template>
-                <div class="muted row align-right">
-                    <span class="card-inline"><icon-svg name="bx-calendar"></icon-svg> {{ ev.fechainicio }} - {{ ev.fechafin }}</span>
-                </div>
+                <template #top>
+                    <div class="row row-xs align-right">
+                        <span class="card-inline"><icon-svg name="bx-calendar"></icon-svg> {{ ev.fechainicio }} - {{ ev.fechafin }}</span>
+                    </div>
+                </template>
                 <div class="card-content">
                     <md-content>
                         #### {{ ev.url ? ('<a href="' + ev.url + '" target="_blank">' + ev.nombreevento + '</a>') : ev.nombreevento }} <br>
@@ -44,15 +46,17 @@ Congresos, talleres y seminarios donde participamos.
                         <li><icon-svg name="bx-flag"></icon-svg><span>{{ ev.etapa }}</span></li>
                     </ul>
                 </div>
-                <div class="muted row space-between">
-                    <span class="badge badge-default">{{ ev.tipo }}</span>
-                    <div>
-                        <a v-if="ev.url" :href="ev.url" target="_blank" class="data-action">
-                            <icon-svg name="bx-link-external"></icon-svg>
-                            Ver evento
-                        </a>
+                <template #bottom>
+                    <div class="row space-between">
+                        <span class="badge badge-default">{{ ev.tipo }}</span>
+                        <div>
+                            <a v-if="ev.url" :href="ev.url" target="_blank" class="data-action">
+                                <icon-svg name="bx-link-external"></icon-svg>
+                                Ver evento
+                            </a>
+                        </div>
                     </div>
-                </div>
+                </template>
             </card-block>
             <div v-show="items.length === 0" class="no-results">
                 No se encontraron eventos con los criterios seleccionados.
