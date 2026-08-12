@@ -28,7 +28,7 @@ A continuación presentamos al equipo de investigadores y colaboradores de nuest
                     ]"></contact-icons>
                     <div class="card-separator"></div>
                     <md-content class="card-content">
-                        ### {{ item.url ? '[' + item.nombre + '](' + $toHref(item.url) + ')' : item.nombre }}
+                        #### {{ item.url ? '[' + item.nombre + '](' + $toHref(item.url) + ')' : item.nombre }}
                         **{{ item.rol }}**
                         *{{ item.institucion }}*
                         {{ item.departamento }}
@@ -66,7 +66,7 @@ A continuación presentamos al equipo de investigadores y colaboradores de nuest
                     ]"></contact-icons>
                     <div class="card-separator"></div>
                     <md-content class="card-content">
-                        ### {{ item.url ? '[' + item.nombre + '](' + $toHref(item.url) + ')' : item.nombre }}
+                        #### {{ item.url ? '[' + item.nombre + '](' + $toHref(item.url) + ')' : item.nombre }}
                         **{{ item.rol }}**
                         *{{ item.institucion }}*
                         {{ item.departamento }}
@@ -103,7 +103,7 @@ A continuación presentamos al equipo de investigadores y colaboradores de nuest
                     ]"></contact-icons>
                     <div class="card-separator"></div>
                     <md-content class="card-content">
-                        ### {{ item.url ? '[' + item.nombre + '](' + $toHref(item.url) + ')' : item.nombre }}
+                        #### {{ item.url ? '[' + item.nombre + '](' + $toHref(item.url) + ')' : item.nombre }}
                         **{{ item.rol }}**
                         {{ item.institucion }}
                         {{ item.departamento }}
