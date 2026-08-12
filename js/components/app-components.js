@@ -30,7 +30,7 @@
             <span class="data-table__subtitle" :title="'Investigadores: ' + item.investigadores">{{ 'Investigadores: ' + item.investigadores }}</span>
         </td>
         <td>
-            <span class="badge badge-blue">{{ item.institucion }}</span>
+            <span class="badge badge-default">{{ item.institucion }}</span>
         </td>
         <td>
             <span class="badge" :class="{
@@ -60,7 +60,7 @@
             <span class="data-table__subtitle" :title="item.autores || item.participantes">{{ item.autores || item.participantes }}</span>
             <span class="data-table__subtitle" style="font-style: italic;" v-if="item.revistaeditorial" :title="item.revistaeditorial">{{ item.revistaeditorial }}</span>
         </td>
-        <td><span class="badge badge-blue">{{ item.tipo }}</span></td>
+        <td><span class="badge badge-default">{{ item.tipo }}</span></td>
         <td>{{ item.anio }}</td>
         <td>
             <span class="data-table__actions">

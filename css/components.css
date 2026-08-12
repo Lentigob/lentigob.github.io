@@ -54,7 +54,7 @@
 }
 
 .filter-chip:hover {
-    background: var(--badge-blue-bg);
+    background: var(--badge-default-bg);
 }
 
 .filter-chip.active {
@@ -226,6 +226,7 @@ a.card {
     text-decoration: none !important;
 }
 
+.badge-default { background: var(--badge-default-bg); color: var(--badge-default-text); }
 .badge-blue { background: var(--badge-blue-bg); color: var(--badge-blue-text); }
 .badge-blue-hover:hover { background: var(--theme-color); color: #ffffff; }
 .badge-gray { background: var(--badge-gray-bg); color: var(--badge-gray-text); }
@@ -398,7 +399,7 @@ a.card {
     text-decoration: none !important;
     padding: 6px 12px;
     border-radius: var(--border-radius-s);
-    background: var(--badge-blue-bg);
+    background: var(--badge-default-bg);
     transition: all 0.2s;
 }
 

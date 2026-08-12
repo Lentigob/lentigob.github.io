@@ -4,8 +4,16 @@
 
 :root {
   /* Brand colours */
-  /* Estas variables pueden declararse temprano en index.html para evitar parpadeos en el loader. */
+  /* OJO: la fuente de verdad real de estos 4 colores es el <style> inline al
+     principio de <head> en index.html (--app-theme-color y sus variantes),
+     que se declara ahí a propósito para pintarse antes que este archivo y
+     evitar parpadeos en el loader. Como esas variables SIEMPRE están
+     definidas, los fallbacks de abajo (#4fff67, etc.) nunca se usan en la
+     práctica: son solo el valor por si algún día index.html deja de
+     definirlas. Para cambiar el color del sitio, edita index.html, no estos
+     fallbacks. */
   --theme-color: var(--app-theme-color, #4fff67);
+  --theme-color-rgb: var(--app-theme-color-rgb, 79, 255, 103);
   --theme-color-dark: var(--app-theme-color-dark, #41d62d);
   --theme-color-dark-rgb: var(--app-theme-color-dark-rgb, 45, 85, 214);
 
@@ -24,8 +32,12 @@
   --color-accent-red: #ef4444;
 
   /* Badge semantic colors */
+  /* .badge-default sigue el color del tema (--theme-color); .badge-blue es
+     azul fijo a propósito, no cambia aunque cambie --app-theme-color. */
+  --badge-default-bg: rgba(var(--theme-color-rgb), 0.1);
+  --badge-default-text: var(--theme-color);
   --badge-blue-bg: rgba(79, 124, 255, 0.1);
-  --badge-blue-text: var(--theme-color);
+  --badge-blue-text: #4f7cff;
   --badge-gray-bg: #f1f5f9;
   --badge-gray-text: #475569;
   --badge-amber-bg: #fffbeb;
@@ -42,9 +54,9 @@
   --sidebar-name-padding: 1.5rem 0;
   --sidebar-nav-link-color: #c5cae9;
   --sidebar-nav-link-color--hover: #ffffff;
-  --sidebar-nav-link-background-color--hover: rgba(79, 124, 255, 0.15);
+  --sidebar-nav-link-background-color--hover: rgba(var(--theme-color-rgb), 0.15);
   --sidebar-nav-link-color--active: #ffffff;
-  --sidebar-nav-link-background-color--active: rgba(79, 124, 255, 0.25);
+  --sidebar-nav-link-background-color--active: rgba(var(--theme-color-rgb), 0.25);
   --sidebar-name-color: #ffffff;
   --sidebar-name-font-weight: 700;
 

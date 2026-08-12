@@ -133,12 +133,12 @@
 
 .app-nav ul li ul li a:hover {
   color: var(--navbar-menu-link-color--hover) !important;
-  background: rgba(79, 124, 255, 0.16);
+  background: rgba(var(--theme-color-rgb), 0.16);
 }
 
 .app-nav ul li ul li a.active {
   color: #ffffff !important;
-  background: rgba(79, 124, 255, 0.24);
+  background: rgba(var(--theme-color-rgb), 0.24);
 }
 
 /* ---------- Table styles ---------- */
@@ -188,9 +188,9 @@
   padding: 4.5rem 1.5rem;
   text-align: center;
   background:
-    radial-gradient(circle at 20% 20%, rgba(79, 124, 255, 0.18) 0%, transparent 38%),
+    radial-gradient(circle at 20% 20%, rgba(var(--theme-color-rgb), 0.18) 0%, transparent 38%),
     radial-gradient(circle at 80% 15%, rgba(255, 255, 255, 0.08) 0%, transparent 40%),
-    linear-gradient(135deg, #141829 0%, #2d55d6 55%, #4f7cff 100%);
+    linear-gradient(135deg, #141829 0%, var(--theme-color-dark) 55%, var(--theme-color) 100%);
   color: white;
   border-radius: var(--border-radius-m);
   margin: 1rem 0 3.5rem;
@@ -266,7 +266,7 @@
 }
 .news-tag {
   font-size: 0.7rem;
-  background: rgba(79, 124, 255, 0.1);
+  background: rgba(var(--theme-color-rgb), 0.1);
   color: var(--theme-color);
   padding: 4px 10px;
   border-radius: 20px;
