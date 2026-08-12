@@ -83,10 +83,10 @@
 a.card {
     background: var(--base-background-color);
     border-radius: var(--border-radius-s);
-    border: var(--border-width) solid var(--color-border);
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    box-shadow: var(--shadow-sm);
 }
 
 .card.inactive {
@@ -95,7 +95,6 @@ a.card {
 }
 
 .card.interactive {
-    box-shadow: var(--shadow-sm);
     text-decoration: none;
     color: inherit;
     transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0s ease;
@@ -108,7 +107,7 @@ a.card {
 
 .card.interactive:hover {
     box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
+    transform: translateY(-1px) translateX(-1px);
 }
 
 .card.interactive:focus {

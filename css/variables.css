@@ -42,8 +42,8 @@
   /* Badge semantic colors */
   /* .badge-default sigue el color del tema (--theme-color); .badge-blue es
      azul fijo a propósito, no cambia aunque cambie --app-theme-color. */
-  --badge-default-bg: rgba(var(--theme-color-rgb), 0.1);
-  --badge-default-text: var(--theme-color);
+  --badge-default-bg: rgba(var(--theme-color-rgb), 0.18);
+  --badge-default-text: var(--theme-color-dark);
   --badge-blue-bg: rgba(79, 124, 255, 0.1);
   --badge-blue-text: #4f7cff;
   --badge-gray-bg: #f1f5f9;
@@ -123,8 +123,8 @@
   --space-2xl: 48px;
 
   /* Shadow system */
-  --shadow-xs: 0 2px 4px rgba(0, 0, 0, 0.12);
-  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.12);
+  --shadow-xs: 0 2px 3px rgba(0, 0, 0, 0.12);
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.14);
   --shadow-md: 0 6px 12px rgba(0, 0, 0, 0.16);
   --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.3);
   --shadow-focus: 0 0 0 3px rgba(var(--theme-color-dark-rgb), 0.20);

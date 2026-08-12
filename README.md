@@ -16,16 +16,20 @@
 <div class="vue-mount">
 <csv-loader src="data/destacados.csv" category="Todos">
     <script type="text/template">
-        <div class="news-container">
+        <div>
             <div v-show="loading" class="loading-state">
                 <icon-svg name="bx-loader-alt" class="bx-spin"></icon-svg> Cargando novedades...
             </div>
-            <a v-for="item in items.slice(0, 5)" :key="item.titulo" :href="item.url" target="_blank" class="news-strip">
-                <div class="news-meta">
-                    <span class="news-date">{{ item.fecha }}</span>
-                    <span class="news-title">{{ item.titulo }}</span>
+            <a v-for="item in items.slice(0, 5)" :key="item.titulo" :href="item.url" target="_blank" class="card interactive news-strip">
+                <div class="card__body">
+                    <div class="row space-between">
+                        <md-content>
+                            {{ item.fecha }}
+                            #### {{ item.titulo }}
+                        </md-content>
+                        <span class="badge badge-default">{{ item.categoria }}</span>
+                    </div>
                 </div>
-                <span class="news-tag">{{ item.categoria }}</span>
             </a>
         </div>
     </script>
