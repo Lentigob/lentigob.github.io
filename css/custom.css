@@ -22,6 +22,9 @@
   height: 24px;
   fill: currentColor;
   vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .icon-svg.small {

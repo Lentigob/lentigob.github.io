@@ -21,22 +21,27 @@ Registro completo de actividades académicas e instituciones.
         </div>
         <div v-show="!loading" class="layout-grid">
             <card-block v-for="item in items" :key="item.curso">
-                <div class="muted row space-between">
-                    <span class="badge badge-gray">{{ item.tipo }}</span>
-                    <span class="card-inline"><icon-svg name="bx-calendar"></icon-svg> {{ item.anio }}</span>
-                </div>
-                <md-content class="card-content">#### {{ item.url ? ('<a href="' + item.url + '" target="_blank">' + item.curso + '</a>') : item.curso }}<br>{{ item.descripcion }}</md-content>
-                <div class="muted">
-                    <div class="row">
-                        <span class="card-inline"><icon-svg name="bx-map-pin"></icon-svg> {{ item.institucion }}</span>
-                        <span class="card-inline"><icon-svg name="bx-graduation-cap"></icon-svg> {{ item.programa }}</span>
-                        <span class="card-inline"><icon-svg name="bx-time-five"></icon-svg> {{ item.horastotales }} horas</span>
-                    </div>
-                    <div class="row" v-if="item.url">
+                <div class="card-content">
+                    <md-content class="card-content">
+                        #### {{ item.url ? ('<a href="' + item.url + '" target="_blank">' + item.curso + '</a>') : item.curso }} <br>
+                        {{ item.descripcion }}
+                    </md-content>
+                    <ul class="icon-bullets">
+                        <li><icon-svg name="bx-map-pin"></icon-svg><span>{{ item.institucion }}</span></li>
+                        <li><icon-svg name="bx-graduation-cap"></icon-svg><span>{{ item.programa }}</span></li>
+                    </ul>
+                    <div class="row align-right" v-if="item.url">
                         <a :href="item.url" target="_blank" class="data-action">
                             <icon-svg name="bx-link-external"></icon-svg>
                             Ver curso
                         </a>
+                    </div>
+                </div>
+                <div class="muted row space-between">
+                    <span class="badge badge-gray">{{ item.tipo }}</span>
+                    <div class="row align-center">
+                        <span v-if="Number.isFinite(Number(item.horastotales))" class="card-inline"><icon-svg name="bx-time-five"></icon-svg> {{ item.horastotales }} horas </span>
+                        <span class="card-inline"><icon-svg name="bx-calendar"></icon-svg> {{ item.anio }}</span>
                     </div>
                 </div>
             </card-block>
