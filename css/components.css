@@ -358,7 +358,7 @@ a.card {
 .data-table__title,
 .data-table__subtitle,
 .data-table__title-link {
-    max-width: calc(var(--content-max-width) * 0.7);
+    max-width: calc(var(--content-max-width) * 0.4);
     overflow: hidden;
     text-overflow: ellipsis;
 }

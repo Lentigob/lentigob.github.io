@@ -78,7 +78,7 @@
   --base-border-color: var(--color-border-strong);
   --base-inactive-color: rgba(0, 0, 0, 0.2);
   --base-color-secondary: var(--color-text-muted);
-  --content-max-width: 820px;
+  --content-max-width: 1200px;
   
   /* Headings */
   --heading-color: var(--color-text-primary);
