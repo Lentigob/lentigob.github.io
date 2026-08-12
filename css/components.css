@@ -439,10 +439,16 @@ a.card {
 }
 
 /** Row utility classes for content **/
+/* align-items: center por default: casi todo lo que se mete en un .row es
+   icono+texto o badge+texto, y con el "stretch" por default de flex esos
+   pares quedan pegados arriba en vez de centrados cuando un hermano es más
+   alto (p.ej. un badge que hace wrap a 2 líneas). .row.align-center se deja
+   como no-op explícito por si algún día hace falta un stretch real. */
 .row,
 .card > .card__body > .row {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: var(--space-sm);
 }
 
