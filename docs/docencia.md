@@ -39,7 +39,7 @@ Registro completo de actividades académicas e instituciones.
                 </div>
                 <div class="muted row space-between">
                     <span class="badge badge-gray">{{ item.tipo }}</span>
-                    <div class="row align-center">
+                    <div class="row row-xs align-center">
                         <span v-if="Number.isFinite(Number(item.horastotales))" class="card-inline"><icon-svg name="bx-time-five"></icon-svg> {{ item.horastotales }} horas </span>
                         <span class="card-inline"><icon-svg name="bx-calendar"></icon-svg> {{ item.anio }}</span>
                     </div>

@@ -23,7 +23,7 @@ Logros e impactos del proyecto en el ámbito académico e industrial.
             <card-block v-for="item in items" :key="item.nombre" interactive>
                 <div class="muted row space-between">
                     <span class="badge badge-amber">{{ item.tipologro }}</span>
-                    <span class="card-inline"><icon-svg name="bx-trophy"></icon-svg> {{ item.fecha }}</span>
+                    <span class="card-inline text-xs"><icon-svg name="bx-trophy"></icon-svg> {{ item.fecha }}</span>
                 </div>
                 <md-content class="card-content">
                     #### {{ item.url ? ('<a href="' + item.url + '" target="_blank">' + item.nombre + '</a>') : item.nombre }}

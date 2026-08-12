@@ -193,6 +193,17 @@ a.card {
     opacity: 0.78;
 }
 
+/* Utilidades de tamaño de texto: .text-xs se pone directo en el elemento
+   que quieres achicar (p.ej. un .card-inline junto a un .badge); .row-xs se
+   pone en el contenedor y afecta a todos los spans que tenga dentro. */
+.text-xs {
+    font-size: var(--font-size-xs);
+}
+
+.row-xs > span {
+    font-size: var(--font-size-xs);
+}
+
 .centered-content {
     display: flex;
     flex-direction: column;
