@@ -1,11 +1,12 @@
 # Contacto
 
-¿Tienes alguna duda o propuesta de colaboración? Estamos abiertos a trabajar con instituciones, empresas e investigadores de todo el mundo.
+¿Tienes alguna duda o propuesta de colaboración? \
+Estamos abiertos a trabajar con instituciones, empresas e investigadores de todo el mundo.
 
 <div class="vue-mount">
 <vue-mount>
     <script type="text/template">
-        <div class="layout-grid spaced">
+        <div class="layout-grid spaced margin-top">
             <div class="card">
                 <div class="card__body centered-content">
                     <icon-svg name="bx-envelope" class="large"></icon-svg>

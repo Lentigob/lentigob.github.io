@@ -22,6 +22,11 @@
 //   rawItems, items, categories, years, activeCategory, selectedYear,
 //   searchQuery, sortKey, sortAsc, loading, sortBy(key)
 //
+// Columna "excluir" (opcional, primera columna del CSV): cualquier fila cuyo
+//   valor no esté vacío (p.ej. "x") se descarta antes de mostrarse - permite
+//   marcar datos privados/confidenciales dentro del mismo CSV en vez de
+//   mantener un archivo "_privado" aparte.
+//
 // Atributos:
 //   src (requerido; admite varios CSV separados por comas, p.ej.
 //     "data/A.csv,data/B.csv" - las filas de todos se combinan en una sola
@@ -236,6 +241,7 @@
             rowsPerSource.forEach((rows, i) => {
               const defaultCategory = srcCategories[i];
               rows.forEach((row) => {
+                if (row.excluir && row.excluir.trim()) return;
                 if (defaultCategory && col && !row[col]) {
                   row[col] = defaultCategory;
                 }

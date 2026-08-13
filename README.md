@@ -1,7 +1,7 @@
 <!-- Hero Section -->
 <a href="#/docs/proyectos" class="hero-section">
   <div class="hero-photo">
-    <img src="assets/media/IMG_1309.JPG" alt="" class="hero-bg-image">
+    <img src="assets/media/IMG_1313.JPG" alt="" class="hero-bg-image">
     <div class="hero-content">
       <h1>LENTI</h1>
       <p>Laboratorio de Estudios sobre Nuevas Tecnologas e Innovación. Investigación interdisciplinaria para el futuro digital.</p>

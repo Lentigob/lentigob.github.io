@@ -15,6 +15,10 @@
     gap: var(--space-2xl);
 }
 
+.layout-grid.margin-top {
+    margin-top: var(--space-xl);
+}
+
 /** Componente Md-content (markdown) **/
 .markdown-section md-content > p {
     margin-top: var(--space-2xs);
