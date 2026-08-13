@@ -36,7 +36,7 @@ Registro completo de actividades académicas e instituciones.
                     <li><icon-svg name="bx-map-pin"></icon-svg><span>{{ item.institucion }}</span></li>
                     <li><icon-svg name="bx-graduation-cap"></icon-svg><span>{{ item.programa }}</span></li>
                     <li><icon-svg name="bx-calendar"></icon-svg><span>{{ item.fechainicio }} - {{ item.fechafin }}</span></li>
-                    <li v-if="Number.isFinite(Number(item.horastotales))"><icon-svg name="bx-time-five"></icon-svg><span> {{ item.horastotales }} horas </span></li>
+                    <li v-if="Number(item.horastotales) && Number.isFinite(Number(item.horastotales))"><icon-svg name="bx-time-five"></icon-svg><span> {{ item.horastotales }} horas </span></li>
                 </ul>
                 <template #bottom>
                     <div class="row align-right">

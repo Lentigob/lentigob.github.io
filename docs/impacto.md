@@ -20,9 +20,9 @@ Logros e impactos del proyecto en el ámbito académico e industrial.
             <icon-svg name="bx-loader-alt" class="bx-spin"></icon-svg> Cargardo trayectoria...
         </div>
         <div v-show="!loading" class="layout-grid">
-            <card-block v-for="item in items" :key="item.nombre" interactive>
+            <card-block v-for="item in items" :key="item.nombre" class="interactive">
                 <div class="row align-right">
-                    <span class="badge badge-default">{{ item.anio }}</span>
+                    <span class="badge badge-default">{{ item.fecha }}</span>
                     <span class="badge badge-default">{{ item.tipologro }}</span>
                 </div>
                 <div class="card-separator"></div>
@@ -32,21 +32,16 @@ Logros e impactos del proyecto en el ámbito académico e industrial.
                 <md-content class="card-content">
                     {{ item.descripcion }}
                 </md-content>
-                <div class="row space-between">
-                    <div>
-                        <span class="card-inline text-xs"><icon-svg name="bx-map-pin"></icon-svg> {{ item.institucion }}</span>
-                        <span class="card-inline text-xs"><icon-svg name="bx-world"></icon-svg> {{ item.pais }}</span>
-                    </div>
-                    <span class="card-inline text-xs"><icon-svg name="bx-trophy"></icon-svg> {{ item.fecha }}</span>
-                </div>
+                <ul class="icon-bullets">
+                    <li v-if="item.institucion"><icon-svg name="bx-map-pin"></icon-svg><span>{{ item.institucion }}</span></li>
+                    <li v-if="item.pais"><icon-svg name="bx-world"></icon-svg><span>{{ item.pais }}</span></li>
+                </ul>
                 <template #bottom>
                     <div class="row align-right">
-                        <div class="row" v-if="item.url">
-                            <a :href="item.url" target="_blank" class="data-action">
-                                <icon-svg name="bx-link-external"></icon-svg>
-                                Ver más
-                            </a>
-                        </div>
+                        <a v-if="item.url" :href="item.url" target="_blank" class="data-action">
+                            <icon-svg name="bx-link-external"></icon-svg>
+                            Ver más
+                        </a>
                     </div>
                 </template>
             </card-block>

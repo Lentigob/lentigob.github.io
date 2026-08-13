@@ -1,5 +1,5 @@
 excluir,Institución,Programa,Curso,HorasTotales,Año,FechaInicio,FechaFin,Nivel,Descripcion,URL
-,UNAM - Facultad de Medicina,Licenciatura en Investigación Biomédica Básica,Matemáticas,96,2026,2026/08/14,,Licenciatura,,
+,UNAM - Facultad de Medicina,Licenciatura en Investigación Biomédica Básica,Matemáticas,96,2026,2026/08/14,,Licenciatura
 ,UNAM - Escuela Nacional de Ciencias Forenses (ENCIF),Licenciatura en Ciencia Forense,Análisis preliminar,3,2026,2026/04/06,2026/04/06,Diplomado,,2026_diplomado_ENACIF_AnalisisPreliminar.pdf
 ,INER - Educación continua,Educación continua,Introducción al Análisis de Datos con Python,40,2026,2026/07/03,2026/08/07,Educación continua,,2026_INEReducacioncontinua_Python.pdf
 ,UNAM - Posgrado,Posgrado en Ciencias Bioquímicas,Análisis de Datos de Gobierno con Python,96,2026,2026/02/03,2026/06/12,Posgrado,,2026_docencia_Posgrado_Python.pdf
@@ -17,5 +17,25 @@ x,UNAM - Facultad de Medicina,Licenciatura en Investigación Biomédica Básica,
 x,Centro de Investigación en Matemáticas - Monterrey,Maestría en Cómputo Estadístico,Análisis y limpieza de datos gubernamentales,15,2023,2023/11/06,2023/11/10,Posgrado,,2023_docente_CIMATMonterrey_Datos.pdf
 x,Women in Data Science,Women in Data Science,No es lo mismo que lo mesmo: fuzzywuzzy y stemming,2,2020,2020/03/02,2020/03/02,Educación continua,,2020_docencia_CdMx_WIDSfuzzywuzzy.png
 ,UNAM - Centro de Ciencias Matemáticas UNAM y Centro de Ciencias de la Complejidad,Posgrado en Ciencias Biológicas,Taller de introducción a la biología de sistemas,96,2019,2019/01/28,2019/05/24,Posgrado,,2019_Posgrado_BioSis.pdf
-,"Biosciences eastern and central Africa-International Livestock Research Institute (BecA-ILRI) Hub (en el campus de ILRI, Nairobi, Kenia)1",Bioinformatics Community of Practise,"Strategies for RNA Sequencing, transcriptome reference, and variant calling",-,2018,2018/05/28,2018/06/22,Workshop,,2018_Curso_Kenia.pdf
-,"Punjab Agricultural University, Ludhiana, India y John Innes Centre, Norwich, UK1",Punjab Agricultural University,Soft Skills Workshop in Scientific Communications,-,2017,2017/03/21,2017/03/24,Workshop,,2017_Curso_India.pdf
+,"Biosciences eastern and central Africa-International Livestock Research Institute (BecA-ILRI) Hub (en el campus de ILRI, Nairobi, Kenia)1",Bioinformatics Community of Practise,"Strategies for RNA Sequencing, transcriptome reference, and variant calling",,2018,2018/05/28,2018/06/22,Workshop,,2018_Curso_Kenia.pdf
+,"Punjab Agricultural University, Ludhiana, India y John Innes Centre, Norwich, UK1",Punjab Agricultural University,Soft Skills Workshop in Scientific Communications,,2017,2017/03/21,2017/03/24,Workshop,,2017_Curso_India.pdf
+,Secretaría de Gestión Integral de Riesgos y Protección Civil,,Planeación de Eventos Masivos,30,2026,2026/1/1,2026/3/1,Curso,,2026_curso_SGIRPC_EventosMasivos.pdf
+,UNAM,,Planeación Didáctica de la Asignatura,16,2026,2026/2/1,2026/2/28,Curso,,2026_curso_UNAM_PlaneacionDidactica.pdf.pdf
+,UNAM,,Formación y Actualización Docente en Ciencias de la Salud,30,2026,2026/2/1,2026/2/28,Curso,,2026_curso_UNAM_FormacionDocente.pdf
+x,UnADM,,Ética e integridad pública para un buen gobierno,8,2025,2025/9/17,2025/10/1,Curso,,2025_curso_UNADM_EticaGobierno.pdf
+x,CENTROGEO,,Escuela de verano en Ciencias de Información Geoespacial 2025,40,2025,2025/07/07,2025/07/11,Workshop,,2025_workshop_CENTROGEO_Geoespacial.pdf
+x,UnADM,,Introducción a la Administración Pública Federal,8,2025,2025/04/06,2025/04/01,Curso,,2025_curso_UNADM_AdministracionPublica.pdf
+x,IMSS-BIENESTAR,,MPOX: Emergencia Epidemiológica,8,2024,2024/11/25,2024/11/25,Curso,,2024_curso_IMSS_curso_Mpox.pdf
+x,CONAPRED,,Las medidas para la igualdad en el marco de la Ley Federal para Prevenir y Eliminar la Discriminación,8,2023,2023/08/14,2023/08/27,Curso,,2023_curso_CONAPRED_Discriminacion.pdf
+x,University of Minnesota,"","International Philosophy of Biology Circle Summer School 2023, Biology and Society",,2023,2023/08/08,2023/08/12,Workshop,,2023_workshop_UMinnesota_PhilosophyBiology.pdf
+x,Secretaria de Salud,,Interculturalidad en los Servicios de Salud en el marco de la APS y los Derechos Humanos,8,2023,2023/7/31,2023/7/31,Curso,,2023_curso_SSalud_Interculturalidad.pdf
+x,CENTROGEO,,Escuela de Verano en Ciencias de Información Geoespacial 2023,40,2023,2023/07/10,2023/07/14,Workshop,,2023_workshop_CENTROGEO_Geoespacial.pdf
+x,Deep Teaching Solutions,,Aprendiendo a aprender,,2019,2019/6/1,2019/6/1,Curso
+x,Centro de Ciencias Genómicas,,Latin American R/BioConductor Developers Workshop,,2018,2018/8/1,2018/8/1,Workshop
+x,Centro de Ciencias Genómicas,,Latin American R/BioConductor Developers Workshop,,2018,2018/8/1,2018/8/1,Workshop
+x,"Banff International Research Station for Mathematical Innovation and Discovery, of Casa Matemática Oaxaca",,Principles of Gene Circuit Design,,2017,2017/9/1,2017/9/1,Curso
+x,"LANCIS, UNAM",,Analysis of NGS data for microbial diversity studies,,2015,2015/8/1,2015/8/1,Curso
+x,"Freie Universität Berlin, Germany",,Analysis and Control of Time-evolving Networks in Epidemiology and Evolutionary Medicine,,2014,2014/7/1,2014/7/1,Workshop
+x,"Freie Universität Berlin, Germany",,Analysis and Control of Time-evolving Networks in Epidemiology and Evolutionary Medicine,,2014,2014/7/1,2014/7/1,Workshop
+x,CINVESTAV,"","1er Taller Nacional de Biología Sintética, Biology and Society",,2010,2010/7/1,2010/7/31,Workshop
+x,CINVESTAV,"","1er Taller Nacional de Biología Sintética, Biology and Society",,2010,2010/7/1,2010/7/31,Workshop
