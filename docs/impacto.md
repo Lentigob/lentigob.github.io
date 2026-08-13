@@ -21,10 +21,14 @@ Logros e impactos del proyecto en el ámbito académico e industrial.
         </div>
         <div v-show="!loading" class="layout-grid">
             <card-block v-for="item in items" :key="item.nombre" interactive>
+                <div class="row align-right">
+                    <span class="badge badge-default">{{ item.anio }}</span>
+                    <span class="badge badge-default">{{ item.tipologro }}</span>
+                </div>
+                <div class="card-separator"></div>
                 <md-content class="card-content">
                     #### {{ item.url ? ('<a href="' + item.url + '" target="_blank">' + item.nombre + '</a>') : item.nombre }}
                 </md-content>
-                <div class="card-separator"></div>
                 <md-content class="card-content">
                     {{ item.descripcion }}
                 </md-content>
@@ -37,7 +41,6 @@ Logros e impactos del proyecto en el ámbito académico e industrial.
                 </div>
                 <template #bottom>
                     <div class="row align-right">
-                        <span class="badge badge-amber">{{ item.tipologro }}</span>
                         <div class="row" v-if="item.url">
                             <a :href="item.url" target="_blank" class="data-action">
                                 <icon-svg name="bx-link-external"></icon-svg>

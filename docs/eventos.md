@@ -29,26 +29,24 @@ Congresos, talleres y seminarios donde participamos.
                         <img v-else :src="ev.imagen" :alt="ev.nombreevento" class="image-photo" @error="$event.target.parentElement.style.display='none'">
                     </div>
                 </template>
-                <template #top>
-                    <div class="row row-xs align-right">
-                        <span class="card-inline"><icon-svg name="bx-calendar"></icon-svg> {{ ev.fechainicio }} - {{ ev.fechafin }}</span>
-                    </div>
-                </template>
-                <div class="card-content">
-                    <md-content>
-                        #### {{ ev.url ? ('<a href="' + ev.url + '" target="_blank">' + ev.nombreevento + '</a>') : ev.nombreevento }} <br>
-                        {{ ev.titulo ? '*' + ev.titulo + '*' : '' }}
-                    </md-content>
-                    <ul class="icon-bullets">
-                        <li><icon-svg name="bx-user"></icon-svg><span>{{ ev.autores }}</span></li>
-                        <li><icon-svg name="bx-map-pin"></icon-svg><span>{{ ev.institucionsede }} ({{ ev.alcance }})</span></li>
-                        <li><icon-svg name="bx-briefcase"></icon-svg><span>{{ ev.organizador }}</span></li>
-                        <li><icon-svg name="bx-flag"></icon-svg><span>{{ ev.etapa }}</span></li>
-                    </ul>
+                <div class="row align-right">
+                    <span class="badge badge-default">{{ ev.anio }}</span>
+                    <span class="badge badge-default">{{ ev.tipo }}</span>
                 </div>
+                <div class="card-separator"></div>
+                <md-content class="card-content">
+                    #### {{ ev.url ? ('<a href="' + ev.url + '" target="_blank">' + ev.titulo + '</a>') : ev.titulo }}
+                </md-content>
+                <ul class="icon-bullets">
+                    <li v-if="ev.nombredeevento"><icon-svg name="bx-user"></icon-svg><span>{{ ev.nombredeevento }}</span></li>
+                    <li v-if="ev.autores"><icon-svg name="bx-user"></icon-svg><span>{{ ev.autores }}</span></li>
+                    <li v-if="ev.institucionsede"><icon-svg name="bx-map-pin"></icon-svg><span>{{ ev.institucionsede }}</span></li>
+                    <li v-if="ev.organizador"><icon-svg name="bx-briefcase"></icon-svg><span>{{ ev.organizador }}</span></li>
+                    <li v-if="ev.etapa"><icon-svg name="bx-flag"></icon-svg><span>{{ ev.etapa }}</span></li>
+                    <li><icon-svg name="bx-calendar"></icon-svg><span>{{ ev.fechainicio }} - {{ ev.fechafin }}</span></li>
+                </ul>
                 <template #bottom>
-                    <div class="row space-between">
-                        <span class="badge badge-default">{{ ev.tipo }}</span>
+                    <div class="row align-right">
                         <div>
                             <a v-if="ev.url" :href="ev.url" target="_blank" class="data-action">
                                 <icon-svg name="bx-link-external"></icon-svg>
