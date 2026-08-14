@@ -1,5 +1,11 @@
 /* Remove left sided icon */
 :root {
+    /* Uses a radial-gradient dot as the menu item indicator */
+    --sidebar-nav-pagelink-background: no-repeat 4px center / 8px 8px radial-gradient(circle, var(--sidebar-nav-link-color) 50%, transparent 52%);
+    --sidebar-nav-pagelink-background--active: no-repeat 2px center / 8px 8px radial-gradient(circle, var(--sidebar-nav-link-color--active) 50%, transparent 52%);
+
+
+
     /* --sidebar-nav-pagelink-background: none;
     --sidebar-nav-pagelink-background--loaded: none;
     --sidebar-nav-pagelink-background--active: none; */
