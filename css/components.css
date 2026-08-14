@@ -512,13 +512,17 @@ a.card {
 .row.logos {
   justify-content: center;
   gap: var(--space-2xl);
-  padding: var(--space-lg) 0;
+  padding: var(--space-xl) 0;
 }
 
 .row.logos img {
-  height: 6em;
+  height: 8.5em;
   width: auto;
   object-fit: contain;
+}
+
+.row.logos img.logo__SECIHTI {
+  height: 4em;
 }
 
 ul.icon-bullets {

@@ -42,22 +42,17 @@
 ## Instituciones Participantes
 
 <div class="row align-center logos">
-    <img src="assets\other\logo_INER.svg">
-    <img src="assets\other\logo_CEIICH.svg">
-    <img src="assets\other\logo_CIMAT.svg">
+    <img src="assets\other\logo_INER.svg" class="logo__INER">
+    <img src="assets\other\logo_CEIICH.svg" class="logo__CEIICH">
+    <img src="assets\other\logo_CIMAT.svg" class="logo__CIMAT">
 </div>
-
-&nbsp;
 
 <!-- Logos de fuentes de financiamiento -->
 ## Apollo y Financiamiento
 
 <div class="row align-center logos">
-    <img src="assets\other\logo_SECIHTI.svg">
+    <img src="assets\other\logo_SECIHTI.svg" class="logo__SECIHTI">
 </div>
-
-&nbsp;
-
 
 <!-- Grid de Navegación -->
 ## Descubre nuestro trabajo
