@@ -48,7 +48,7 @@
 </div>
 
 <!-- Logos de fuentes de financiamiento -->
-## Apollo y Financiamiento
+## Apoyo y Financiamiento
 
 <div class="row align-center logos">
     <img src="assets\other\logo_SECIHTI.svg" class="logo__SECIHTI">
