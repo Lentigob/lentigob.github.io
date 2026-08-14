@@ -34,6 +34,9 @@
                 <img :src="item.imagen" :alt="item.titulo" class="data-table__thumbnail" @error="$event.target.parentElement.style.display='none'">
             </a>
             <img v-else-if="item.imagen" :src="item.imagen" :alt="item.titulo" class="data-table__thumbnail" @error="$event.target.style.display='none'">
+            <div v-else class="data-table__thumbnail data-table__thumbnail--placeholder" title="Sin imagen">
+                <icon-svg name="bx-briefcase-alt"></icon-svg>
+            </div>
         </td>
         <td>
             <a v-if="item.url" :href="item.url" target="_blank" class="data-table__title-link">
@@ -41,6 +44,7 @@
             </a>
             <strong v-else class="data-table__title" :title="item.titulo">{{ item.titulo }}</strong>
             <span class="data-table__subtitle" :title="'Investigadores: ' + item.investigadores">{{ 'Investigadores: ' + item.investigadores }}</span>
+            <span class="data-table__subtitle" v-if="item.archivos" :title="'Archivos: ' + item.archivos">{{ 'Archivos: ' + item.archivos.split(',').map(a => a.trim()).filter(Boolean).join(' • ') }}</span>
         </td>
         <td>
             <span class="badge badge-default">{{ item.institucion }}</span>

@@ -394,6 +394,16 @@ a.card {
     display: block;
 }
 
+.data-table__thumbnail--placeholder {
+    width: 48px;
+    height: 48px;
+    background: var(--color-border);
+    border-radius: var(--radius-sm, 6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .sort-icon {
     font-size: 0.8rem;
     margin-left: var(--space-2xs);
