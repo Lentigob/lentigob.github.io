@@ -4,11 +4,15 @@ A continuación presentamos al equipo de investigadores y colaboradores de nuest
 
 <div class="vue-mount">
 <csv-loader src="data/Equipo.csv" filter-col="Tipo" category="Investigador"
-            base-filter='{"estado":"activo"}'>
+            base-filter='{"estado":"activo"}' sort-key="prioridad" sort-asc="true">
     <script type="text/template">
         <div v-show="loading" class="loading-state">Cargando...</div>
         <template v-if="!loading && items.length > 0">
             <h2>Investigadores Principales</h2>
+            <div class="filters__tags">
+                <button @click="sortBy('prioridad')" :class="{'active': sortKey === 'prioridad'}" class="filter-chip">Prioridad</button>
+                <button @click="sortBy('nombre')" :class="{'active': sortKey === 'nombre'}" class="filter-chip">Nombre</button>
+            </div>
             <div class="layout-grid">
                 <card-block v-for="item in items" :key="item.nombre">
                     <template #image>
@@ -46,11 +50,15 @@ A continuación presentamos al equipo de investigadores y colaboradores de nuest
 
 <div class="vue-mount">
 <csv-loader src="data/Equipo.csv" filter-col="Tipo" category="Colaborador,Estudiante,Asociado"
-            base-filter='{"estado":"activo"}'>
+            base-filter='{"estado":"activo"}' sort-key="prioridad" sort-asc="true">
     <script type="text/template">
         <div v-show="loading" class="loading-state">Cargando...</div>
         <template v-if="!loading && items.length > 0">
             <h2>Colaboradores y Estudiantes</h2>
+            <div class="filters__tags">
+                <button @click="sortBy('prioridad')" :class="{'active': sortKey === 'prioridad'}" class="filter-chip">Prioridad</button>
+                <button @click="sortBy('nombre')" :class="{'active': sortKey === 'nombre'}" class="filter-chip">Nombre</button>
+            </div>
             <div class="layout-grid">
                 <card-block v-for="item in items" :key="item.nombre">
                     <template #image>

@@ -34,7 +34,10 @@
 //     activeCategory, acepta lista separada por comas), base-filter (JSON,
 //     filtro fijo oculto, p.ej. '{"estado":"activo"}'), empty-message (no se
 //     usa directamente aquí; el "no hay resultados" se controla en la
-//     plantilla con v-show="items.length === 0").
+//     plantilla con v-show="items.length === 0"), sort-key (columna de orden
+//     inicial, por defecto "anio"), sort-asc ("true"/"false", por defecto
+//     false). Las filas sin valor en la columna de orden siempre quedan al
+//     final, sin importar la dirección (útil para "prioridad" sin asignar).
 //
 // Para combinar varios CSV con columnas distintas en una sola vista con
 // pestañas de categoría (p.ej. Resultados = Reportes + Publicaciones + Datos
@@ -95,6 +98,9 @@
         ? categoryAttr.split(',').map((s) => s.trim())
         : categoryAttr;
 
+      const defaultSortKey = this.getAttribute('sort-key') || 'anio';
+      const defaultSortAsc = this.getAttribute('sort-asc') === 'true';
+
       const baseFilterAttr = this.getAttribute('base-filter');
       let baseFilter = null;
       if (baseFilterAttr) {
@@ -140,8 +146,8 @@
             activeCategory: initialCategory,
             searchQuery: '',
             loading: true,
-            sortKey: 'anio',
-            sortAsc: false,
+            sortKey: defaultSortKey,
+            sortAsc: defaultSortAsc,
             selectedYear: 'Todos'
           };
         },
@@ -204,6 +210,14 @@
               filtered = [...filtered].sort((a, b) => {
                 const av = a[key];
                 const bv = b[key];
+                const aEmpty = av === undefined || av === null || String(av).trim() === '';
+                const bEmpty = bv === undefined || bv === null || String(bv).trim() === '';
+                // Las filas sin valor en la columna ordenada siempre van al final,
+                // sin importar la dirección (p.ej. "Prioridad" vacía = sin asignar).
+                if (aEmpty || bEmpty) {
+                  if (aEmpty && bEmpty) return 0;
+                  return aEmpty ? 1 : -1;
+                }
                 const an = parseFloat(av);
                 const bn = parseFloat(bv);
                 const res = !isNaN(an) && !isNaN(bn) ? an - bn : String(av).localeCompare(String(bv));
