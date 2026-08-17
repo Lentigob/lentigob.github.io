@@ -39,12 +39,10 @@ Registro completo de actividades académicas e instituciones.
                     <li v-if="Number(item.horastotales) && Number.isFinite(Number(item.horastotales))"><icon-svg name="bx-time-five"></icon-svg><span> {{ item.horastotales }} horas </span></li>
                 </ul>
                 <template #bottom>
-                    <div class="row align-right">
-                        <a v-if="item.url" :href="item.url" target="_blank" class="data-action">
-                            <icon-svg name="bx-link-external"></icon-svg>
-                            Ver curso
-                        </a>
-                    </div>
+                    <action-icons :item="item" :fields="[
+                        { key: 'url', icon: 'bx-link-external', title: 'Ver curso' },
+                        { key: 'archivo', title: 'Descargar archivo', type: 'file' }
+                    ]"></action-icons>
                 </template>
             </card-block>
             <div v-show="items.length === 0" class="no-results">

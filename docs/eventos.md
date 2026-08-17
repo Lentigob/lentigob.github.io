@@ -46,14 +46,10 @@ Congresos, talleres y seminarios donde participamos.
                     <li><icon-svg name="bx-calendar"></icon-svg><span>{{ ev.fechainicio }} - {{ ev.fechafin }}</span></li>
                 </ul>
                 <template #bottom>
-                    <div class="row align-right">
-                        <div>
-                            <a v-if="ev.url" :href="ev.url" target="_blank" class="data-action">
-                                <icon-svg name="bx-link-external"></icon-svg>
-                                Ver evento
-                            </a>
-                        </div>
-                    </div>
+                    <action-icons :item="ev" :fields="[
+                        { key: 'url', icon: 'bx-link-external', title: 'Ver evento' },
+                        { key: 'archivo', title: 'Descargar archivo', type: 'file' }
+                    ]"></action-icons>
                 </template>
             </card-block>
             <div v-show="items.length === 0" class="no-results">

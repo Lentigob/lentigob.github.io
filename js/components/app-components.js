@@ -23,8 +23,29 @@
     return isEmail(value) ? 'mailto:' + value : value;
   }
 
+  // Los archivos descargables ("Archivo") viven todos en assets/sources/ y
+  // el CSV solo guarda el nombre de archivo (si un registro necesita más de
+  // uno, se pide empaquetarlos en un .zip en vez de agregar más botones).
+  const FILES_BASE_PATH = 'assets/sources/';
+
+  function fileHref(value) {
+    const name = String(value).trim();
+    return name ? FILES_BASE_PATH + name : null;
+  }
+
+  // DOI -> URL resolvible (acepta tanto el DOI suelto como una URL ya
+  // completa por si el CSV la trae así). "N/A" o vacío se descarta.
+  function doiHref(value) {
+    if (!value) return null;
+    const norm = String(value).trim();
+    if (!norm || norm.toLowerCase() === 'n/a') return null;
+    return /^https?:\/\//i.test(norm) ? norm : 'https://doi.org/' + norm;
+  }
+
   function registerAppComponents(app) {
     app.config.globalProperties.$toHref = toHref;
+    app.config.globalProperties.$fileHref = fileHref;
+    app.config.globalProperties.$doiHref = doiHref;
 
     app.component('proyecto-row', {
       props: { item: { type: Object, required: true } },
@@ -44,7 +65,7 @@
             </a>
             <strong v-else class="data-table__title" :title="item.titulo">{{ item.titulo }}</strong>
             <span class="data-table__subtitle" :title="'Investigadores: ' + item.investigadores">{{ 'Investigadores: ' + item.investigadores }}</span>
-            <span class="data-table__subtitle" v-if="item.archivos" :title="'Archivos: ' + item.archivos">{{ 'Archivos: ' + item.archivos.split(',').map(a => a.trim()).filter(Boolean).join(' • ') }}</span>
+            <span class="data-table__subtitle" v-if="item.archivo" :title="'Archivos: ' + item.archivo">{{ 'Archivos: ' + item.archivo.split(',').map(a => a.trim()).filter(Boolean).join(' • ') }}</span>
         </td>
         <td>
             <span class="badge badge-default">{{ item.institucion }}</span>
@@ -58,10 +79,16 @@
         </td>
         <td>{{ item.anio }}</td>
         <td>
-            <a v-if="item.url" :href="item.url" target="_blank" class="data-action">
-                <icon-svg name="bx-right-arrow-alt"></icon-svg>
-                Detalles
-            </a>
+            <span class="data-table__actions">
+                <a v-if="item.url" :href="item.url" target="_blank" class="data-action">
+                    <icon-svg name="bx-right-arrow-alt"></icon-svg>
+                    Detalles
+                </a>
+                <a v-if="$fileHref(item.archivo)" :href="$fileHref(item.archivo)" download class="data-action">
+                    <icon-svg name="bx-download"></icon-svg>
+                    Archivo
+                </a>
+            </span>
         </td>
       `
     });
@@ -85,11 +112,11 @@
                     <icon-svg name="bx-link-external"></icon-svg>
                     Ver
                 </a>
-                <a v-if="item.pdf" :href="item.pdf" download class="data-action">
+                <a v-if="$fileHref(item.archivo)" :href="$fileHref(item.archivo)" download class="data-action">
                     <icon-svg name="bx-download"></icon-svg>
-                    PDF
+                    Archivo
                 </a>
-                <a v-if="item.doi && item.doi !== 'N/A'" :href="'https://doi.org/' + item.doi" target="_blank" class="data-action">
+                <a v-if="$doiHref(item.doi)" :href="$doiHref(item.doi)" target="_blank" class="data-action">
                     <icon-svg name="bx-link-external"></icon-svg>
                     DOI
                 </a>
@@ -112,21 +139,29 @@
     // Clases de utilidad para el contenido de la tarjeta:
     //    .row (align-right, space-between) - para alinear elementos en fila dentro de la tarjeta
 
-    // <contact-icons> - fila de iconos de contacto (linkedin, correo, etc.),
-    // reutilizable en cualquier tarjeta que necesite mostrarlos. No sabe nada
-    // de "equipo" ni de tarjetas: solo recibe una lista de campos a leer del
-    // item y arma los links, evitando duplicados cuando dos campos apuntan al
-    // mismo valor (p.ej. una columna "url" genérica que repite el correo).
+    // <action-icons> - fila de botones de acción/contacto (linkedin, correo,
+    // ver URL, DOI, descargar archivo, etc.), reutilizable en el slot #bottom
+    // de cualquier tarjeta. No sabe nada de "equipo" ni de tarjetas: solo
+    // recibe una lista de campos a leer del item y arma los links, evitando
+    // duplicados cuando dos campos apuntan al mismo valor (p.ej. una columna
+    // "url" genérica que repite el correo).
     //
     // Uso:
-    //   <contact-icons :item="item" :fields="[
+    //   <action-icons :item="item" :fields="[
     //       { key: 'url', title: 'Contacto' },
     //       { key: 'contacto', icon: 'bx-envelope', title: 'Correo' },
     //       { key: 'linkedin', icon: 'bx-linkedin', title: 'LinkedIn' },
-    //       { key: 'pagina', icon: 'bx-link-alt', title: 'Página' }
-    //   ]"></contact-icons>
+    //       { key: 'pagina', icon: 'bx-link-alt', title: 'Página' },
+    //       { key: 'doi', title: 'DOI', type: 'doi' },
+    //       { key: 'archivo', title: 'Descargar', type: 'file' }
+    //   ]"></action-icons>
     // Si un campo no trae "icon", se detecta automáticamente email vs. link.
-    app.component('contact-icons', {
+    // "type" cambia cómo se arma el href:
+    //   'link' (por defecto) - el valor tal cual, o "mailto:" si es un correo.
+    //   'doi'  - antepone "https://doi.org/" si el valor no es ya una URL.
+    //   'file' - resuelve el nombre de archivo dentro de assets/sources/ y
+    //            agrega el atributo "download".
+    app.component('action-icons', {
       props: {
         item: { type: Object, required: true },
         fields: { type: Array, required: true }
@@ -135,16 +170,30 @@
         links() {
           const seen = new Set();
           const links = [];
-          this.fields.forEach(({ key, icon, title }) => {
+          this.fields.forEach(({ key, icon, title, type }) => {
             const raw = this.item[key];
             if (!raw) return;
             const norm = String(raw).trim();
-            if (!norm || seen.has(norm)) return;
-            seen.add(norm);
-            const email = isEmail(norm);
+            if (!norm) return;
+
+            let href;
+            let isFile = false;
+            if (type === 'doi') {
+              href = doiHref(norm);
+            } else if (type === 'file') {
+              href = fileHref(norm);
+              isFile = true;
+            } else {
+              href = toHref(norm);
+            }
+            if (!href || seen.has(href)) return;
+            seen.add(href);
+
+            const email = !isFile && type !== 'doi' && isEmail(norm);
             links.push({
-              href: toHref(norm),
-              icon: icon || (email ? 'bx-envelope' : 'bx-link-alt'),
+              href,
+              download: isFile,
+              icon: icon || (isFile ? 'bx-download' : type === 'doi' ? 'bx-link-external' : email ? 'bx-envelope' : 'bx-link-alt'),
               title: title || key
             });
           });
@@ -153,7 +202,7 @@
       },
       template: `
         <div class="row align-right">
-            <a v-for="link in links" :key="link.href" :href="link.href" target="_blank" :title="link.title">
+            <a v-for="link in links" :key="link.href" :href="link.href" :target="link.download ? null : '_blank'" :download="link.download" :title="link.title">
                 <icon-svg :name="link.icon" class="small gray"></icon-svg>
             </a>
         </div>

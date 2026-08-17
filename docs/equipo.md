@@ -34,12 +34,12 @@ A continuación presentamos al equipo de investigadores y colaboradores de nuest
                         {{ item.departamento }}
                     </md-content>
                     <template #bottom>
-                        <contact-icons :item="item" :fields="[
+                        <action-icons :item="item" :fields="[
                             { key: 'url', title: 'Contacto' },
                             { key: 'contacto', icon: 'bx-envelope', title: 'Correo' },
                             { key: 'linkedin', icon: 'bx-linkedin', title: 'LinkedIn' },
                             { key: 'pagina', icon: 'bx-link-alt', title: 'Página' }
-                        ]"></contact-icons>
+                        ]"></action-icons>
                     </template>
                 </card-block>
             </div>
@@ -80,12 +80,12 @@ A continuación presentamos al equipo de investigadores y colaboradores de nuest
                         {{ item.departamento }}
                     </md-content>
                     <template #bottom>
-                        <contact-icons :item="item" :fields="[
+                        <action-icons :item="item" :fields="[
                             { key: 'url', title: 'Contacto' },
                             { key: 'contacto', icon: 'bx-envelope', title: 'Correo' },
                             { key: 'linkedin', icon: 'bx-linkedin', title: 'LinkedIn' },
                             { key: 'pagina', icon: 'bx-link-alt', title: 'Página' }
-                        ]"></contact-icons>
+                        ]"></action-icons>
                     </template>
                 </card-block>
             </div>
@@ -121,12 +121,12 @@ A continuación presentamos al equipo de investigadores y colaboradores de nuest
                         {{ item.departamento }}
                     </md-content>
                     <template #bottom>
-                        <contact-icons :item="item" :fields="[
+                        <action-icons :item="item" :fields="[
                             { key: 'url', title: 'Contacto' },
                             { key: 'contacto', icon: 'bx-envelope', title: 'Correo' },
                             { key: 'linkedin', icon: 'bx-linkedin', title: 'LinkedIn' },
                             { key: 'pagina', icon: 'bx-link-alt', title: 'Página' }
-                        ]"></contact-icons>
+                        ]"></action-icons>
                     </template>
                 </card-block>
             </div>
