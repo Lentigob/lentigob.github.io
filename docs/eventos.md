@@ -22,11 +22,12 @@ Congresos, talleres y seminarios donde participamos.
         <div v-show="!loading" class="layout-grid">
             <card-block v-for="ev in items" :key="ev.nombreevento" class="interactive">
                 <template #image>
-                    <div class="card-image-container" v-if="ev.imagen">
-                        <a v-if="ev.url" :href="ev.url" target="_blank" title="Ver información">
-                            <img :src="ev.imagen" :alt="ev.nombreevento" class="image-photo" @error="$event.target.parentElement.parentElement.style.display='none'">
-                        </a>
-                        <img v-else :src="ev.imagen" :alt="ev.nombreevento" class="image-photo" @error="$event.target.parentElement.style.display='none'">
+                    <a v-if="ev.url || ev.imagen" :href="ev.url ? $toHref(ev.url) : ev.imagen" target="_blank" :title="ev.url ? 'Ver información' : 'Ver imagen completa'" class="card-image-container">
+                        <img src="assets/img/logo.png" class="image-placeholder">
+                        <img v-if="ev.imagen" :src="ev.imagen" :alt="ev.nombreevento" class="image-photo" @error="$event.target.style.display='none'">
+                    </a>
+                    <div v-else class="card-image-container">
+                        <img src="assets/img/logo.png" class="image-placeholder">
                     </div>
                 </template>
                 <div class="row align-right">

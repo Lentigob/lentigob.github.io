@@ -280,7 +280,8 @@ a.card {
     background: #f0f2ff;
 }
 
-.team-image-container .image-placeholder {
+.team-image-container .image-placeholder,
+.card-image-container .image-placeholder {
     position: absolute;
     top: 0;
     left: 0;
