@@ -20,7 +20,11 @@
             <div v-show="loading" class="loading-state">
                 <icon-svg name="bx-loader-alt" class="bx-spin"></icon-svg> Cargando novedades...
             </div>
-            <a v-for="item in items.slice(0, 5)" :key="item.titulo" :href="item.url" target="_blank" class="card interactive news-strip">
+            <a v-for="item in items.slice(0, 5)" :key="item.titulo" :href="$deepLink(item)" class="card interactive news-strip">
+                <img v-if="item.imagen" :src="item.imagen" :alt="item.titulo" class="data-table__thumbnail" @error="$event.target.style.display='none'">
+                <div v-else class="data-table__thumbnail data-table__thumbnail--placeholder" title="Sin imagen">
+                    <icon-svg name="bx-briefcase-alt"></icon-svg>
+                </div>
                 <div class="card__body">
                     <div class="row space-between">
                         <md-content>

@@ -299,6 +299,21 @@
   margin-bottom: var(--space-lg);
 }
 
+/* Sobreescribe "a.card { flex-direction: column }" (más específico que una
+   sola clase) para que la miniatura quede a la izquierda del contenido,
+   como en proyecto-row, en vez de apilada arriba como el resto de tarjetas. */
+a.card.news-strip {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+}
+
+.news-strip .data-table__thumbnail,
+.news-strip .data-table__thumbnail--placeholder {
+  flex-shrink: 0;
+}
+
 .news-strip h3,
 .news-strip h4 {
   margin-top: 0;

@@ -42,10 +42,27 @@
     return /^https?:\/\//i.test(norm) ? norm : 'https://doi.org/' + norm;
   }
 
+  // Convierte el link de un ítem (p.ej. una fila de Destacados) en un "deep
+  // link" que, al llegar a la página destino, precarga su buscador
+  // (searchQuery de csv-loader, ver getHashQueryParam en csv-loader.js) con
+  // el título del ítem - así la tarjeta no solo lleva a la sección, sino que
+  // deja ese ítem específico ya filtrado en la lista.
+  // Solo aplica a rutas internas (empiezan con "#/"); un link externo se
+  // deja tal cual.
+  function deepLink(item) {
+    const url = item && item.url;
+    if (!url || !url.startsWith('#/')) return url;
+    const titulo = item.titulo || item.nombre || '';
+    if (!titulo) return url;
+    const sep = url.includes('?') ? '&' : '?';
+    return url + sep + 'q=' + encodeURIComponent(titulo);
+  }
+
   function registerAppComponents(app) {
     app.config.globalProperties.$toHref = toHref;
     app.config.globalProperties.$fileHref = fileHref;
     app.config.globalProperties.$doiHref = doiHref;
+    app.config.globalProperties.$deepLink = deepLink;
 
     app.component('proyecto-row', {
       props: { item: { type: Object, required: true } },

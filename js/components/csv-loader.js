@@ -52,6 +52,18 @@
 //     Los valores no listados se quedan igual (útil para "Software", que ya
 //     llega con el nombre de categoría final vía src-category).
 (function () {
+  // Docsify enruta todo por el hash ("#/docs/resultados?q=algo"), así que el
+  // query string vive dentro de location.hash en vez de location.search.
+  // Se usa para precargar "searchQuery" cuando se llega desde un link de
+  // "deep link" (p.ej. una tarjeta de Destacados que apunta a un ítem
+  // puntual de otra página en vez de solo a la sección).
+  function getHashQueryParam(name) {
+    const hash = window.location.hash || '';
+    const qIndex = hash.indexOf('?');
+    if (qIndex === -1) return null;
+    return new URLSearchParams(hash.slice(qIndex + 1)).get(name);
+  }
+
   function normalizeKey(key) {
     return key
       .toLowerCase()
@@ -62,7 +74,12 @@
   }
 
   function fetchAndParseCsv(url) {
-    return fetch(url)
+    // A diferencia del Markdown de Docsify (que ya manda no-cache en dev vía
+    // requestHeaders en index.html), este fetch no pasaba por ese mecanismo,
+    // así que el navegador podía servir un CSV viejo en caché mientras se
+    // edita en local. Mismo truco de cache-busting que usan CSS/JS (env.js).
+    const fetchUrl = window.__DEV__ ? url + (url.includes('?') ? '&' : '?') + 'v=' + Date.now() : url;
+    return fetch(fetchUrl)
       .then((res) => res.text())
       .then(
         (rawText) =>
@@ -100,6 +117,7 @@
 
       const defaultSortKey = this.getAttribute('sort-key') || 'anio';
       const defaultSortAsc = this.getAttribute('sort-asc') === 'true';
+      const initialSearchQuery = getHashQueryParam('q') || '';
 
       const baseFilterAttr = this.getAttribute('base-filter');
       let baseFilter = null;
@@ -144,7 +162,7 @@
             items: [],
             categories: ['Todos'],
             activeCategory: initialCategory,
-            searchQuery: '',
+            searchQuery: initialSearchQuery,
             loading: true,
             sortKey: defaultSortKey,
             sortAsc: defaultSortAsc,
