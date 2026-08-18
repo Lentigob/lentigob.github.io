@@ -114,6 +114,10 @@
   --hover-border-width: 1px;
 
   /* Spacing scale */
+  /* Numero de lineas antes de truncar con "..." los titulos de tarjetas
+     y filas de tabla (ver .data-table__title y .card-content > h4). */
+  --title-clamp-lines: 2;
+
   --space-2xs: 4px;
   --space-xs: 8px;
   --space-sm: 12px;
