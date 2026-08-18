@@ -36,10 +36,10 @@ Congresos, talleres y seminarios donde participamos.
                 </div>
                 <div class="card-separator"></div>
                 <md-content class="card-content">
-                    #### {{ ev.url ? ('<a href="' + ev.url + '" target="_blank">' + ev.titulo + '</a>') : ev.titulo }}
+                    #### {{ ev.url ? ('<a href="' + ev.url + '" target="_blank">' + ev.titulo + '</a>') : ev.titulo }} <br>
+                    {{ ev.nombreevento ? '*Evento: ' + ev.nombreevento + '*' : '' }}
                 </md-content>
                 <ul class="icon-bullets">
-                    <li v-if="ev.nombredeevento"><icon-svg name="bx-user"></icon-svg><span>{{ ev.nombredeevento }}</span></li>
                     <li v-if="ev.autores"><icon-svg name="bx-user"></icon-svg><span>{{ ev.autores }}</span></li>
                     <li v-if="ev.institucionsede"><icon-svg name="bx-map-pin"></icon-svg><span>{{ ev.institucionsede }}</span></li>
                     <li v-if="ev.organizador"><icon-svg name="bx-briefcase"></icon-svg><span>{{ ev.organizador }}</span></li>
