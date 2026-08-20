@@ -1,0 +1,85 @@
+# Tutorial de mantenimiento del sitio
+
+Esta guía cubre las tareas que se pueden hacer en la pagina para agregar y modificar el contenido disponible. El sitio es estático (Docsify + GitHub Pages), no requiere instalar nada ni compilar código. Ademas, la mayoria de los cambios se hacen directamente sobre archivos de texto (CSV y Markdown), se usa html para definir las interfaces, y se publican con `git push`.
+
+---
+
+## 1. Agregar nuevos items (filas de datos)
+
+Los "items" que aparecen en páginas como Equipo, Proyectos, Eventos, Docencia, etc. vienen de archivos CSV en la carpeta `/data/`.
+
+- Identificar el CSV correspondiente a la sección (ej. `data/Equipo.csv` para la página de equipo, `data/Proyectos.csv` para proyectos, `data/Eventos.csv`, `data/Docencia.csv`, `data/Premios_Impacto.csv`, `data/Publicaciones_Datos.csv`, `data/Software.csv`, `data/destacados.csv`).
+- Abrir el archivo en Excel (o el editor web de GitHub). 
+-   Para este tutorial se usa la extension de VS Code 'CSV' del autor 'ReprEng' la cual hace posible la edicion del archivo CSV en forma de tabla.
+- Agregar una nueva fila al final, respetando el mismo orden de columnas que la fila de encabezado (la primera fila).
+- Dejar la columna `excluir` vacía para que el item se muestre en el sitio.
+- Guardar el archivo (ver sección 5 sobre el formato correcto al guardar desde Excel).
+- Subir el cambio al repositorio (ver sección 4).
+
+**Tip:** para "borrar" un item sin eliminarlo, se puede escribir cualquier valor en la columna `excluir` de esa fila — el sitio lo oculta automáticamente sin perder el dato.
+
+---
+
+## 2. Modificar columnas
+
+Las columnas de cada tabla son literalmente los encabezados (fila 1) del CSV. Si se agrega, quita o renombra una columna, hay que actualizar también la página que la muestra.
+
+- Abrir el CSV y editar la fila de encabezados según se necesite.
+- Ir a la página correspondiente en `/docs/` (ej. `docs/equipo.md`).
+- Buscar el bloque `<script type="text/template">` dentro del archivo `.md`.
+- Ahí aparecen referencias como `item.rol`, `item.institucion`, etc. — el nombre después de `item.` debe coincidir con el nombre de la columna en minúsculas, sin acentos y sin espacios.
+- Si se renombró una columna en el CSV, renombrar también su referencia `item.nombreColumna` en el `.md`.
+- Si se agregó una columna nueva, agregar una línea similar a las existentes en el `.md` para mostrarla.
+
+**Importante:** los nombres de columna no distinguen mayúsculas/minúsculas ni acentos (el sistema los normaliza automáticamente), pero conviene mantenerlos simples y consistentes.
+
+---
+
+## 3. Agregar nuevas secciones (páginas)
+
+Una "sección" nueva del sitio es una página nueva dentro de `/docs/`.
+
+- Crear un archivo `.md` nuevo dentro de `/docs/` (ej. `docs/nueva-seccion.md`).
+- Si la sección necesita subpáginas, crear una carpeta (ej. `docs/nueva-seccion/`) con archivos `.md` dentro, siguiendo el mismo patrón que `docs/proyectos/P-001.md`.
+- Agregar un enlace a la nueva página en `_sidebar.md` para que aparezca en el menú lateral.
+- Si debe aparecer también en el menú superior o como tarjeta en la portada, agregarla en `_navbar.md` y/o `README.md` / `index.html`.
+- Si la sección necesita datos tabulares, crear su propio CSV en `/data/` y usar el componente `<csv-loader src="data/NuevoArchivo.csv" ...>` dentro del `.md`, siguiendo el ejemplo de una página existente como `docs/equipo.md`.
+
+---
+
+## 4. Clonar, modificar y publicar (push)
+
+El sitio no tiene proceso de build: lo que está en el repositorio es exactamente lo que se ve publicado en GitHub Pages.
+
+- **Clonar el repositorio** (solo la primera vez, en cada computadora nueva):
+  - `git clone <URL-del-repositorio>`
+- **Antes de editar**, asegurarse de tener la última versión:
+  - `git pull`
+- **Editar** los archivos necesarios (CSV, `.md`, etc.) con Excel o un editor de texto.
+- **Previsualizar los cambios localmente antes de publicar** (recomendado):
+  - Abrir la carpeta del proyecto con un servidor local simple (por ejemplo, la extensión "Live Server" de VSCode, o `npx serve`), y revisar en el navegador que todo se vea bien.
+- **Publicar los cambios:**
+  - `git add .`
+  - `git commit -m "Descripción breve del cambio"`
+  - `git push`
+- Los cambios quedan visibles en el sitio público en 1-2 minutos (tiempo que tarda GitHub Pages en actualizar).
+
+**Importante:** si dos personas editan al mismo tiempo, hacer siempre `git pull` antes de empezar a editar para evitar conflictos.
+
+---
+
+## 5. Subir y bajar los "exceles" (archivos CSV)
+
+Los datos no están en archivos `.xlsx`, sino en formato CSV (texto separado por comas) dentro de `/data/`. Se pueden editar con Excel sin problema, pero hay que guardarlos correctamente.
+
+**Para bajar (descargar) un archivo y editarlo:**
+- Ir a la carpeta `/data/` en el repositorio (en GitHub o en la copia local).
+- Abrir el archivo `.csv` deseado con Excel.
+
+**Para editar y volver a subir:**
+- Editar el archivo normalmente en Excel.
+- Al guardar, usar siempre la opción **"CSV UTF-8 (delimitado por comas) (*.csv)"** en el menú "Guardar como". No usar "CSV (delimitado por comas)" a secas ni guardar como `.xlsx`, porque puede corromper acentos o mezclar el formato de saltos de línea.
+- Reemplazar el archivo en la carpeta `/data/` del repositorio con el archivo recién guardado (mismo nombre).
+- Publicar el cambio siguiendo los pasos de la sección 4 (`git add`, `commit`, `push`).
+
+**Alternativa sin usar git en la computadora:** los archivos también se pueden editar directamente desde la interfaz web de GitHub (botón de lápiz "Edit this file" o "Upload files" al entrar a la carpeta `/data/`), sin necesidad de clonar el repositorio ni usar comandos de git.

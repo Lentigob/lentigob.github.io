@@ -199,11 +199,26 @@
 }
 
 /* Zona de la foto: el <img> y el degradado solo cubren esta zona, no la
-   barra .hero-cta de abajo, para que la foto no quede tapada por ella. */
+   barra .hero-cta de abajo, para que la foto no quede tapada por ella.
+
+   aspect-ratio fijo (en vez de una altura que dependía del padding + texto)
+   es lo que hace posible el zoom a un punto fijo de la foto: con
+   object-fit: cover, la porción visible de la imagen depende de la
+   proporción ancho/alto del contenedor. Si esa proporción cambiaba con el
+   ancho de pantalla (como antes), el recorte visible también cambiaba, y
+   transform-origin (que es un % de la caja, no de la foto) terminaba
+   apuntando a un punto distinto de la imagen en cada ancho. Con una
+   proporción fija, el recorte visible es siempre el mismo y el zoom
+   siempre cae sobre el mismo rectángulo de la foto. */
 .hero-photo {
   position: relative;
   overflow: hidden;
-  padding: 4.5rem 1.5rem;
+  aspect-ratio: 2.4 / 1;
+  min-height: 260px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Foto de fondo: para cambiarla basta con reemplazar el "src" del <img
