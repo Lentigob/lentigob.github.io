@@ -1,8 +1,8 @@
 - [<img src="assets/logo-mark-dark.svg" alt="Lentigob">](/)
 - [Inicio](/)
-- [Proyectos](/docs/proyectos)
+<!-- -  [Proyectos](/docs/proyectos)  -->
 - [Resultados](/docs/resultados)
-- [Impacto](/docs/impacto)
+<!-- - [Impacto](/docs/impacto) -->
 - [Eventos](/docs/eventos)
 - [Docencia](/docs/docencia)
 - [Equipo](/docs/equipo)

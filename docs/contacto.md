@@ -12,12 +12,11 @@ Estamos abiertos a trabajar con instituciones, empresas e investigadores de todo
                     <icon-svg name="bx-envelope" class="large"></icon-svg>
                     <md-content>
                         ### Correo Electrónico
-                        General: [lenti@ciencias.unam.mx](mailto:lenti@ciencias.unam.mx)  
-                        Proyectos: [proyectos.lenti@unam.mx](mailto:proyectos.lenti@unam.mx)
+                        General: [victor.mireles@ciencias.unam.mx](victor.mireles@ciencias.unam.mx)  
                     </md-content>
                 </div>
             </div>
-            <div class="card">
+            <!-- <div class="card">
                 <div class="card__body centered-content">
                     <icon-svg name="bx-share-alt" class="large"></icon-svg>
                     <md-content>
@@ -27,7 +26,7 @@ Estamos abiertos a trabajar con instituciones, empresas e investigadores de todo
                         Twitter: [@LentiLab](#)
                     </md-content>
                 </div>
-            </div>
+            </div> -->
                         <div class="card">
                 <div class="card__body centered-content">
                     <icon-svg name="bx-map-pin" class="large"></icon-svg>
@@ -36,7 +35,7 @@ Estamos abiertos a trabajar con instituciones, empresas e investigadores de todo
                         [Centro de Investigaciones Interdisciplinarias en Ciencias y Humanidades, Cto. Interior de C.U.](https://maps.app.goo.gl/tURaLFw6wMZgphDj6)
                         Torre II de Humanidades 4 piso.  
                         Ciudad Universitaria, Cd.Mex.  
-                        **Horario:** Lunes a viernes de 9:30 a 14:30 hrs.
+                        
                     </md-content>
                 </div>
             </div>

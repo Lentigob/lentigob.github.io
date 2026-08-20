@@ -1,43 +1,4 @@
 excluir,Institución,Programa,Curso,HorasTotales,Año,FechaInicio,FechaFin,Nivel,Descripcion,Prioridad,URL,Archivo
-,UNAM - Facultad de Medicina,Licenciatura en Investigación Biomédica Básica,Matemáticas,96,2026,2026/08/14,,Licenciatura,,,,Test File.pdf
-,UNAM - Escuela Nacional de Ciencias Forenses (ENCIF),Licenciatura en Ciencia Forense,Análisis preliminar,3,2026,2026/04/06,2026/04/06,Diplomado,,,https://example.com,Test File.pdf
 ,INER - Educación continua,Educación continua,Introducción al Análisis de Datos con Python,40,2026,2026/07/03,2026/08/07,Educación continua,,,https://example.com,Test File.pdf
-,UNAM - Posgrado,Posgrado en Ciencias Bioquímicas,Análisis de Datos de Gobierno con Python,96,2026,2026/02/03,2026/06/12,Posgrado,,,https://example.com,Test File.pdf
-,UNAM - Facultad de Medicina,Licenciatura en Investigación Biomédica Básica,Matemáticas,96,2025,2025/08/11,2025/12/12,Licenciatura,,,https://example.com,Test File.pdf
-x,FLACSO MÉXICO (Facultad Latinoamericana de Ciencias Sociales Sede Académica México),Diplomado Internacional Políticas Públicas en Sociedades Digitales,"Conferencia: ""Ciencia de datos para la toma de decisiones: la búsqueda de personas desaparecidas""",3,2025,2025/11/20,2025/11/20,Diplomado,,,https://example.com,Test File.pdf
-x,UNAM - Escuela Nacional de Ciencias Forenses (ENCIF),Licenciatura en Ciencia Forense,"Métodos Avanzados de Identificación (Tema impartido: ""Sistema Ángelus: Gestión y análisis documental de la Guerra Sucia entre 1965 y 1982"")",3,2025,2025/10/01,2025/10/01,Licenciatura,,,https://example.com,Test File.pdf
-x,UNAM - Escuela Nacional de Ciencias Forenses (ENCIF),Licenciatura en Ciencia Forense,Análisis de datos forenses con Python,16,2025,2025/08/25,2025/08/28,Licenciatura,,,https://example.com,Test File.pdf
-x,FLACSO MÉXICO (Facultad Latinoamericana de Ciencias Sociales Sede Académica México),Diplomado Internacional en Ciencia de Datos para las Ciencias Sociales,"Conferencia: ""Ciencia de datos para la toma de decisiones: la búsqueda de personas desaparecidas""",3,2025,2025/07/30,2025/07/30,Diplomado,,,https://example.com,Test File.pdf
-x,UNAM - Facultad de Medicina,Licenciatura en Investigación Biomédica Básica,Introducción al análisis datos con Python,96,2025,2025/01/27,2025/06/06,Licenciatura,,,https://example.com,Test File.pdf
-,UNAM - Centro de Investigaciones Interdisciplinarias en Ciencias y Humanidades,Diplomado Desarrollo de Competencias Interdisciplinarias con Inteligencia Artificial,Diplomado Desarrollo de Competencias Interdisciplinarias con Inteligencia Artificial,150,2024,2024/11/12,2025/04/29,Diplomado,,,https://example.com,Test File.pdf
-x,UNAM - Facultad de Medicina,Licenciatura en Investigación Biomédica Básica,Matemáticas,96,2020,2020/09/21,2024/11/29,Licenciatura,,,https://example.com,Test File.pdf
-x,Alianza Médica para la Salud (AMSA) y Fundación IMSS A.C.,Ética Y Filosofía En Investigación Clínica,Ciencias de la complejidad: ¿Cómo? ¿Quiénes ¿Dónde?,3,2024,2024/08/26,2024/08/27,Diplomado,,,https://example.com,Test File.pdf
-,UNAM - Posgrado,"Programa De Maestría Y Doctorado En Ciencias Médicas, Odontológicas Y De La Salud",Fronteras en la Bioinformática,96,2024,2024/01/29,2024/05/24,Posgrado,,,https://example.com,Test File.pdf
-x,UNAM - Facultad de Medicina,Licenciatura en Investigación Biomédica Básica,Introducción al análisis datos con Python,96,2024,2024/01/29,2024/05/24,Licenciatura,,,https://example.com,Test File.pdf
-x,Centro de Investigación en Matemáticas - Monterrey,Maestría en Cómputo Estadístico,Análisis y limpieza de datos gubernamentales,15,2023,2023/11/06,2023/11/10,Posgrado,,,https://example.com,Test File.pdf
-x,Women in Data Science,Women in Data Science,No es lo mismo que lo mesmo: fuzzywuzzy y stemming,2,2020,2020/03/02,2020/03/02,Educación continua,,,https://example.com,Test File.pdf
-,UNAM - Centro de Ciencias Matemáticas UNAM y Centro de Ciencias de la Complejidad,Posgrado en Ciencias Biológicas,Taller de introducción a la biología de sistemas,96,2019,2019/01/28,2019/05/24,Posgrado,,,https://example.com,Test File.pdf
-,"Biosciences eastern and central Africa-International Livestock Research Institute (BecA-ILRI) Hub (en el campus de ILRI, Nairobi, Kenia)1",Bioinformatics Community of Practise,"Strategies for RNA Sequencing, transcriptome reference, and variant calling",,2018,2018/05/28,2018/06/22,Workshop,,,https://example.com,Test File.pdf
-,"Punjab Agricultural University, Ludhiana, India y John Innes Centre, Norwich, UK1",Punjab Agricultural University,Soft Skills Workshop in Scientific Communications,,2017,2017/03/21,2017/03/24,Workshop,,,https://example.com,Test File.pdf
-,Secretaría de Gestión Integral de Riesgos y Protección Civil,,Planeación de Eventos Masivos,30,2026,2026/1/1,2026/3/1,Curso,,,https://example.com,Test File.pdf
-,UNAM,,Planeación Didáctica de la Asignatura,16,2026,2026/2/1,2026/2/28,Curso,,,https://example.com,Test File.pdf
-,UNAM,,Formación y Actualización Docente en Ciencias de la Salud,30,2026,2026/2/1,2026/2/28,Curso,,,https://example.com,Test File.pdf
-x,UnADM,,Ética e integridad pública para un buen gobierno,8,2025,2025/9/17,2025/10/1,Curso,,,https://example.com,Test File.pdf
-x,CENTROGEO,,Escuela de verano en Ciencias de Información Geoespacial 2025,40,2025,2025/07/07,2025/07/11,Workshop,,,https://example.com,Test File.pdf
-x,UnADM,,Introducción a la Administración Pública Federal,8,2025,2025/04/06,2025/04/01,Curso,,,https://example.com,Test File.pdf
-x,IMSS-BIENESTAR,,MPOX: Emergencia Epidemiológica,8,2024,2024/11/25,2024/11/25,Curso,,,https://example.com,Test File.pdf
-x,CONAPRED,,Las medidas para la igualdad en el marco de la Ley Federal para Prevenir y Eliminar la Discriminación,8,2023,2023/08/14,2023/08/27,Curso,,,https://example.com,Test File.pdf
-x,University of Minnesota,,"International Philosophy of Biology Circle Summer School 2023, Biology and Society",,2023,2023/08/08,2023/08/12,Workshop,,,https://example.com,Test File.pdf
-x,Secretaria de Salud,,Interculturalidad en los Servicios de Salud en el marco de la APS y los Derechos Humanos,8,2023,2023/7/31,2023/7/31,Curso,,,https://example.com,Test File.pdf
-x,CENTROGEO,,Escuela de Verano en Ciencias de Información Geoespacial 2023,40,2023,2023/07/10,2023/07/14,Workshop,,,https://example.com,Test File.pdf
-x,Deep Teaching Solutions,,Aprendiendo a aprender,,2019,2019/6/1,2019/6/1,Curso,,,,Test File.pdf
-x,Centro de Ciencias Genómicas,,Latin American R/BioConductor Developers Workshop,,2018,2018/8/1,2018/8/1,Workshop,,,,Test File.pdf
-x,Centro de Ciencias Genómicas,,Latin American R/BioConductor Developers Workshop,,2018,2018/8/1,2018/8/1,Workshop,,,,Test File.pdf
-x,"Banff International Research Station for Mathematical Innovation and Discovery, of Casa Matemática Oaxaca",,Principles of Gene Circuit Design,,2017,2017/9/1,2017/9/1,Curso,,,,Test File.pdf
-x,"LANCIS, UNAM",,Analysis of NGS data for microbial diversity studies,,2015,2015/8/1,2015/8/1,Curso,,,,Test File.pdf
-x,"Freie Universität Berlin, Germany",,Analysis and Control of Time-evolving Networks in Epidemiology and Evolutionary Medicine,,2014,2014/7/1,2014/7/1,Workshop,,,,Test File.pdf
-x,"Freie Universität Berlin, Germany",,Analysis and Control of Time-evolving Networks in Epidemiology and Evolutionary Medicine,,2014,2014/7/1,2014/7/1,Workshop,,,,Test File.pdf
-x,CINVESTAV,,"1er Taller Nacional de Biología Sintética, Biology and Society",,2010,2010/7/1,2010/7/31,Workshop,,,,Test File.pdf
-x,CINVESTAV,,"1er Taller Nacional de Biología Sintética, Biology and Society",,2010,2010/7/1,2010/7/31,Workshop,,,,Test File.pdf
-,Institucion X,Punjab Agricultural University,Agregar datos,2,2026,2010/7/1,2010/7/31,Tutorial,,,https://example.com,Test File.pdf
-,,,,,,,,,,,,
+,UNAM - Posgrado,Posgrado en Ciencia en Igeniería en Computación,Desarrollo y Despliegue de Sistemas Multicomponente,48,2026,2026/02/03,2026/06/12,Maestría,,,https://humanistic-ai.org/teaching/DDSSM/,
+,UNAM - Facultad de Ciencias,Ciencias de la Computación,Text2KG: Técnicas y aplicaciones de NLP y Bases de Datos de Gráficas.,48,2026,2026/08/17,2026/12/11,Licenciatura,,,https://humanistic-ai.org/teaching/text2KG/,https://humanistic-ai.org/teaching/text2KG/diagram_sample_angelus.png
