@@ -1,4 +1,5 @@
 excluir,Institución,Programa,Curso,HorasTotales,Año,FechaInicio,FechaFin,Nivel,Descripcion,Prioridad,URL,Archivo
 ,INER - Educación continua,Educación continua,Introducción al Análisis de Datos con Python,40,2026,2026/07/03,2026/08/07,Educación continua,,,https://example.com,Test File.pdf
 ,UNAM - Posgrado,Posgrado en Ciencia en Igeniería en Computación,Desarrollo y Despliegue de Sistemas Multicomponente,48,2026,2026/02/03,2026/06/12,Maestría,,,https://humanistic-ai.org/teaching/DDSSM/,
-,UNAM - Facultad de Ciencias,Ciencias de la Computación,Text2KG: Técnicas y aplicaciones de NLP y Bases de Datos de Gráficas.,48,2026,2026/08/17,2026/12/11,Licenciatura,,,https://humanistic-ai.org/teaching/text2KG/,https://humanistic-ai.org/teaching/text2KG/diagram_sample_angelus.png
+,UNAM - Facultad de Ciencias,"Ciencias de la Computación, Modificacion",Text2KG: Técnicas y aplicaciones de NLP y Bases de Datos de Gráficas.,48,2026,2026/08/17,2026/12/11,Licenciatura,,,https://humanistic-ai.org/teaching/text2KG/,https://humanistic-ai.org/teaching/text2KG/diagram_sample_angelus.png
+,UNAM - Facultad de Ciencias,Ciencias de la Computación,UNAM - Facultad de Ciencias,48,2026,2026/08/17,2026/12/11,Licenciatura,,,https://humanistic-ai.org/teaching/text2KG/,https://humanistic-ai.org/teaching/text2KG/diagram_sample_angelus.png
