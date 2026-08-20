@@ -3,14 +3,19 @@
   <div class="hero-photo">
     <img src="assets/media/IMG_1313.JPG" alt="" class="hero-bg-image">
     <div class="hero-content">
-      <h1>LENTI</h1>
-      <p>Laboratorio de Estudios sobre Nuevas Tecnologas e Innovación. Investigación interdisciplinaria para el futuro digital.</p>
+      <h1>LEntiGob</h1>
+      <p>Métodos de IA para la homologación, integración y análisis de bases de datos de salud y seguridad</p>
     </div>
   </div>
   <div class="hero-cta">Explorar Proyectos</div>
 </a>
 
+
+Proyecto interinstitucional para el desarrollo de métodos de ligado de entidades con aplicaciones a bases de datos gubernamentales. 
+
+
 <!-- Novedades -->
+<!-- 
 ## Novedades y Destacados
 
 <div class="vue-mount">
@@ -39,7 +44,7 @@
     </script>
 </csv-loader>
 </div>
-
+-->
 &nbsp;
 
 <!-- Logos de instituciones Participantes -->
@@ -57,6 +62,7 @@
 <div class="row align-center logos">
     <img src="assets\other\logo_SECIHTI.svg" class="logo__SECIHTI">
 </div>
+Proyecto financiado dentro de la covocatoria Ciencia de Fronteras 2025 de la Secretaría de Ciencia Humanidades Tecnología e Innovación del Gobierno de México con la clave CBF-2025-G-1031.
 
 <!-- Grid de Navegación -->
 ## Descubre nuestro trabajo
