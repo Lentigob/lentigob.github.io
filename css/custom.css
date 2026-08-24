@@ -192,33 +192,48 @@
   overflow: hidden;
   text-align: center;
   color: var(--color-text-on-dark);
-  text-decoration: none;
   border-radius: var(--border-radius-m);
   margin: 1rem 0 3.5rem;
   box-shadow: var(--shadow-lg);
 }
 
-/* Zona de la foto: el <img> y el degradado solo cubren esta zona, no la
-   barra .hero-cta de abajo, para que la foto no quede tapada por ella.
-
-   aspect-ratio fijo (en vez de una altura que dependía del padding + texto)
+/* aspect-ratio fijo (en vez de una altura que dependía del padding + texto)
    es lo que hace posible el zoom a un punto fijo de la foto: con
    object-fit: cover, la porción visible de la imagen depende de la
    proporción ancho/alto del contenedor. Si esa proporción cambiaba con el
    ancho de pantalla (como antes), el recorte visible también cambiaba, y
    transform-origin (que es un % de la caja, no de la foto) terminaba
    apuntando a un punto distinto de la imagen en cada ancho. Con una
-   proporción fija, el recorte visible es siempre el mismo y el zoom
-   siempre cae sobre el mismo rectángulo de la foto. */
+   proporción fija, el recorte visible es siempre el mismo. En modo zoom
+   (.hero-photo--zoom) transform-origin lo va actualizando hero-widget.js
+   siguiendo al cursor (ver @mousemove en README.md). */
 .hero-photo {
   position: relative;
   overflow: hidden;
   aspect-ratio: 2.4 / 1;
   min-height: 260px;
-  padding: 1.5rem;
+  /* padding-top de sobra para que el texto centrado nunca quede detrás del
+     botón de lupa/cerrar (top-right, ver .hero-zoom-btn) en pantallas
+     angostas, donde el bloque de texto ocupa casi todo el alto disponible. */
+  padding: 3.5rem 1.5rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Por debajo de 1024px el texto (título + descripción + botón) ya no cabe
+   en el alto que da la proporción 2.4/1 - a 700-900px de ancho esa
+   proporción da apenas ~290-375px, menos de lo que ocupa el contenido a su
+   tamaño de fuente completo (ver el media query de tamaños de letra más
+   abajo, que usa el mismo corte). Se libera la relación fija y se deja que
+   el contenido defina el alto (con un mínimo), evitando que .hero-photo lo
+   recorte (overflow: hidden arriba). */
+@media (max-width: 1024px) {
+  .hero-photo {
+    aspect-ratio: auto;
+    min-height: 0;
+    padding: 3.5rem 1.25rem 2rem;
+  }
 }
 
 /* Foto de fondo: para cambiarla basta con reemplazar el "src" del <img
@@ -229,20 +244,22 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   z-index: 0;
   transform: scale(1);
-  transform-origin: 42% 90%;
-  transition: transform 4s ease;
+  transition: transform 3s ease;
 }
 
-.hero-section:hover .hero-bg-image {
-  transform: scale(2);
+.hero-photo--zoom .hero-bg-image {
+  transform: scale(1.8);
+  transition: transform 2s ease-out;
 }
 
 /* Degradado semitransparente encima de la foto para que el texto blanco
-   siga siendo legible sobre cualquier imagen, con tinte azul del tema. Al
-   pasar el mouse se desvanece casi del todo para dejar ver la foto; el
-   texto (.hero-content) se atenúa junto con él. */
+   siga siendo legible sobre cualquier imagen, con tinte azul del tema. En
+   modo zoom (botón de lupa, ver .hero-zoom-btn) se desvanece del todo para
+   dejar ver la foto sin filtro; el texto (.hero-content) se oculta junto
+   con él (v-show en README.md). */
 .hero-photo::before {
   content: '';
   position: absolute;
@@ -252,28 +269,18 @@
     radial-gradient(circle at 20% 20%, rgba(var(--theme-color-rgb), 0.22) 0%, transparent 38%),
     radial-gradient(circle at 80% 15%, rgba(255, 255, 255, 0.06) 0%, transparent 40%),
     linear-gradient(135deg, rgba(var(--color-surface-dark-rgb), 0.55) 0%, rgba(var(--theme-color-dark-rgb), 0.55) 55%, rgba(var(--theme-color-rgb), 0.5) 100%);
-  transition: opacity 1.4s ease;
+  transition: opacity 0.4s ease;
 }
 
-.hero-section:hover .hero-photo::before {
-  opacity: 0.12;
+.hero-photo--zoom::before {
+  opacity: 0;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  transition: opacity 1.4s ease;
-}
-
-.hero-section:hover .hero-content {
-  opacity: 0.08;
-}
-
-.hero-section,
-.hero-section *,
-.hero-section:hover,
-.hero-section:hover * {
-  text-decoration: none !important;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .hero-section h1 {
@@ -286,28 +293,86 @@
 
 .hero-section p {
   font-size: 1.25rem;
-  max-width: 650px;
+  max-width: min(650px, 100%);
   margin: 0 auto 2.5rem;
   color: var(--color-text-on-dark);
 }
 
-/* Barra "botón" debajo de la foto (.hero-photo), no encima: así no le quita
-   espacio a la imagen ni se desvanece con el texto al pasar el mouse (ver
-   .hero-section:hover .hero-content más arriba). Todo .hero-section es un
-   <a>, así que tanto la foto como el texto como esta barra llevan a
-   Proyectos; esta barra solo hace explícito que es clickeable. */
-.hero-cta {
-  padding: .2rem 1rem;
-  background: rgba(var(--color-surface-dark-rgb), 0.92);
+/* Texto más chico por debajo de 1024px (mismo corte que el media query de
+   .hero-photo arriba): a --font-size-hero/1.25rem fijos, una oración larga
+   como la de .hero-section p ya envolvía en varias líneas contra el
+   max-width angosto del contenedor a esos anchos, y junto al botón nuevo
+   debajo superaba el alto disponible. */
+@media (max-width: 1024px) {
+  .hero-section h1 {
+    font-size: 2rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .hero-section p {
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-section h1 {
+    font-size: 1.75rem !important;
+  }
+
+  .hero-section p {
+    font-size: 1rem;
+  }
+}
+
+/* Botón de lupa/cerrar: mismo lugar (esquina superior derecha de la foto)
+   en ambos estados, así el botón de cerrar aparece justo donde estaba el
+   de lupa al activar el zoom. */
+.hero-zoom-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 3;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background: rgba(var(--color-surface-dark-rgb), 0.75);
   color: var(--color-text-on-dark);
-  font-weight: var(--font-weight-bold);
-  letter-spacing: 0.02em;
-  text-decoration: none !important;
   transition: background-color 0.2s;
 }
 
-.hero-section:hover .hero-cta {
-  background: rgba(var(--color-surface-dark-rgb), 0.98);
+.hero-zoom-btn:hover {
+  background: rgba(var(--color-surface-dark-rgb), 0.95);
+}
+
+.hero-zoom-btn .icon-svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Botón dentro de .hero-content, justo debajo del texto (ya no una franja
+   a lo ancho del contenedor). Se oculta durante el modo zoom junto con el
+   resto de .hero-content (ver v-show en README.md). */
+.hero-cta {
+  display: inline-block;
+  padding: .6rem 1.5rem;
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--theme-color);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.02em;
+  text-decoration: none !important;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.hero-cta:hover {
+  background: #ffffff;
+  transform: scale(1.04);
 }
 
 .news-strip {

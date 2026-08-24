@@ -1,14 +1,24 @@
 <!-- Hero Section -->
-<a href="#/docs/proyectos" class="hero-section">
-  <div class="hero-photo">
-    <img src="assets/media/IMG_1313.JPG" alt="" class="hero-bg-image">
-    <div class="hero-content">
-      <h1>LEntiGob</h1>
-      <p>Métodos de IA para la homologación, integración y análisis de bases de datos de salud y seguridad</p>
+<hero-widget>
+  <script type="text/template">
+    <div class="hero-section">
+      <div class="hero-photo" :class="{ 'hero-photo--zoom': zoomActive }" @mousemove="zoomActive && trackCursor($event)">
+        <img src="assets/media/IMG_1313.JPG" alt="" class="hero-bg-image" :style="{ transformOrigin: originX + '% ' + originY + '%' }">
+        <div class="hero-content" v-show="!zoomActive">
+          <h1>LEntiGob</h1>
+          <p>Métodos de IA para la homologación, integración y análisis de bases de datos de salud y seguridad</p>
+          <a href="#/docs/proyectos" class="hero-cta">Explorar Proyectos</a>
+        </div>
+        <button v-if="!zoomActive" type="button" class="hero-zoom-btn" @click="activateZoom" aria-label="Explorar imagen">
+          <icon-svg name="bx-search"></icon-svg>
+        </button>
+        <button v-else type="button" class="hero-zoom-btn" @click="deactivateZoom" aria-label="Cerrar exploración">
+          <icon-svg name="bx-x"></icon-svg>
+        </button>
+      </div>
     </div>
-  </div>
-  <div class="hero-cta">Explorar Proyectos</div>
-</a>
+  </script>
+</hero-widget>
 
 
 Proyecto interinstitucional para el desarrollo de métodos de ligado de entidades con aplicaciones a bases de datos gubernamentales. 
