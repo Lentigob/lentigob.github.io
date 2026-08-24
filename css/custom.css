@@ -375,6 +375,25 @@
   transform: scale(1.04);
 }
 
+/* ---------- Contact Page Styles ---------- */
+/* Tarjetas de Contacto: mismo alto en todas (incluso entre filas distintas,
+   algo que .layout-grid por sí solo no da - CSS grid solo empareja el alto
+   de tarjetas dentro de una misma fila) y el ícono siempre en la misma
+   posición arriba, en vez de centrado como bloque junto al texto (que corre
+   el ícono según cuánto texto tenga cada tarjeta). Solo afecta a
+   contacto.md: el resto de .card del sitio (equipo, eventos, docencia...)
+   tiene contenido de largo variable que un alto fijo recortaría. */
+.contact-cards .card {
+  min-height: 220px;
+}
+
+.contact-cards .centered-content {
+  justify-content: flex-start;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+
 .news-strip {
   margin-bottom: var(--space-lg);
 }
